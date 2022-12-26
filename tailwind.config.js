@@ -24,6 +24,7 @@ module.exports = {
     fontFamily: {
       'poppinslight': ['poppinslight','Poppinslight'],
       'poppinsBold': ['poppinsBold', 'Poppinsbold'],
+      'poppinsRegular': ['poppinsRegular', 'Poppinsregular'],
     }
   },
   plugins: [
