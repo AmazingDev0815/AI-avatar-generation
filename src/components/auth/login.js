@@ -1,10 +1,11 @@
+import { Link } from "react-router-dom";
 import LeftSide from "../basic/authLeft";
 
 const Login = () => {
   return (
     <div className="h-screen md:flex font-poppinslight">
       <LeftSide />
-      <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
+      <div className="flex md:w-1/2 h-full justify-center py-10 items-center bg-white">
         <form className="bg-white w-1/2">
           <h1 className="text-gray-800 font-poppinsBold text-3xl mb-3">
             Log in
@@ -15,7 +16,7 @@ const Login = () => {
           <div className="mb-6">
             <label
               htmlFor="email"
-              className="block mb-1.5 text-sm font-medium font-poppinsRegular text-gray-900 dark:text-white"
+              className="block mb-1.5 text-sm font-poppinsMedium text-gray-900 dark:text-white"
             >
               Email address
             </label>
@@ -30,7 +31,7 @@ const Login = () => {
           <div className="mb-6">
             <label
               htmlFor="password"
-              className="block mb-1.5 text-sm font-medium font-poppinsRegular text-gray-900 dark:text-white"
+              className="block mb-1.5 text-sm font-poppinsMedium text-gray-900 dark:text-white"
             >
               Password
             </label>
@@ -64,9 +65,9 @@ const Login = () => {
           <div className="text-center">
           <span className="text-sm font-poppinsRegular justify-center">
             Don't have an account ?{" "}
-            <span className="hover:text-primary-700 cursor-pointer font-poppinsBold">
+            <Link to="/signup" className="hover:text-primary-700 cursor-pointer font-poppinsBold">
               Sign up
-            </span>
+            </Link>
           </span>
           </div>
         </form>

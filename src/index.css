@@ -10,6 +10,11 @@
   font-family: 'Poppinsbold';
   src: url('./assets/fonts/Poppins/Poppins-Bold.ttf');
 }
+@font-face {
+  font-family: 'Poppinsmedium';
+  src: url('./assets/fonts/Poppins/Poppins-Medium.ttf');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

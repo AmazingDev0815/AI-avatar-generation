@@ -25,6 +25,7 @@ module.exports = {
       'poppinslight': ['poppinslight','Poppinslight'],
       'poppinsBold': ['poppinsBold', 'Poppinsbold'],
       'poppinsRegular': ['poppinsRegular', 'Poppinsregular'],
+      'poppinsMedium': ['poppinsMedium', 'Poppinsmedium'],
     }
   },
   plugins: [

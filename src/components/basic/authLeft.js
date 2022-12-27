@@ -7,19 +7,25 @@ const LeftSide = () => {
       </h1>
       <p className="text-white mt-1 text-xl">Avatars made fun!</p>
     </div>
-    <div className="image-group flex-col">
+    <div className="image-group flex-col w-[200%]">
       <div className="flex">
         <div className="mr-6 ">
-          <img alt="gallery" className='w-full' src={require('../../assets/img/1.png')} />
+          <img alt="gallery" src={require('../../assets/img/1.png')} />
         </div>
         <div className="mr-6 ">
-          <img alt="gallery" className='w-full' src={require('../../assets/img/2.png')} />
+          <img alt="gallery" src={require('../../assets/img/2.png')} />
         </div>
         <div className="mr-6 ">
-          <img alt="gallery" className='w-full' src={require('../../assets/img/3.png')} />
+          <img alt="gallery" src={require('../../assets/img/3.png')} />
         </div>
-        <div className=''>
-          <img alt="gallery" className='w-full' src={require('../../assets/img/4.png')} />
+        <div className="mr-6 ">
+          <img alt="gallery" src={require('../../assets/img/11.png')} />
+        </div>
+        <div className="mr-6 ">
+          <img alt="gallery" src={require('../../assets/img/12.png')} />
+        </div>
+        <div className="mr-6 ">
+          <img alt="gallery" src={require('../../assets/img/4.png')} />
         </div>
       </div>
       <div className='flex mt-6'>
@@ -35,7 +41,13 @@ const LeftSide = () => {
         <div className="mr-6">
           <img alt="gallery" src={require('../../assets/img/8.png')} />
         </div>
-        <div>
+        <div className="mr-6">
+          <img alt="gallery" src={require('../../assets/img/2.png')} />
+        </div>
+        <div className="mr-6">
+          <img alt="gallery" src={require('../../assets/img/3.png')} />
+        </div>
+        <div className="mr-6 ">
           <img alt="gallery" src={require('../../assets/img/9.png')} />
         </div>
       </div>
@@ -49,7 +61,13 @@ const LeftSide = () => {
         <div className="mr-6">
           <img alt="gallery" src={require('../../assets/img/12.png')} />
         </div>
-        <div>
+        <div className="mr-6">
+          <img alt="gallery" src={require('../../assets/img/3.png')} />
+        </div>
+        <div className="mr-6">
+          <img alt="gallery" src={require('../../assets/img/7.png')} />
+        </div>
+        <div className="mr-6">
           <img alt="gallery" src={require('../../assets/img/13.png')} />
         </div>
       </div>
