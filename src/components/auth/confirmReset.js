@@ -1,17 +1,22 @@
-import { Link } from "react-router-dom";
 import LeftSide from "../basic/authLeft";
-import {ArrowLeftIcon, CheckCircleIcon, KeyIcon} from "@heroicons/react/24/outline"
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
 const ConfirmReset = () => {
+  const navigate = useNavigate();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/login");
+  };
   return (
     <div className="h-screen md:flex font-poppinslight">
       <LeftSide />
       <div className="flex md:w-1/2 h-full justify-center py-10 items-center bg-white">
-        <form className="bg-white w-1/2">
+        <form className="bg-white w-1/2" onSubmit={handleSubmit}>
           <div className="flex justify-center mb-6">
             <div className="bg-success-100 rounded-full p-2">
               <div className="bg-success-200 rounded-full p-2">
-                <CheckCircleIcon className="h-6 w-6 text-success-600"/>
+                <CheckCircleIcon className="h-6 w-6 text-success-600" />
               </div>
             </div>
           </div>
@@ -19,7 +24,8 @@ const ConfirmReset = () => {
             Password reset
           </h1>
           <p className="text-base font-normal text-center text-gray-600 mb-8">
-            Your password has been successfully reset. Click below to log in magically.
+            Your password has been successfully reset. Click below to log in
+            magically.
           </p>
           <button
             type="submit"

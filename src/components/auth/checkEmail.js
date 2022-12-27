@@ -1,17 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../basic/authLeft";
-import {ArrowLeftIcon, EnvelopeIcon, KeyIcon} from "@heroicons/react/24/outline"
+import {
+  ArrowLeftIcon,
+  EnvelopeIcon,
+  KeyIcon,
+} from "@heroicons/react/24/outline";
 
 const CheckEmail = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate("/reset-password");
+  };
+
   return (
     <div className="h-screen md:flex font-poppinslight">
       <LeftSide />
       <div className="flex md:w-1/2 h-full justify-center py-10 items-center bg-white">
-        <form className="bg-white w-1/2">
+        <form className="bg-white w-1/2" onSubmit={handleSubmit}>
           <div className="flex justify-center mb-6">
             <div className="bg-primary-50 rounded-full p-2">
               <div className="bg-primary-100 rounded-full p-2">
-                <EnvelopeIcon className="h-6 w-6 text-primary-600"/>
+                <EnvelopeIcon className="h-6 w-6 text-primary-600" />
               </div>
             </div>
           </div>
@@ -30,16 +41,22 @@ const CheckEmail = () => {
           <div className="text-center">
             <span className="text-sm font-poppinsRegular justify-center">
               Didn’t receive the email ?{" "}
-              <Link to="/forgot-password" className="hover:text-primary-700 cursor-pointer font-poppinsBold">
+              <Link
+                to="/forgot-password"
+                className="hover:text-primary-700 cursor-pointer font-poppinsBold"
+              >
                 Click to resend
               </Link>
             </span>
           </div>
           <div className="text-center mt-8">
-          <Link to="/login" className="text-sm font-poppinsBold justify-center flex">
-            <ArrowLeftIcon className="w-3 align-middle mr-2"/>
-            <span>Back to log in</span> 
-          </Link>
+            <Link
+              to="/login"
+              className="text-sm font-poppinsBold justify-center flex"
+            >
+              <ArrowLeftIcon className="w-3 align-middle mr-2" />
+              <span>Back to log in</span>
+            </Link>
           </div>
         </form>
       </div>
