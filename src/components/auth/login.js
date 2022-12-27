@@ -43,9 +43,9 @@ const Login = () => {
               required
             />
           </div>
-          <span className="text-sm ml-2 font-poppinsBold hover:text-primary-700 cursor-pointer">
+          <Link to="/forgot-password" className="text-sm ml-2 font-poppinsBold hover:text-primary-700 cursor-pointer">
             Forgot Password ?
-          </span>
+          </Link>
           <button
             type="submit"
             className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-semibold mb-2"
