@@ -1,12 +1,42 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../basic/authLeft";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState({});
+
+  const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    handleValidate();
+  }
+
+  useEffect(() => {
+    if(error.email==="" && error.password === "") {
+      navigate("/home");
+    }
+  }, [error])
+
+  const handleValidate = () => {
+    let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+    let passwordValid = password.length >= 8;
+    setError({
+      email: email.length ? emailValid ? "" : "Email is invalid" : "Email Field is required",
+      password: password.length ? passwordValid ? "" : "Password must be at least 8 characters" : "Password Field is required"
+    })
+  }
+
+  const handleGoogleLogin = () => {
+    console.log("google login")
+    navigate("/home");
+  }
   return (
     <div className="h-screen md:flex font-poppinslight">
       <LeftSide />
       <div className="flex md:w-1/2 h-full justify-center py-10 items-center bg-white">
-        <form className="bg-white w-1/2">
+        <form className="bg-white w-1/2" onSubmit={handleLogin}>
           <h1 className="text-gray-800 font-poppinsBold text-3xl mb-3">
             Log in
           </h1>
@@ -21,12 +51,17 @@ const Login = () => {
               Email address
             </label>
             <input
-              type="email"
+              type="text"
               id="email"
-              className="bg-gray-50 border border-gray-300 text-gray-500 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className={`border text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 ${error.email ? "text-red-500 border-red-500" : "border-gray-300 text-gray-500"}`}
               placeholder="Enter your email"
-              required
+              onChange={(e) => setEmail(e.target.value)}
             />
+            {error.email && (
+              <div className="font-poppinsMedium mt-2 text-red-500">
+                {error.email}
+              </div>
+            )}
           </div>
           <div className="mb-6">
             <label
@@ -38,10 +73,15 @@ const Login = () => {
             <input
               type="password"
               id="password"
-              className="bg-gray-50 border border-gray-300 text-gray-500 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className={`border text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 ${error.password ? "text-red-500 border-red-500" : "border-gray-300 text-gray-500"}`}
               placeholder="•••••••••"
-              required
+              onChange={(e) => setPassword(e.target.value)}
             />
+            {error.password && (
+              <div className="font-poppinsMedium mt-2 text-red-500">
+                {error.password}
+              </div>
+            )}
           </div>
           <Link to="/forgot-password" className="text-sm ml-2 font-poppinsBold hover:text-primary-700 cursor-pointer">
             Forgot Password ?
@@ -54,6 +94,7 @@ const Login = () => {
           </button>
           <button
             type="button"
+            onClick={handleGoogleLogin}
             className="block w-full mt-4 py-2 rounded-lg font-poppinsRegular font-semibold mb-8 border border-gray-300"
           >
             <span className="inline-block align-middle mr-3" >
