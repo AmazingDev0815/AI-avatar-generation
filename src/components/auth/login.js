@@ -1,61 +1,9 @@
+import LeftSide from "../basic/authLeft";
+
 const Login = () => {
   return (
     <div className="h-screen md:flex font-poppinslight">
-      <div className="relative overflow-hidden py-10 md:flex flex-col w-1/2 bg-gradient-to-tr from-primary-900 to-primary-700 i justify-center hidden">
-        <div className="ml-16 mb-8">
-          <h1 className="text-white font-bold text-6xl font-poppinsBold ">
-            Mava
-          </h1>
-          <p className="text-white mt-1 text-xl">Avatars made fun!</p>
-        </div>
-        <div className="image-group flex-col">
-          <div className="flex">
-            <div className="mr-6 ">
-              <img alt="gallery" className='w-full' src={require('../../assets/img/1.png')} />
-            </div>
-            <div className="mr-6 ">
-              <img alt="gallery" className='w-full' src={require('../../assets/img/2.png')} />
-            </div>
-            <div className="mr-6 ">
-              <img alt="gallery" className='w-full' src={require('../../assets/img/3.png')} />
-            </div>
-            <div className=''>
-              <img alt="gallery" className='w-full' src={require('../../assets/img/4.png')} />
-            </div>
-          </div>
-          <div className='flex mt-6'>
-            <div className="mr-6">
-              <img alt="gallery" src={require('../../assets/img/5.png')} />
-            </div>
-            <div className="mr-6">
-              <img alt="gallery" src={require('../../assets/img/6.png')} />
-            </div>
-            <div className="mr-6">
-              <img alt="gallery" src={require('../../assets/img/7.png')} />
-            </div>
-            <div className="mr-6">
-              <img alt="gallery" src={require('../../assets/img/8.png')} />
-            </div>
-            <div>
-              <img alt="gallery" src={require('../../assets/img/9.png')} />
-            </div>
-          </div>
-          <div className="flex mt-6">
-            <div className="mr-6">
-              <img alt="gallery" src={require('../../assets/img/10.png')} />
-            </div>
-            <div className="mr-6">
-              <img alt="gallery" src={require('../../assets/img/11.png')} />
-            </div>
-            <div className="mr-6">
-              <img alt="gallery" src={require('../../assets/img/12.png')} />
-            </div>
-            <div>
-              <img alt="gallery" src={require('../../assets/img/13.png')} />
-            </div>
-          </div>
-        </div>
-      </div>
+      <LeftSide />
       <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
         <form className="bg-white w-1/2">
           <h1 className="text-gray-800 font-poppinsBold text-3xl mb-3">
