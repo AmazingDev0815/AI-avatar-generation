@@ -52,7 +52,7 @@ const SignUp = () => {
           <div className="mb-6">
             <label
               htmlFor="email"
-              className="block mb-1.5 text-sm font-poppinsMedium text-gray-900 dark:text-white"
+              className="block mb-1.5 text-sm font-poppinsMedium text-gray-900"
             >
               Username*
             </label>
@@ -76,7 +76,7 @@ const SignUp = () => {
           <div className="mb-6">
             <label
               htmlFor="email"
-              className="block mb-1.5 text-sm font-poppinsMedium text-gray-900 dark:text-white"
+              className="block mb-1.5 text-sm font-poppinsMedium text-gray-900"
             >
               Email*
             </label>
@@ -100,7 +100,7 @@ const SignUp = () => {
           <div className="mb-6">
             <label
               htmlFor="password"
-              className="block mb-1.5 text-sm font-poppinsMedium text-gray-900 dark:text-white"
+              className="block mb-1.5 text-sm font-poppinsMedium text-gray-900"
             >
               Password*
             </label>
