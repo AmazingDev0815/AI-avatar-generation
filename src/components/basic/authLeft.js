@@ -8,9 +8,9 @@ const LeftSide = () => {
       <p className="text-white mt-1 text-xl">Avatars made fun!</p>
     </div>
     <div className="image-group flex-col w-[200%]">
-      <div className="flex">
+      <div className="flex -ml-7">
         <div className="mr-6 ">
-          <img alt="gallery" src={require('../../assets/img/1.png')} />
+          <img alt="gallery" src={require('../../assets/img/15.png')} />
         </div>
         <div className="mr-6 ">
           <img alt="gallery" src={require('../../assets/img/2.png')} />
@@ -19,7 +19,7 @@ const LeftSide = () => {
           <img alt="gallery" src={require('../../assets/img/3.png')} />
         </div>
         <div className="mr-6 ">
-          <img alt="gallery" src={require('../../assets/img/11.png')} />
+          <img alt="gallery" src={require('../../assets/img/14.png')} />
         </div>
         <div className="mr-6 ">
           <img alt="gallery" src={require('../../assets/img/12.png')} />
@@ -28,9 +28,9 @@ const LeftSide = () => {
           <img alt="gallery" src={require('../../assets/img/4.png')} />
         </div>
       </div>
-      <div className='flex mt-6'>
+      <div className='flex mt-6 -ml-[128px]'>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/5.png')} />
+          <img alt="gallery" src={require('../../assets/img/14.png')} />
         </div>
         <div className="mr-6">
           <img alt="gallery" src={require('../../assets/img/6.png')} />
@@ -51,9 +51,9 @@ const LeftSide = () => {
           <img alt="gallery" src={require('../../assets/img/9.png')} />
         </div>
       </div>
-      <div className="flex mt-6">
+      <div className="flex mt-6 -ml-7">
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/10.png')} />
+          <img alt="gallery" src={require('../../assets/img/17.png')} />
         </div>
         <div className="mr-6">
           <img alt="gallery" src={require('../../assets/img/11.png')} />
