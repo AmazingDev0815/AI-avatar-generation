@@ -1,10 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../basic/authLeft";
-import {
-  ArrowLeftIcon,
-  EnvelopeIcon,
-  KeyIcon,
-} from "@heroicons/react/24/outline";
+import { ArrowLeftIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
 
 const CheckEmail = () => {
   const navigate = useNavigate();

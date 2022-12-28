@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import CheckEmail from "./components/auth/checkEmail";
 import ConfirmReset from "./components/auth/confirmReset";
@@ -8,6 +9,9 @@ import SignUp from "./components/auth/signUp";
 import Home from "./components/pages/home";
 
 function App() {
+  useEffect(() => {
+    document.title = "MAVA: Awesome Avatar Genera"
+  }, [])
   return (
     <BrowserRouter>
       <Routes>

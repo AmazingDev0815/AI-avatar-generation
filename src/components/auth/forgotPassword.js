@@ -17,7 +17,7 @@ const ForgotPassword = () => {
     if (error.email === "") {
       navigate("/check-email");
     }
-  }, [error]);
+  }, [error, navigate]);
 
   const handleValidate = () => {
     let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);

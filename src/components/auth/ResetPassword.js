@@ -18,7 +18,7 @@ const ResetPassword = () => {
     if (error.confirm === "" && error.password === "") {
       navigate("/confirm-reset");
     }
-  }, [error]);
+  }, [error, navigate]);
 
   const handleValidate = () => {
     let passwordValid = password.length >= 8;

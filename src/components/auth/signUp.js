@@ -18,7 +18,7 @@ const SignUp = () => {
     if (error.email === "" && error.password === "" && error.username === "") {
       navigate("/home");
     }
-  }, [error]);
+  }, [error, navigate]);
 
   const handleValidate = () => {
     let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
