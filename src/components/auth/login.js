@@ -44,7 +44,7 @@ const Login = () => {
     <div className="h-screen md:flex font-poppinslight">
       <LeftSide />
       <div className="flex md:w-1/2 h-full justify-center py-10 items-center bg-white">
-        <form className="bg-white w-1/2" onSubmit={handleLogin}>
+        <form className="bg-white w-2/3 lg:w-1/2" onSubmit={handleLogin}>
           <h1 className="text-gray-800 font-poppinsBold text-3xl mb-3">
             Log in
           </h1>

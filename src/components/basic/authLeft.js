@@ -21,8 +21,14 @@ const LeftSide = () => {
         <div className="mr-6 ">
           <img alt="gallery" src={require('../../assets/img/14.png')} />
         </div>
+        <div className="mr-6">
+          <img alt="gallery" src={require('../../assets/img/8.png')} />
+        </div>
         <div className="mr-6 ">
           <img alt="gallery" src={require('../../assets/img/12.png')} />
+        </div>
+        <div className="mr-6">
+          <img alt="gallery" src={require('../../assets/img/17.png')} />
         </div>
         <div className="mr-6 ">
           <img alt="gallery" src={require('../../assets/img/4.png')} />
@@ -45,7 +51,13 @@ const LeftSide = () => {
           <img alt="gallery" src={require('../../assets/img/2.png')} />
         </div>
         <div className="mr-6">
+          <img alt="gallery" src={require('../../assets/img/12.png')} />
+        </div>
+        <div className="mr-6">
           <img alt="gallery" src={require('../../assets/img/3.png')} />
+        </div>
+        <div className="mr-6">
+          <img alt="gallery" src={require('../../assets/img/11.png')} />
         </div>
         <div className="mr-6 ">
           <img alt="gallery" src={require('../../assets/img/9.png')} />
@@ -66,6 +78,12 @@ const LeftSide = () => {
         </div>
         <div className="mr-6">
           <img alt="gallery" src={require('../../assets/img/7.png')} />
+        </div>
+        <div className="mr-6 ">
+          <img alt="gallery" src={require('../../assets/img/2.png')} />
+        </div>
+        <div className="mr-6">
+          <img alt="gallery" src={require('../../assets/img/14.png')} />
         </div>
         <div className="mr-6">
           <img alt="gallery" src={require('../../assets/img/13.png')} />

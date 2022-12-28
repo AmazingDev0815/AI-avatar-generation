@@ -12,7 +12,7 @@ const ConfirmReset = () => {
     <div className="h-screen md:flex font-poppinslight">
       <LeftSide />
       <div className="flex md:w-1/2 h-full justify-center py-10 items-center bg-white">
-        <form className="bg-white w-1/2" onSubmit={handleSubmit}>
+        <form className="bg-white w-2/3 lg:w-1/2" onSubmit={handleSubmit}>
           <div className="flex justify-center mb-6">
             <div className="bg-success-100 rounded-full p-2">
               <div className="bg-success-200 rounded-full p-2">
