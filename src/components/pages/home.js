@@ -1,10 +1,14 @@
+import MainLayout from "../../layout/mainLayout";
+
 const Home = () => {
   return (
-    <div className="container flex justify-center items-center p-10 font-poppinslight">
-      <h1 className="font-poppinsBold text-center text-6xl text-primary-600">
-        Home Page
-      </h1>
-    </div>
+    <MainLayout>
+      <div className="container px-10 h-full flex justify-center items-center">
+        <h1 className="text-8xl text-primary-600 text-center font-poppinsBold">
+          This is Home Page
+        </h1>
+      </div>
+    </MainLayout>
   )
 }
 

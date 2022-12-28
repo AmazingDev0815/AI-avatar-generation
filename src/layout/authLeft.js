@@ -10,83 +10,83 @@ const LeftSide = () => {
     <div className="image-group flex-col w-[200%]">
       <div className="flex -ml-7">
         <div className="mr-6 ">
-          <img alt="gallery" src={require('../../assets/img/15.png')} />
+          <img alt="gallery" src={require('../assets/img/15.png')} />
         </div>
         <div className="mr-6 ">
-          <img alt="gallery" src={require('../../assets/img/2.png')} />
+          <img alt="gallery" src={require('../assets/img/2.png')} />
         </div>
         <div className="mr-6 ">
-          <img alt="gallery" src={require('../../assets/img/3.png')} />
+          <img alt="gallery" src={require('../assets/img/3.png')} />
         </div>
         <div className="mr-6 ">
-          <img alt="gallery" src={require('../../assets/img/14.png')} />
+          <img alt="gallery" src={require('../assets/img/14.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/8.png')} />
+          <img alt="gallery" src={require('../assets/img/8.png')} />
         </div>
         <div className="mr-6 ">
-          <img alt="gallery" src={require('../../assets/img/12.png')} />
+          <img alt="gallery" src={require('../assets/img/12.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/17.png')} />
+          <img alt="gallery" src={require('../assets/img/17.png')} />
         </div>
         <div className="mr-6 ">
-          <img alt="gallery" src={require('../../assets/img/4.png')} />
+          <img alt="gallery" src={require('../assets/img/4.png')} />
         </div>
       </div>
       <div className='flex mt-6 -ml-[128px]'>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/14.png')} />
+          <img alt="gallery" src={require('../assets/img/14.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/6.png')} />
+          <img alt="gallery" src={require('../assets/img/6.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/7.png')} />
+          <img alt="gallery" src={require('../assets/img/7.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/8.png')} />
+          <img alt="gallery" src={require('../assets/img/8.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/2.png')} />
+          <img alt="gallery" src={require('../assets/img/2.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/12.png')} />
+          <img alt="gallery" src={require('../assets/img/12.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/3.png')} />
+          <img alt="gallery" src={require('../assets/img/3.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/11.png')} />
+          <img alt="gallery" src={require('../assets/img/11.png')} />
         </div>
         <div className="mr-6 ">
-          <img alt="gallery" src={require('../../assets/img/9.png')} />
+          <img alt="gallery" src={require('../assets/img/9.png')} />
         </div>
       </div>
       <div className="flex mt-6 -ml-7">
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/17.png')} />
+          <img alt="gallery" src={require('../assets/img/17.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/11.png')} />
+          <img alt="gallery" src={require('../assets/img/11.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/12.png')} />
+          <img alt="gallery" src={require('../assets/img/12.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/3.png')} />
+          <img alt="gallery" src={require('../assets/img/3.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/7.png')} />
+          <img alt="gallery" src={require('../assets/img/7.png')} />
         </div>
         <div className="mr-6 ">
-          <img alt="gallery" src={require('../../assets/img/2.png')} />
+          <img alt="gallery" src={require('../assets/img/2.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/14.png')} />
+          <img alt="gallery" src={require('../assets/img/14.png')} />
         </div>
         <div className="mr-6">
-          <img alt="gallery" src={require('../../assets/img/13.png')} />
+          <img alt="gallery" src={require('../assets/img/13.png')} />
         </div>
       </div>
     </div>

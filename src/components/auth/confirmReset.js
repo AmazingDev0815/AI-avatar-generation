@@ -1,4 +1,4 @@
-import LeftSide from "../basic/authLeft";
+import LeftSide from "../../layout/authLeft";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
 

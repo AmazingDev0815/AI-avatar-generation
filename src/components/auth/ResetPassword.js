@@ -1,7 +1,7 @@
 import { ArrowLeftIcon, KeyIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import LeftSide from "../basic/authLeft";
+import LeftSide from "../../layout/authLeft";
 
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
