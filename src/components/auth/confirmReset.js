@@ -29,7 +29,7 @@ const ConfirmReset = () => {
           </p>
           <button
             type="submit"
-            className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-semibold mb-2"
+            className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsBold mb-2"
           >
             Back to login
           </button>

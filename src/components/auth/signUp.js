@@ -124,7 +124,7 @@ const SignUp = () => {
           </div>
           <button
             type="submit"
-            className="block w-full mt-4 py-2 rounded-lg font-poppinsRegular font-semibold mb-8 border border-gray-300"
+            className="block w-full mt-4 py-2 rounded-lg font-poppinsRegular font-poppinsBold mb-8 border border-gray-300"
           >
             <span className="inline-block align-middle mr-3">
               <svg

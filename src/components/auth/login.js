@@ -107,14 +107,14 @@ const Login = () => {
           </Link>
           <button
             type="submit"
-            className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-semibold mb-2"
+            className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsBold mb-2"
           >
             Sign in
           </button>
           <button
             type="button"
             onClick={handleGoogleLogin}
-            className="block w-full mt-4 py-2 rounded-lg font-poppinsRegular font-semibold mb-8 border border-gray-300"
+            className="block w-full mt-4 py-2 rounded-lg font-poppinsRegular font-poppinsBold mb-8 border border-gray-300"
           >
             <span className="inline-block align-middle mr-3">
               <svg
