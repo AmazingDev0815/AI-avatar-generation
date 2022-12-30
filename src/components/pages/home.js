@@ -34,11 +34,28 @@ const Home = () => {
             Create Avatar
           </button>
         </div>
-        <div className="lg:w-1/2 w-full md:p-20 p-10 md:flex relative h-auto lg:h-4/5" id="avatar-group">
-          avatar
-          {/* <div className="absolute w-[132px] h-[176px] top-0 left-12 overflow-hidden">
-            <img alt="avatar" src={require('../../assets/img/3.png')} className=" rounded-full w-[176px] h-[176px]" />
-          </div> */}
+        <div className="lg:w-1/2 w-full md:p-20 p-10 scale-[0.947] md:flex relative h-[500px] lg:h-4/5" id="avatar-group">
+          <div className="absolute w-[127px] h-[176px] top-[0px] left-[170px] overflow-hidden rounded-full bg-center bg-[url('assets/img/15.png')]">
+          </div>
+          <div className="absolute w-[127px] h-[176px] top-[26px] left-[304px] overflow-hidden rounded-full bg-center bg-[url('assets/img/8.png')]">
+          </div>
+          <div className="absolute w-[127px] h-[176px] top-[114px] left-[438px] overflow-hidden rounded-full bg-center bg-[url('assets/img/2.png')]">
+          </div>
+          <div className="absolute w-[127px] h-[176px] top-[292px] left-[438px] overflow-hidden rounded-full bg-center bg-[url('assets/img/3.png')]">
+          </div>
+          <div className="absolute w-[127px] h-[176px] top-[382px] left-[304px] overflow-hidden rounded-full bg-center bg-[url('assets/img/12.png')]">
+          </div>
+          <div className="absolute w-[127px] h-[176px] top-[358px] left-[170px] overflow-hidden rounded-full bg-center bg-[url('assets/img/11.png')]">
+          </div>
+          <div className="absolute w-[127px] h-[176px] top-[266px] left-[42px] overflow-hidden rounded-full bg-center bg-[url('assets/img/17.png')]">
+          </div>
+          <div className="absolute w-[127px] h-[176px] top-[88px] left-[42px] overflow-hidden rounded-full bg-center bg-[url('assets/img/6.png')]">
+          </div>
+          <div className="absolute w-[127px] h-[176px] top-[178px] left-[166px] overflow-hidden rounded-full bg-center bg-[url('assets/img/7.png')]">
+          </div>
+          <div className="absolute w-[127px] h-[176px] top-[204px] left-[304px] overflow-hidden rounded-full bg-center bg-[url('assets/img/14.png')]">
+          </div>
+          
         </div>
       </div>
     </MainLayout>
