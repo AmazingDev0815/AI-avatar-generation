@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layout/mainLayout";
 
 const Home = () => {
+  const navigate = useNavigate()
+  const payment = () => {
+    navigate('/payment');
+  }
   return (
     <MainLayout>
       <div className="px-10 flex-1 flex lg:flex-row flex-col-reverse justify-center items-center">
@@ -29,12 +34,13 @@ const Home = () => {
             </div>
           </div>
           <button
+          onClick={payment}
             className="block mt-3 text-sm bg-primary-600 w-40 hover:bg-primary-700 py-3 px-6 rounded-lg text-white font-poppinsBold"
           >
             Create Avatar
           </button>
         </div>
-        <div className="lg:w-1/2 w-full md:p-20 p-10 scale-[0.947] md:flex relative h-[500px] lg:h-4/5" id="avatar-group">
+        <div className="lg:w-1/2 w-full scale-[0.947] md:flex relative h-[500px] lg:h-4/5" id="avatar-group">
           <div className="absolute w-[127px] h-[176px] top-[0px] left-[170px] overflow-hidden rounded-full bg-center bg-[url('assets/img/15.png')]">
           </div>
           <div className="absolute w-[127px] h-[176px] top-[26px] left-[304px] overflow-hidden rounded-full bg-center bg-[url('assets/img/8.png')]">
@@ -55,7 +61,6 @@ const Home = () => {
           </div>
           <div className="absolute w-[127px] h-[176px] top-[204px] left-[304px] overflow-hidden rounded-full bg-center bg-[url('assets/img/14.png')]">
           </div>
-          
         </div>
       </div>
     </MainLayout>
