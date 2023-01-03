@@ -1,10 +1,13 @@
 import { ArrowLeftIcon } from "@heroicons/react/24/outline"
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import Select from "react-select"
+import countryList from "react-select-country-list"
 
 const Payment = () => {
   const [email, setEmail] = useState("")
   const [error, setError] = useState({})
+  const [country, setCountry] = useState(countryList().getData())
   return (
     <div className="h-screen flex p-10 md:p-[100px] flex-col md:flex-row justify-center items-center font-poppinsRegular">
       <div className="bg-red-100 h-full w-full md:w-1/2 pl-5 pr-[110px]" id="productList">
@@ -63,7 +66,7 @@ const Payment = () => {
           </div>
         </div>
       </div>
-      <div className="bg-blue-100 h-full w-full md:w-1/2 pl-[110px] pr-20 items-center" id="payForm">
+      <div className="bg-blue-100 h-full w-full md:w-1/2 pl-[110px] pr-20 items-center justify-center" id="payForm">
         <h1 className="text-gray-900 text-xl font-poppinsBold">Pay with card</h1>
         <div className="mt-8">
           <label
@@ -104,7 +107,7 @@ const Payment = () => {
                 ? "text-red-500 border-red-500"
                 : "border-gray-300 text-gray-500"
             }`}
-            placeholder="Enter your email"
+            placeholder="1234 1234 1234 1234"
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
@@ -155,16 +158,32 @@ const Payment = () => {
           >
             Country or region
           </label>
-          
+          <Select
+            isSearchable={true}
+            options={country}
+            // value={this.state.value}
+            // onChange={this.changeHandler}
+            styles={{
+              control: (baseStyles, state) => ({
+                ...baseStyles,
+                borderTopLeftRadius: '8px',
+                borderTopRightRadius: '8px',
+                borderBottomLeftRadius: '0px',
+                borderBottomRightRadius: '0px',
+                paddingBottom: '3px',
+                paddingTop: '3px',
+              })
+            }}
+          />
           <input
             type="text"
             id="email"
-            className={`border text-base rounded-b-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 shadow-md ${
+            className={`border text-base rounded-b-lg leading-[22px] focus:ring-blue-500 focus:border-blue-500 block w-full py-[9px] px-3 shadow-md ${
               error.email
                 ? "text-red-500 border-red-500"
                 : "border-gray-300 text-gray-500"
             }`}
-            placeholder="Enter your email"
+            placeholder="Zip"
             onChange={(e) => setEmail(e.target.value)}
           />
           {error.email && (
