@@ -9,8 +9,8 @@ const Payment = () => {
   const [error, setError] = useState({})
   const [country, setCountry] = useState(countryList().getData())
   return (
-    <div className="h-screen flex p-10 md:p-[100px] flex-col md:flex-row justify-center items-center font-poppinsRegular">
-      <div className="h-full w-full md:w-1/2 pl-5 pr-[110px]" id="productList">
+    <div className="h-full flex p-10 md:p-[100px] flex-col md:flex-row justify-center items-center font-poppinsRegular">
+      <div className="h-full w-full md:w-1/2 pl-5 md:pr-20 lg:pr-[110px]" id="productList">
         <Link
           to="/home"
           className="text-sm font-poppinsBold flex items-center"
@@ -66,7 +66,7 @@ const Payment = () => {
           </div>
         </div>
       </div>
-      <div className="h-full w-full md:w-1/2 pl-[110px] pr-20 items-center justify-center" id="payForm">
+      <div className="h-full w-full md:w-1/2 md:pl-20 lg:pl-[110px] pr-20 items-center justify-center" id="payForm">
         <h1 className="text-gray-900 text-xl font-poppinsBold">Pay with card</h1>
         <div className="mt-8">
           <label
@@ -83,7 +83,6 @@ const Payment = () => {
                 ? "text-red-500 border-red-500"
                 : "border-gray-300 text-gray-500"
             }`}
-            placeholder="Enter your email"
             onChange={(e) => setEmail(e.target.value)}
           />
           {error.email && (
@@ -97,7 +96,7 @@ const Payment = () => {
             htmlFor="email"
             className="block mb-1.5 text-sm font-poppinsMedium text-gray-900"
           >
-            Country or region
+            Card Information
           </label>
           <input
             type="text"
@@ -110,22 +109,30 @@ const Payment = () => {
             placeholder="1234 1234 1234 1234"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <input
-            type="text"
-            id="email"
-            className={`border text-base rounded-b-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 shadow-md ${
-              error.email
-                ? "text-red-500 border-red-500"
-                : "border-gray-300 text-gray-500"
-            }`}
-            placeholder="Enter your email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          {error.email && (
-            <div className="font-poppinsMedium mt-2 text-red-500">
-              {error.email}
-            </div>
-          )}
+          <div className="flex">
+            <input
+              type="text"
+              id="email"
+              className={`border text-base rounded-bl-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 py-2.5 px-3.5 shadow-md ${
+                error.email
+                  ? "text-red-500 border-red-500"
+                  : "border-gray-300 text-gray-500"
+              }`}
+              placeholder="MM / YY"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="text"
+              id="email"
+              className={`border text-base rounded-br-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 py-2.5 px-3.5 shadow-md ${
+                error.email
+                  ? "text-red-500 border-red-500"
+                  : "border-gray-300 text-gray-500"
+              }`}
+              placeholder="CVC"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
         </div>
         <div className="mt-8">
           <label
@@ -142,7 +149,6 @@ const Payment = () => {
                 ? "text-red-500 border-red-500"
                 : "border-gray-300 text-gray-500"
             }`}
-            placeholder="Enter your email"
             onChange={(e) => setEmail(e.target.value)}
           />
           {error.email && (
