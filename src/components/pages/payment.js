@@ -10,7 +10,7 @@ const Payment = () => {
   const [country, setCountry] = useState(countryList().getData())
   return (
     <div className="h-screen flex p-10 md:p-[100px] flex-col md:flex-row justify-center items-center font-poppinsRegular">
-      <div className="bg-red-100 h-full w-full md:w-1/2 pl-5 pr-[110px]" id="productList">
+      <div className="h-full w-full md:w-1/2 pl-5 pr-[110px]" id="productList">
         <Link
           to="/home"
           className="text-sm font-poppinsBold flex items-center"
@@ -66,7 +66,7 @@ const Payment = () => {
           </div>
         </div>
       </div>
-      <div className="bg-blue-100 h-full w-full md:w-1/2 pl-[110px] pr-20 items-center justify-center" id="payForm">
+      <div className="h-full w-full md:w-1/2 pl-[110px] pr-20 items-center justify-center" id="payForm">
         <h1 className="text-gray-900 text-xl font-poppinsBold">Pay with card</h1>
         <div className="mt-8">
           <label
