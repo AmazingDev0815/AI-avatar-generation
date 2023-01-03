@@ -1,7 +1,10 @@
 import { ArrowLeftIcon } from "@heroicons/react/24/outline"
+import { useState } from "react"
 import { Link } from "react-router-dom"
 
 const Payment = () => {
+  const [email, setEmail] = useState("")
+  const [error, setError] = useState({})
   return (
     <div className="h-screen flex p-10 md:p-[100px] flex-col md:flex-row justify-center items-center font-poppinsRegular">
       <div className="bg-red-100 h-full w-full md:w-1/2 pl-5 pr-[110px]" id="productList">
@@ -60,8 +63,122 @@ const Payment = () => {
           </div>
         </div>
       </div>
-      <div className="bg-blue-100 h-full w-full md:w-1/2 pl-[110px] items-center" id="payForm">
+      <div className="bg-blue-100 h-full w-full md:w-1/2 pl-[110px] pr-20 items-center" id="payForm">
         <h1 className="text-gray-900 text-xl font-poppinsBold">Pay with card</h1>
+        <div className="mt-8">
+          <label
+            htmlFor="email"
+            className="block mb-1.5 text-sm font-poppinsMedium text-gray-900"
+          >
+            Email
+          </label>
+          <input
+            type="text"
+            id="email"
+            className={`border text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 shadow-md ${
+              error.email
+                ? "text-red-500 border-red-500"
+                : "border-gray-300 text-gray-500"
+            }`}
+            placeholder="Enter your email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          {error.email && (
+            <div className="font-poppinsMedium mt-2 text-red-500">
+              {error.email}
+            </div>
+          )}
+        </div>
+        <div className="mt-8">
+          <label
+            htmlFor="email"
+            className="block mb-1.5 text-sm font-poppinsMedium text-gray-900"
+          >
+            Country or region
+          </label>
+          <input
+            type="text"
+            id="email"
+            className={`border text-base rounded-t-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 ${
+              error.email
+                ? "text-red-500 border-red-500"
+                : "border-gray-300 text-gray-500"
+            }`}
+            placeholder="Enter your email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="text"
+            id="email"
+            className={`border text-base rounded-b-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 shadow-md ${
+              error.email
+                ? "text-red-500 border-red-500"
+                : "border-gray-300 text-gray-500"
+            }`}
+            placeholder="Enter your email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          {error.email && (
+            <div className="font-poppinsMedium mt-2 text-red-500">
+              {error.email}
+            </div>
+          )}
+        </div>
+        <div className="mt-8">
+          <label
+            htmlFor="email"
+            className="block mb-1.5 text-sm font-poppinsMedium text-gray-900"
+          >
+            Name on card
+          </label>
+          <input
+            type="text"
+            id="email"
+            className={`border text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 shadow-md ${
+              error.email
+                ? "text-red-500 border-red-500"
+                : "border-gray-300 text-gray-500"
+            }`}
+            placeholder="Enter your email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          {error.email && (
+            <div className="font-poppinsMedium mt-2 text-red-500">
+              {error.email}
+            </div>
+          )}
+        </div>
+        <div className="mt-8">
+          <label
+            htmlFor="email"
+            className="block mb-1.5 text-sm font-poppinsMedium text-gray-900"
+          >
+            Country or region
+          </label>
+          
+          <input
+            type="text"
+            id="email"
+            className={`border text-base rounded-b-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 shadow-md ${
+              error.email
+                ? "text-red-500 border-red-500"
+                : "border-gray-300 text-gray-500"
+            }`}
+            placeholder="Enter your email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          {error.email && (
+            <div className="font-poppinsMedium mt-2 text-red-500">
+              {error.email}
+            </div>
+          )}
+        </div>
+        <button
+          type="submit"
+          className="block w-full bg-primary-600 hover:bg-primary-700 mt-8 py-2 rounded text-white font-poppinsRegular mb-2"
+        >
+          Pay $10.00
+        </button>
       </div>
     </div>
   )
