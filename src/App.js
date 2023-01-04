@@ -7,6 +7,7 @@ import Login from "./components/auth/login";
 import ResetPassword from "./components/auth/ResetPassword";
 import SignUp from "./components/auth/signUp";
 import Home from "./components/pages/home";
+import Payment from "./components/pages/payment";
 
 function App() {
   useEffect(() => {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/confirm-reset" element={<ConfirmReset />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/payment" element = {<Payment />} />
       </Routes>
     </BrowserRouter>
   );

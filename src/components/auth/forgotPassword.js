@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import LeftSide from "../basic/authLeft";
+import LeftSide from "../../layout/authLeft";
 import { ArrowLeftIcon, KeyIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 
@@ -73,7 +73,7 @@ const ForgotPassword = () => {
           </div>
           <button
             type="submit"
-            className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-semibold mb-2"
+            className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsBold mb-2"
           >
             Reset Password
           </button>
