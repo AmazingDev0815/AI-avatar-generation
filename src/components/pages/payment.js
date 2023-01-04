@@ -9,8 +9,9 @@ const Payment = () => {
   const [error, setError] = useState({})
   const country = countryList().getData();
   return (
-    <div className="h-full flex px-10 py-[100px] md:px-10 md:py-[100px] lg:p-[100px] flex-col md:flex-row justify-center items-center font-poppinsRegular">
-      <div className="h-full w-full md:w-1/2 md:pl-5 md:pr-10 lg:pr-[110px]" id="productList">
+    <div className="h-full md:h-screen flex px-10 py-[100px] md:px-10 md:py-[100px] lg:p-[100px] flex-col md:flex-row justify-center items-center font-poppinsRegular">
+      <div className="h-full w-full flex flex-col justify-between md:w-1/2 md:pl-5 md:pr-10 lg:pr-[110px]" id="productList">
+        <div>
         <Link
           to="/home"
           className="text-sm font-poppinsBold flex items-center"
@@ -44,7 +45,8 @@ const Payment = () => {
             </div>
           </div>
         </div>
-        <div className="mt-[292px] md:ml-11 hidden md:flex font-poppinsMedium text-xs text-gray-500">
+        </div>
+        <div className="mb-20 md:ml-11 hidden md:flex font-poppinsMedium text-xs text-gray-500">
           <div className="flex items-center"> 
             <span className="mr-1.5">Powered by</span>
             <a href="#" className="mr-5">
@@ -66,7 +68,7 @@ const Payment = () => {
           </div>
         </div>
       </div>
-      <div className="h-full w-full md:w-1/2 md:pl-10 lg:pl-[110px] pt-20 md:pt-0 flex flex-col items-center md:items-start justify-center" id="payForm">
+      <div className="h-full w-full md:w-1/2 md:pl-10 lg:pl-[110px] pt-20 md:pt-0 flex flex-col items-center md:items-start" id="payForm">
         <h1 className="text-gray-900 text-xl font-poppinsBold">Pay with card</h1>
         <div className="mt-8 w-5/6 md:w-full">
           <label
