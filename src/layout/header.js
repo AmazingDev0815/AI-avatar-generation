@@ -1,9 +1,15 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { BellIcon, Cog8ToothIcon } from "@heroicons/react/24/outline";
-import { Menu } from "@headlessui/react";
+import { useNavigate } from "react-router-dom";
+// import { Menu } from "@headlessui/react";
 
 const Header = () => {
-  const [navbarOpen, setNavbarOpen] = useState(false)
+  // const [navbarOpen, setNavbarOpen] = useState(false)
+  const navigator = useNavigate()
+  const login = true;
+  const LoginHandle = () => {
+    navigator('/login')
+  }
   return (
     <>
       <nav className="border-gray-200 px-5 sm:px-10 md:px-20 rounded w-full">
@@ -11,19 +17,16 @@ const Header = () => {
           <div className="relative flex justify-between md:w-auto md:static md:block">
             <div className="flex justify-center items-center">
               <a
-                className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap "
+                className="text-sm font-bold leading-relaxed inline-block mr-7 py-2 whitespace-nowrap "
                 href="#"
               >
                 <h1 className="text-3xl font-poppinsBold text-primary-600">Mava</h1>
               </a>
-              <div className="md:flex hidden">
+              {login&& <div className="md:flex hidden">
                 <a href="#" className="pr-2">
-                  Avatars
+                  My Avatars
                 </a>
-                <a href="#" className="">
-                  Packs
-                </a>
-              </div>
+              </div>}
             </div>
      
             {/* <button
@@ -55,11 +58,13 @@ const Header = () => {
             id="mobile menu"
           >
              <ul className="flex justify-center items-center p-4 border-gray-100 rounded-lg w-full flex-row space-x-8 mt-0 text-sm font-medium border-0 bg-white">
+            {login ? (
+              <>
               <li>
                 <button
                   className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsBold"
                 >
-                  Create New Avatar
+                  Create
                 </button>
               </li>
               <li className="md:flex hidden">
@@ -76,7 +81,9 @@ const Header = () => {
                 <button className="block h-10 w-10">
                   <img alt="avatar" src={require('../assets/img/3.png')} className="rounded-full" />
                 </button>
-              </li>
+              </li></>) : (<li>
+                <button className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsBold" onClick={LoginHandle}>Log In</button>
+              </li>)}
             </ul>
           </div>
         </div>

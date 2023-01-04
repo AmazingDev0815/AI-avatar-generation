@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <MainLayout>
       <div className="px-10 flex-1 flex lg:flex-row flex-col-reverse justify-center items-center">
-        <div className="flex flex-col w-full lg:w-1/2 md:p-20 p-10" id="supporting_head">
+        <div className="flex flex-col w-full lg:w-1/2 md:px-20 px-10" id="supporting_head">
           <h1 className="text-gray-900 font-poppinsBold text-3xl sm:text-5xl leading-normal mb-6">
             Firstly, you need to{" "}
             <span className="text-primary-600">Avatar up!</span>
@@ -35,7 +35,7 @@ const Home = () => {
           </div>
           <button
           onClick={payment}
-            className="block mt-3 text-sm bg-primary-600 w-40 hover:bg-primary-700 py-3 px-6 rounded-lg text-white font-poppinsBold"
+            className="block mb-10 lg:mb-0 mt-3 text-sm bg-primary-600 w-40 hover:bg-primary-700 py-3 px-6 rounded-lg text-white font-poppinsBold"
           >
             Create Avatar
           </button>
