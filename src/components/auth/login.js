@@ -15,7 +15,7 @@ const Login = () => {
 
   useEffect(() => {
     if (error.email === "" && error.password === "") {
-      navigate("/home");
+      navigate("/");
     }
   }, [error, navigate]);
 
@@ -38,7 +38,7 @@ const Login = () => {
 
   const handleGoogleLogin = () => {
     console.log("google login");
-    navigate("/home");
+    navigate("/");
   };
   return (
     <div className="h-screen md:flex font-poppinslight">

@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   // const [navbarOpen, setNavbarOpen] = useState(false)
-  const navigator = useNavigate()
+  const navigate = useNavigate()
   const login = true;
   const LoginHandle = () => {
-    navigator('/login')
+    navigate('/login')
   }
   return (
     <>

@@ -13,7 +13,7 @@ const Payment = () => {
       <div className="h-full w-full flex flex-col justify-between md:w-1/2 md:pl-5 md:pr-10 lg:pr-[110px]" id="productList">
         <div>
         <Link
-          to="/home"
+          to="/"
           className="text-sm font-poppinsBold flex items-center"
         >
           <ArrowLeftIcon className="w-4 align-middle mr-2" />

@@ -16,7 +16,7 @@ const SignUp = () => {
 
   useEffect(() => {
     if (error.email === "" && error.password === "" && error.username === "") {
-      navigate("/home");
+      navigate("/");
     }
   }, [error, navigate]);
 

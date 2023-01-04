@@ -8,6 +8,7 @@ import ResetPassword from "./components/auth/ResetPassword";
 import SignUp from "./components/auth/signUp";
 import Home from "./components/pages/home";
 import Payment from "./components/pages/payment";
+import UploadImage from "./components/pages/uploadImage";
 
 function App() {
   useEffect(() => {
@@ -16,15 +17,16 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/check-email" element={<CheckEmail />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/confirm-reset" element={<ConfirmReset />} />
-        <Route path="/home" element={<Home />} />
+        {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/payment" element = {<Payment />} />
+        <Route path="/upload" element = {<UploadImage />} />
       </Routes>
     </BrowserRouter>
   );
