@@ -5,7 +5,7 @@ const Image = ({ image }) => {
       <img
         alt={`img - ${image.id}`}
         src={image.src}
-        className="file-img w-[236px] h-[236px]"
+        className="file-img w-[236px] h-[236px] rounded-xl"
       />
     </div>
   );
