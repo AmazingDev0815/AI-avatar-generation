@@ -1,5 +1,6 @@
 import cuid from "cuid";
 import { useCallback, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layout/mainLayout";
 import Dropzone from "../basic/dropZone";
 import ImageGrid from "../basic/imageGrid";
@@ -7,6 +8,7 @@ import ImageGrid from "../basic/imageGrid";
 const UploadImage = () => {
 
   const [images, setImages] = useState([]);
+  const navigate = useNavigate();
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.map((file) => {
       const reader = new FileReader();
@@ -20,6 +22,10 @@ const UploadImage = () => {
       return file;
     });
   }, []);
+
+  const handleClick = () => {
+    navigate('/avatar-detail');
+  }
 
   const remove = (file) => {
     const newFiles = [...images]
@@ -46,7 +52,7 @@ const UploadImage = () => {
             <span><span className="text-primary-600 font-poppinsBold mr-2">●</span>Avoid pics with sunglasses</span>
         </ul>
         {images.length > 0 ? <div className="h-[200px]">
-          {images.length >= 20 && <button className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsBold text-sm">Next</button>}
+          {images.length >= 20 && <button className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsBold text-sm" onClick={handleClick}>Next</button>}
         </div> :   <div className="mt-6 mb-20 text-center" id="examples">
           <span className="font-poppinsBold text-3xl">Examples: </span>
           <div className="mt-6 flex" id="upload_example_group">

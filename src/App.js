@@ -8,6 +8,7 @@ import ResetPassword from "./components/auth/ResetPassword";
 import SignUp from "./components/auth/signUp";
 import Home from "./components/pages/home";
 import Payment from "./components/pages/payment";
+import AvatarDetail from "./components/pages/avatarDetail";
 import UploadImage from "./components/pages/uploadImage";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/payment" element = {<Payment />} />
         <Route path="/upload" element = {<UploadImage />} />
+        <Route path="/avatar-detail" element = {<AvatarDetail />} />
       </Routes>
     </BrowserRouter>
   );
