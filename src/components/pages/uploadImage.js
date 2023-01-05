@@ -30,12 +30,9 @@ const UploadImage = () => {
         <div className="mt-6 text-primary-400 text-lg rounded-xl bg-primary-50 px-3 py-2" id="uploaded_number">
           <span className="font-poppinsBold text-primary-600 text-3xl">0</span> / 20
         </div>
-        <div className="my-6" id="upload_image">
-           <main className="App">
-            <h1 className="text-center">Drag and Drop Test</h1>
-            <Dropzone onDrop={onDrop} accept={"image/*"} />
+        <div className="my-6 flex justify-center items-center" id="upload_image">
             <ImageGrid images={images} />
-          </main>
+            <Dropzone onDrop={onDrop} accept={"image/*"} />
         </div>
         <ul className="flex flex-col text-center mt-6 " id="description">
             <span><span className="text-primary-600 font-poppinsBold mr-2">●</span>Make sure only one person is in the frame</span>
