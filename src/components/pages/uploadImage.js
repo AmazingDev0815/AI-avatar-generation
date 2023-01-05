@@ -1,6 +1,26 @@
+import cuid from "cuid";
+import { useCallback, useState } from "react";
 import MainLayout from "../../layout/mainLayout";
+import Dropzone from "../basic/dropZone";
+import ImageGrid from "../basic/imageGrid";
 
 const UploadImage = () => {
+
+  const [images, setImages] = useState([]);
+  const onDrop = useCallback((acceptedFiles) => {
+    acceptedFiles.map((file) => {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        setImages((prevState) => [
+          ...prevState,
+          { id: cuid(), src: e.target.result },
+        ]);
+      };
+      reader.readAsDataURL(file);
+      return file;
+    });
+  }, []);
+
   return (
     <MainLayout>
       <div className="h-full flex flex-col items-center" id="upload">
@@ -11,7 +31,11 @@ const UploadImage = () => {
           <span className="font-poppinsBold text-primary-600 text-3xl">0</span> / 20
         </div>
         <div className="my-6" id="upload_image">
-
+           <main className="App">
+            <h1 className="text-center">Drag and Drop Test</h1>
+            <Dropzone onDrop={onDrop} accept={"image/*"} />
+            <ImageGrid images={images} />
+          </main>
         </div>
         <ul className="flex flex-col text-center mt-6 " id="description">
             <span><span className="text-primary-600 font-poppinsBold mr-2">●</span>Make sure only one person is in the frame</span>
