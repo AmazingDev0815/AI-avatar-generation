@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import { BellIcon, Cog8ToothIcon } from "@heroicons/react/24/outline";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import { Menu } from "@headlessui/react";
 
 const Header = () => {
@@ -16,12 +16,12 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <div className="relative flex justify-between md:w-auto md:static md:block">
             <div className="flex justify-center items-center">
-              <a
+              <Link
                 className="text-sm font-bold leading-relaxed inline-block mr-7 py-2 whitespace-nowrap "
-                href="#"
+                to='/'
               >
                 <h1 className="text-3xl font-poppinsBold text-primary-600">Mava</h1>
-              </a>
+              </Link>
               {login&& <div className="md:flex hidden">
                 <a href="#" className="pr-2">
                   My Avatars

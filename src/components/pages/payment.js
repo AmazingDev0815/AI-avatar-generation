@@ -1,6 +1,6 @@
 import { ArrowLeftIcon } from "@heroicons/react/24/outline"
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Select from "react-select"
 import countryList from "react-select-country-list"
 
@@ -8,6 +8,11 @@ const Payment = () => {
   const [email, setEmail] = useState("")
   const [error, setError] = useState({})
   const country = countryList().getData();
+  const navigate = useNavigate();
+  const payClick = (e) => {
+    console.log(e);
+    navigate('/upload')
+  }
   return (
     <div className="h-full md:h-screen flex px-10 py-[100px] md:px-10 md:py-[100px] lg:p-[100px] flex-col md:flex-row justify-center items-center font-poppinsRegular">
       <div className="h-full w-full flex flex-col justify-between md:w-1/2 md:pl-5 md:pr-10 lg:pr-[110px]" id="productList">
@@ -70,6 +75,7 @@ const Payment = () => {
       </div>
       <div className="h-full w-full md:w-1/2 md:pl-10 lg:pl-[110px] pt-20 md:pt-0 flex flex-col items-center md:items-start" id="payForm">
         <h1 className="text-gray-900 text-xl font-poppinsBold">Pay with card</h1>
+        <form onSubmit={payClick}>
         <div className="mt-8 w-5/6 md:w-full">
           <label
             htmlFor="email"
@@ -206,6 +212,7 @@ const Payment = () => {
         >
           Pay $10.00
         </button>
+        </form>
       </div>
     </div>
   )
