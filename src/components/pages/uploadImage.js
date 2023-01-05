@@ -46,7 +46,7 @@ const UploadImage = () => {
             <span><span className="text-primary-600 font-poppinsBold mr-2">●</span>Avoid pics with sunglasses</span>
         </ul>
         {images.length > 0 ? <div className="h-[200px]">
-          {images.length === 20 && <button className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsBold text-sm">Next</button>}
+          {images.length >= 20 && <button className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsBold text-sm">Next</button>}
         </div> :   <div className="mt-6 mb-20 text-center" id="examples">
           <span className="font-poppinsBold text-3xl">Examples: </span>
           <div className="mt-6 flex" id="upload_example_group">
@@ -61,7 +61,6 @@ const UploadImage = () => {
             </div>
           </div>
         </div>}
-
       </div>
     </MainLayout>
   )

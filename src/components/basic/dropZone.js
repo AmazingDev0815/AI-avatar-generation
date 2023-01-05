@@ -3,7 +3,10 @@ import { useDropzone } from "react-dropzone";
 function Dropzone({ onDrop, accept, open }) {
   const { getRootProps, getInputProps, isDragActive, acceptedFiles } =
     useDropzone({
-      accept,
+      accept:{
+        'image/png': ['.png'],
+        'image/jpg': ['.jpg'],
+      },
       onDrop,
     });
   /* -------------calculate the image size-------------- */
