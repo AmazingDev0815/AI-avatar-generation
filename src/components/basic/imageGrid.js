@@ -1,11 +1,11 @@
 // Rendering individual images
 const Image = ({ image }) => {
   return (
-    <div className="file-item">
+    <div className="file-item mx-3 my-3">
       <img
         alt={`img - ${image.id}`}
         src={image.src}
-        className="file-img"
+        className="file-img w-[236px] h-[236px]"
       />
     </div>
   );
@@ -18,8 +18,6 @@ const ImageGrid = ({ images }) => {
     return <Image image={image} key={`${image.id}-image`} />;
   };
   // Return the list of files//
-  return (
-    <section className="file-list">{images.map(renderImage)}</section>
-  );
+  return images.map(renderImage)
 };
 export default ImageGrid;
