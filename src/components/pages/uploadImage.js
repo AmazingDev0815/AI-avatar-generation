@@ -21,6 +21,12 @@ const UploadImage = () => {
     });
   }, []);
 
+  const remove = (file) => {
+    const newFiles = [...images]
+    newFiles.splice(newFiles.indexOf(file), 1)
+    setImages(newFiles)
+  }
+
   return (
     <MainLayout>
       <div className="h-full flex flex-col items-center px-10" id="upload">
@@ -31,7 +37,7 @@ const UploadImage = () => {
           <span className="font-poppinsBold text-primary-600 text-3xl">{images.length}</span> / 20
         </div>
         <div className="my-6 flex flex-wrap justify-center items-center" id="upload_image">
-            <ImageGrid images={images} />
+            <ImageGrid images={images} remove={remove} />
             {images.length < 20 ? <Dropzone onDrop={onDrop} accept={"image/*"} /> : null}
         </div>
         <ul className="flex flex-col text-center mt-6 " id="description">
