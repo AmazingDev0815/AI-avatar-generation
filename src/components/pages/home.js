@@ -8,9 +8,9 @@ const Home = () => {
   };
   return (
     <MainLayout>
-      <div className="px-10 flex-1 flex lg:flex-row flex-col-reverse justify-center items-center">
+      <div className="my-10 px-10 flex-1 flex lg:flex-row flex-col-reverse justify-center items-center">
         <div
-          className="flex flex-col w-full lg:w-1/2 md:px-20 px-10"
+          className="flex flex-col w-full lg:w-1/2 md:px-20 px-5"
           id="supporting_head"
         >
           <h1 className="text-gray-900 font-poppinsBold text-3xl sm:text-5xl leading-normal mb-6">

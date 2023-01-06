@@ -10,7 +10,7 @@ const Payment = () => {
   const country = countryList().getData();
   const navigate = useNavigate();
   const payClick = (e) => {
-    console.log(e);
+    e.preventDefault();
     navigate("/upload");
   };
   return (
