@@ -5,11 +5,11 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   // const [navbarOpen, setNavbarOpen] = useState(false)
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const login = true;
   const LoginHandle = () => {
-    navigate('/login')
-  }
+    navigate("/login");
+  };
   return (
     <>
       <nav className="border-gray-200 px-5 sm:px-10 md:px-20 rounded w-full">
@@ -18,17 +18,21 @@ const Header = () => {
             <div className="flex justify-center items-center">
               <Link
                 className="text-sm font-bold leading-relaxed inline-block mr-7 py-2 whitespace-nowrap "
-                to='/'
+                to="/"
               >
-                <h1 className="text-3xl font-poppinsBold text-primary-600">Mava</h1>
+                <h1 className="text-3xl font-poppinsBold text-primary-600">
+                  Mava
+                </h1>
               </Link>
-              {login&& <div className="md:flex hidden">
-                <a href="#" className="pr-2">
-                  My Avatars
-                </a>
-              </div>}
+              {login && (
+                <div className="md:flex hidden">
+                  <a href="#" className="pr-2">
+                    My Avatars
+                  </a>
+                </div>
+              )}
             </div>
-     
+
             {/* <button
               className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block md:hidden outline-none focus:outline-none"
               type="button"
@@ -57,39 +61,50 @@ const Header = () => {
             }
             id="mobile menu"
           >
-             <ul className="flex justify-center items-center p-4 border-gray-100 rounded-lg w-full flex-row space-x-8 mt-0 text-sm font-medium border-0 bg-white">
-            {login ? (
-              <>
-              <li>
-                <button
-                  className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsBold"
-                >
-                  Create
-                </button>
-              </li>
-              <li className="md:flex hidden">
-                <button className="block">
-                  <BellIcon className="w-[20px] h-[20px] text-gray-700 hover:text-primary-600 " />
-                </button>
-              </li>
-              <li className="md:flex hidden">
-                <button className="block">
-                  <Cog8ToothIcon className="w-[20px] h-[20px] text-gray-700 hover:text-primary-600 " />
-                </button>
-              </li>
-              <li>
-                <button className="block h-10 w-10">
-                  <img alt="avatar" src={require('../assets/img/3.png')} className="rounded-full" />
-                </button>
-              </li></>) : (<li>
-                <button className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsBold" onClick={LoginHandle}>Log In</button>
-              </li>)}
+            <ul className="flex justify-center items-center p-4 border-gray-100 rounded-lg w-full flex-row space-x-8 mt-0 text-sm font-medium border-0 bg-white">
+              {login ? (
+                <>
+                  <li>
+                    <button className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsBold">
+                      Create
+                    </button>
+                  </li>
+                  <li className="md:flex hidden">
+                    <button className="block">
+                      <BellIcon className="w-[20px] h-[20px] text-gray-700 hover:text-primary-600 " />
+                    </button>
+                  </li>
+                  <li className="md:flex hidden">
+                    <button className="block">
+                      <Cog8ToothIcon className="w-[20px] h-[20px] text-gray-700 hover:text-primary-600 " />
+                    </button>
+                  </li>
+                  <li>
+                    <button className="block h-10 w-10">
+                      <img
+                        alt="avatar"
+                        src={require("../assets/img/3.png")}
+                        className="rounded-full"
+                      />
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <button
+                    className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsBold"
+                    onClick={LoginHandle}
+                  >
+                    Log In
+                  </button>
+                </li>
+              )}
             </ul>
           </div>
         </div>
       </nav>
     </>
-  )
-}
+  );
+};
 
 export default Header;

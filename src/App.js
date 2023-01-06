@@ -13,8 +13,8 @@ import UploadImage from "./components/pages/uploadImage";
 
 function App() {
   useEffect(() => {
-    document.title = "MAVA: Awesome Avatar Genera"
-  }, [])
+    document.title = "MAVA: Awesome Avatar Genera";
+  }, []);
   return (
     <BrowserRouter>
       <Routes>
@@ -26,9 +26,9 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/confirm-reset" element={<ConfirmReset />} />
         {/* <Route path="/home" element={<Home />} /> */}
-        <Route path="/payment" element = {<Payment />} />
-        <Route path="/upload" element = {<UploadImage />} />
-        <Route path="/avatar-detail" element = {<AvatarDetail />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/upload" element={<UploadImage />} />
+        <Route path="/avatar-detail" element={<AvatarDetail />} />
       </Routes>
     </BrowserRouter>
   );
