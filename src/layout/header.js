@@ -10,6 +10,11 @@ const Header = () => {
   const LoginHandle = () => {
     navigate("/login");
   };
+
+  const createAvatar = () => {
+    navigate("/payment");
+  }
+  
   return (
     <>
       <nav className="border-gray-200 px-5 sm:px-10 md:px-20 rounded w-full">
@@ -65,7 +70,7 @@ const Header = () => {
               {login ? (
                 <>
                   <li>
-                    <button className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsBold">
+                    <button onClick={createAvatar} className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsBold">
                       Create
                     </button>
                   </li>

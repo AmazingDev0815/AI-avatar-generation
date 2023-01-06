@@ -13,7 +13,7 @@ import UploadImage from "./components/pages/uploadImage";
 
 function App() {
   useEffect(() => {
-    document.title = "MAVA: Awesome Avatar Genera";
+    document.title = "MAVA: Awesome Avatar Generation";
   }, []);
   return (
     <BrowserRouter>
