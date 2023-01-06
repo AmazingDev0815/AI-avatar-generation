@@ -22,7 +22,7 @@ const AvatarDetail = () => {
   
   return (
     <MainLayout>
-      <div className="h-full flex flex-col items-center md:px-10" id="upload">
+      <div className="flex flex-1 flex-col items-center my-10 md:px-10" id="upload">
         <div className="w-3/4 text-center md:px-4 lg:px-16">
           <h1 className="font-poppinsBold text-3xl mt-16">Avatar Details</h1>
           <p className="mt-1 text-gray-600">

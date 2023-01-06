@@ -16,7 +16,7 @@ const Image = ({ image, removeImage }) => {
       <img
         alt={`img - ${image.id}`}
         src={image.src}
-        className="file-img w-[236px] h-[236px] rounded-xl"
+        className="file-img w-32 h-32 md:w-40 md:h-40 lg:w-[236px] lg:h-[236px] rounded-xl"
       />
     </div>
   );

@@ -20,7 +20,7 @@ function Dropzone({ onDrop, accept, open }) {
       <div
         {...getRootProps({
           className:
-            "w-[236px] h-[236px] border px-6 py-8 rounded-xl flex justify-center items-center mx-3 my-3",
+            "lg:w-[236px] lg:h-[236px] md:w-40 md:h-40 w-32 h-32 border md:px-6 md:py-8 rounded-xl flex justify-center items-center mx-3 my-3",
         })}
       >
         <input className="input-zone" {...getInputProps()} />

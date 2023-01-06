@@ -12,9 +12,9 @@ const Header = () => {
   };
 
   const createAvatar = () => {
-    navigate("/payment");
+    navigate("/login");
   }
-  
+
   return (
     <>
       <nav className="border-gray-200 px-5 sm:px-10 md:px-20 rounded w-full">

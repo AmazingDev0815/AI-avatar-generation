@@ -34,7 +34,7 @@ const UploadImage = () => {
 
   return (
     <MainLayout>
-      <div className="flex flex-col items-center px-10" id="upload">
+      <div className="flex flex-col flex-1 items-center px-10" id="upload">
         <h1 className="font-poppinsBold text-3xl mt-16">Upload Your Images</h1>
         <p className="mt-1 text-gray-600">
           Upload 20 photos close up profile pictures of you or your loved one
