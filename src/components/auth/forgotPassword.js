@@ -57,7 +57,7 @@ const ForgotPassword = () => {
             <input
               type="text"
               id="email"
-              className={`border text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 ${
+              className={`border text-base rounded-lg focus:shadow-primary focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none block w-full py-2.5 px-3.5 ${
                 error.email
                   ? "text-red-500 border-red-500"
                   : "border-gray-300 text-gray-500"

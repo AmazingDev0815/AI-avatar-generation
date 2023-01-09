@@ -44,7 +44,7 @@ const AvatarDetail = () => {
                 <input
                   type="text"
                   id="avatar_name"
-                  className="border border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none text-base rounded-lg mt-1 block w-full py-2.5 px-3.5"
+                  className="border border-gray-300 focus:shadow-primary focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none text-base rounded-lg mt-1 block w-full py-2.5 px-3.5"
                   placeholder="Avatar Name"
                   onChange={(e) => setAvatarName(e.target.value)}
                 />
@@ -62,12 +62,17 @@ const AvatarDetail = () => {
                   onChange={setSelectedOption}
                   options={genderOptions}
                   styles={{
-                    control: (baseStyles) => ({
+                    control: (baseStyles, state) => ({
                       ...baseStyles,
+                      borderWidth: state.isFocused ? "2px" : "1px",
                       borderRadius: "8px",
-                      borderColor: "#D0D5DD",
+                      borderColor: state.isFocused ? "#7F56D9" : "#D0D5DD",
                       paddingBottom: "3px",
                       paddingTop: "3px",
+                      boxShadow: state.isFocused ? "0px 0px 6px #7F56D9" : "none",
+                      "&:hover": {
+                        border: baseStyles.border,
+                      }
                     }),
                   }}
                 />
