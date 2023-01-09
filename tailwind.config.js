@@ -15,6 +15,9 @@ module.exports = {
       '2xl': '1536px',
     },
     extend: {
+      boxShadow: {
+        'primary': '0px 0px 6px #7F56D9',
+      },
       colors: {
         primary: {
           25: '#FCFAFF',

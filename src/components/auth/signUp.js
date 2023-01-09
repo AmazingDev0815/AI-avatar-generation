@@ -16,7 +16,7 @@ const SignUp = () => {
 
   useEffect(() => {
     if (error.email === "" && error.password === "" && error.username === "") {
-      navigate("/home");
+      navigate("/");
     }
   }, [error, navigate]);
 
@@ -59,7 +59,7 @@ const SignUp = () => {
             <input
               type="text"
               id="username"
-              className={`border text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 ${
+              className={`border text-base rounded-lg focus:shadow-primary focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none block w-full py-2.5 px-3.5 ${
                 error.username
                   ? "text-red-500 border-red-500"
                   : "border-gray-300 text-gray-500"
@@ -83,7 +83,7 @@ const SignUp = () => {
             <input
               type="text"
               id="email"
-              className={`border text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 ${
+              className={`border text-base rounded-lg focus:shadow-primary focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none block w-full py-2.5 px-3.5 ${
                 error.email
                   ? "text-red-500 border-red-500"
                   : "border-gray-300 text-gray-500"
@@ -107,7 +107,7 @@ const SignUp = () => {
             <input
               type="password"
               id="password"
-              className={`border mb-2 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-2.5 px-3.5 ${
+              className={`border mb-2 text-base rounded-lg focus:shadow-primary focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none block w-full py-2.5 px-3.5 ${
                 error.password
                   ? "text-red-500 border-red-500"
                   : "border-gray-300 text-gray-500"
