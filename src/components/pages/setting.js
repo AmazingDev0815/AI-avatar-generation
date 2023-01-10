@@ -10,7 +10,7 @@ const Setting = () => {
       <div className="flex flex-1 flex-col mb-40 px-20 w-full">
         <div className="rounded-3xl flex items-center w-full h-60 relative">
           <img alt="background" src={require('../../assets/img/settingHeader.png')} className="absolute rounded-3xl -z-10" />
-          <img alt="current avatar" src={require('../../assets/img/avatarPlaceholder.png')} className="rounded-full border-4 w-1/6 mr-6 scale-[0.8]"/>
+          <img alt="current avatar" src={require('../../assets/img/avatarPlaceholder(1).png')} className="rounded-full w-1/6 mr-6 scale-[0.8]"/>
           <div className="flex flex-col">
             <h1 className="text-3xl text-white">Vlatka Orcic</h1>
             <span className="text-white">vlatka.orcic@gmail.com</span>
