@@ -45,6 +45,10 @@ module.exports = {
           800: '#05603A',
           900: '#054F31',
         },
+      },
+      backgroundImage: {
+        'setting-header': "url(./assets/img/settingHeader.png)",
+        'avatar': "url(./assets/img/avatarPlaceholder.png)",
       }
     },
     fontFamily: {
