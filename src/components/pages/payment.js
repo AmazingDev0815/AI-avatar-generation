@@ -20,7 +20,7 @@ const Payment = () => {
         id="productList"
       >
         <div>
-          <Link to="/" className="text-sm font-poppinsBold flex items-center">
+          <Link to="/" className="text-sm font-poppinsSemiBold flex items-center">
             <ArrowLeftIcon className="w-4 align-middle mr-2" />
             <div className="bg-primary-600 text-primary-200 h-8 w-8 rounded-full justify-center items-center flex mr-2">
               M
@@ -29,7 +29,7 @@ const Payment = () => {
           </Link>
           <div className="mt-10 ml-11">
             <span className="text-gray-600">Pay Mava</span>
-            <h1 className="text-gray-900 mt-2 text-4xl font-poppinsBold">
+            <h1 className="text-gray-900 mt-2 text-4xl font-poppinsSemiBold">
               $ 10.00
             </h1>
           </div>
@@ -128,7 +128,7 @@ const Payment = () => {
         className="h-full w-full md:w-1/2 md:pl-10 lg:pl-[110px] pt-20 md:pt-0 flex flex-col items-center md:items-start"
         id="payForm"
       >
-        <h1 className="text-gray-900 text-xl font-poppinsBold">
+        <h1 className="text-gray-900 text-xl font-poppinsSemiBold">
           Pay with card
         </h1>
         <form onSubmit={payClick}>

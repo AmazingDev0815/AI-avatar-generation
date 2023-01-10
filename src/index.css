@@ -14,6 +14,10 @@
   font-family: 'Poppinsmedium';
   src: url('./assets/fonts/Poppins/Poppins-Medium.ttf');
 }
+@font-face {
+  font-family: 'Poppinssemibold';
+  src: url('./assets/fonts/Poppins/Poppins-SemiBold.ttf');
+}
 
 @tailwind base;
 @tailwind components;

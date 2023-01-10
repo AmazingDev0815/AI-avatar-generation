@@ -45,7 +45,7 @@ const Login = () => {
       <LeftSide />
       <div className="flex md:w-1/2 h-full justify-center py-10 items-center bg-white">
         <form className="bg-white w-2/3 lg:w-1/2" onSubmit={handleLogin}>
-          <h1 className="text-gray-800 font-poppinsBold text-3xl mb-3">
+          <h1 className="text-gray-800 font-poppinsSemiBold text-3xl mb-3">
             Log in
           </h1>
           <p className="text-base font-normal text-gray-600 mb-8">
@@ -101,20 +101,20 @@ const Login = () => {
           </div>
           <Link
             to="/forgot-password"
-            className="text-sm ml-2 font-poppinsBold hover:text-primary-700 cursor-pointer"
+            className="text-sm ml-2 font-poppinsSemiBold hover:text-primary-700 cursor-pointer"
           >
             Forgot Password ?
           </Link>
           <button
             type="submit"
-            className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsBold mb-2"
+            className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-2"
           >
             Sign in
           </button>
           <button
             type="button"
             onClick={handleGoogleLogin}
-            className="block w-full mt-4 py-2 rounded-lg font-poppinsBold mb-8 border border-gray-300"
+            className="block w-full mt-4 py-2 rounded-lg font-poppinsSemiBold mb-8 border border-gray-300"
           >
             <span className="inline-block align-middle mr-3">
               <svg
@@ -148,7 +148,7 @@ const Login = () => {
               Don't have an account ?{" "}
               <Link
                 to="/signup"
-                className="hover:text-primary-700 cursor-pointer font-poppinsBold"
+                className="hover:text-primary-700 cursor-pointer font-poppinsSemiBold"
               >
                 Sign up
               </Link>

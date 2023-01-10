@@ -52,6 +52,7 @@ module.exports = {
       'poppinsBold': ['poppinsBold', 'Poppinsbold'],
       'poppinsRegular': ['poppinsRegular', 'Poppinsregular'],
       'poppinsMedium': ['poppinsMedium', 'Poppinsmedium'],
+      'poppinsSemiBold': ['poppinsSemiBold', 'Poppinsremibold'],
     }
   },
   plugins: [

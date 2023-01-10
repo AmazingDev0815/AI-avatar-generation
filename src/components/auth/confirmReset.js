@@ -20,7 +20,7 @@ const ConfirmReset = () => {
               </div>
             </div>
           </div>
-          <h1 className="text-gray-800 font-poppinsBold text-center text-3xl mb-3">
+          <h1 className="text-gray-800 font-poppinsSemiBold text-center text-3xl mb-3">
             Password reset
           </h1>
           <p className="text-base font-normal text-center text-gray-600 mb-8">
@@ -29,7 +29,7 @@ const ConfirmReset = () => {
           </p>
           <button
             type="submit"
-            className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsBold mb-2"
+            className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-2"
           >
             Back to login
           </button>

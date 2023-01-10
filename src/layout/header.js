@@ -25,7 +25,7 @@ const Header = () => {
                 className="text-sm font-bold leading-relaxed inline-block mr-7 py-2 whitespace-nowrap "
                 to="/"
               >
-                <h1 className="text-3xl font-poppinsBold text-primary-600">
+                <h1 className="text-3xl font-poppinsSemiBold text-primary-600">
                   Mava
                 </h1>
               </Link>
@@ -70,7 +70,7 @@ const Header = () => {
               {login ? (
                 <>
                   <li>
-                    <button onClick={createAvatar} className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsBold">
+                    <button onClick={createAvatar} className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsSemiBold">
                       Create
                     </button>
                   </li>
@@ -97,7 +97,7 @@ const Header = () => {
               ) : (
                 <li>
                   <button
-                    className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsBold"
+                    className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsSemiBold"
                     onClick={LoginHandle}
                   >
                     Log In

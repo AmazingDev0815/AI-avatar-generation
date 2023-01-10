@@ -28,7 +28,7 @@ function Dropzone({ onDrop, accept, open }) {
           <button
             type="button"
             onClick={open}
-            className="btn text-primary-600 font-poppinsBold text-sm leading-5 flex flex-col items-center"
+            className="btn text-primary-600 font-poppinsSemiBold text-sm leading-5 flex flex-col items-center"
           >
             <div>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

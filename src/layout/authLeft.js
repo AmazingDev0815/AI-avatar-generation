@@ -2,7 +2,7 @@ const LeftSide = () => {
   return (
     <div className="relative overflow-hidden py-10 md:flex flex-col w-1/2 bg-gradient-to-tr from-primary-900 to-primary-700 i justify-center hidden">
       <div className="ml-16 mb-8">
-        <h1 className="text-white font-bold text-6xl font-poppinsBold ">
+        <h1 className="text-white font-bold text-6xl font-poppinsSemiBold ">
           Mava
         </h1>
         <p className="text-white mt-1 text-xl">Avatars made fun!</p>

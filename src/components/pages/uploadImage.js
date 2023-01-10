@@ -35,7 +35,7 @@ const UploadImage = () => {
   return (
     <MainLayout>
       <div className="flex flex-col flex-1 items-center px-10" id="upload">
-        <h1 className="font-poppinsBold text-3xl mt-16">Upload Your Images</h1>
+        <h1 className="font-poppinsSemiBold text-3xl mt-16">Upload Your Images</h1>
         <p className="mt-1 text-gray-600">
           Upload 20 photos close up profile pictures of you or your loved one
           and we will generate a new set of avatars.
@@ -47,7 +47,7 @@ const UploadImage = () => {
           className="mt-6 text-primary-400 text-lg rounded-xl bg-primary-50 px-3 py-2"
           id="uploaded_number"
         >
-          <span className="font-poppinsBold text-primary-600 text-3xl">
+          <span className="font-poppinsSemiBold text-primary-600 text-3xl">
             {images.length}
           </span>{" "}
           / 20
@@ -63,15 +63,15 @@ const UploadImage = () => {
         </div>
         <ul className="flex flex-col text-center mt-6 " id="description">
           <span>
-            <span className="text-primary-600 font-poppinsBold mr-2">●</span>
+            <span className="text-primary-600 font-poppinsSemiBold mr-2">●</span>
             Make sure only one person is in the frame
           </span>
           <span>
-            <span className="text-primary-600 font-poppinsBold mr-2">●</span>Use
+            <span className="text-primary-600 font-poppinsSemiBold mr-2">●</span>Use
             only close-up face images
           </span>
           <span>
-            <span className="text-primary-600 font-poppinsBold mr-2">●</span>
+            <span className="text-primary-600 font-poppinsSemiBold mr-2">●</span>
             Avoid pics with sunglasses
           </span>
         </ul>
@@ -79,7 +79,7 @@ const UploadImage = () => {
           <div className="h-[200px]">
             {images.length >= 20 && (
               <button
-                className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsBold text-sm"
+                className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm"
                 onClick={handleClick}
               >
                 Next
@@ -88,7 +88,7 @@ const UploadImage = () => {
           </div>
         ) : (
           <div className="mt-6 mb-20 text-center" id="examples">
-            <span className="font-poppinsBold text-3xl">Examples: </span>
+            <span className="font-poppinsSemiBold text-3xl">Examples: </span>
             <div className="mt-6 flex" id="upload_example_group">
               <div className="mr-6 ">
                 <img
