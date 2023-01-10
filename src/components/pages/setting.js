@@ -9,7 +9,7 @@ const Setting = () => {
     <MainLayout>
       <div className="flex flex-1 flex-col mb-40 px-20 w-full">
         <div className="rounded-3xl flex items-center w-full h-60"></div>
-        <div className="mt-12 flex flex-col px-8" id="settingSection">
+        <div className="my-12 flex flex-col px-8" id="settingSection">
           <div className="flex pb-5 border-b">
             <div className="w-1/5 text-sm mr-8">
               <h1 className="font-poppinsMedium">Profile Information</h1>
@@ -99,7 +99,32 @@ const Setting = () => {
               </div>
             </div>
           </div>
-          <div className="flex"></div>
+          <div className="flex mt-6">
+            <div className="w-1/5 text-sm mr-8">
+              <h1 className="font-poppinsMedium">Account Control</h1>
+              <span className="text-gray-400">Delete your images or terminate your account.</span>
+            </div>
+            <div className="w-4/5 px-6">
+              <div className="flex flex-col" id="delete_image">
+                <h1 className="font-poppinsMedium">Delete generated images</h1>
+                <span className="text-gray-400">We will delete all of your generated images.</span>
+                <button
+                className="bg-primary-600 font-poppinsSemiBold mt-2 w-36 rounded-lg px-4 py-2.5 text-white text-sm"
+                type="submit">
+                  Delete Images
+                </button>
+              </div>
+              <div className="flex flex-col mt-6" id="delete_account">
+                <h1 className="font-poppinsMedium">Delete account</h1>
+                <span className="text-gray-400">We will delete your account and delete all data.</span>
+                <button
+                className="bg-primary-600 font-poppinsSemiBold mt-2 w-36 rounded-lg px-4 py-2.5 text-white text-sm"
+                type="submit">
+                  Delete Account
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </MainLayout>
