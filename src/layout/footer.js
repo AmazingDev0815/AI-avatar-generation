@@ -2,16 +2,16 @@ const Footer = () => {
   return (
     <footer className="w-full px-20 py-8 text-white bg-gray-800">
       <div className="flex items-center flex-col md:flex-row justify-between">
-        <div className="md:w-[52%] w-full justify-around md:justify-between items-center flex">
+        <div className="md:w-[52%] w-full justify-around md:justify-between items-center flex flex-col md:flex-row">
           <h1 className="text-2xl">Mava</h1>
-          <div className="">
+          <div className="md:mt-0 mt-6">
             <a href="#" className="mr-8">
               Terms
             </a>
             <a href="#">Privacy</a>
           </div>
         </div>
-        <div className="flex md:mt-0 mt-4 space-x-6 justify-around w-1/2 md:w-auto md:justify-center items-center">
+        <div className="flex md:mt-0 mt-6 space-x-6 justify-around w-1/2 md:w-auto md:justify-center items-center">
           <a href="#" className="text-gray-400 hover:text-gray-900">
             <svg
               className="w-6 h-6"
