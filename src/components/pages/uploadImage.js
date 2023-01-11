@@ -58,7 +58,7 @@ const UploadImage = () => {
         >
           <ImageGrid images={images} remove={remove} />
           {images.length < 20 ? (
-            <Dropzone onDrop={onDrop} accept={"image/*"} />
+            <Dropzone onDrop={onDrop} accept={"image/*"} state={1}/>
           ) : null}
         </div>
         <ul className="flex flex-col text-center mt-6 " id="description">

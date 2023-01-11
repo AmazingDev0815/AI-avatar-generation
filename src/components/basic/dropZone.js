@@ -1,6 +1,6 @@
 //*Dropzone.js*//
 import { useDropzone } from "react-dropzone";
-function Dropzone({ onDrop, accept, open }) {
+function Dropzone({ onDrop, accept, open, state }) {
   const { getRootProps, getInputProps, isDragActive, acceptedFiles } =
     useDropzone({
       accept: {
@@ -20,7 +20,8 @@ function Dropzone({ onDrop, accept, open }) {
       <div
         {...getRootProps({
           className:
-            "lg:w-[236px] lg:h-[236px] md:w-40 md:h-40 w-32 h-32 border md:px-6 md:py-8 rounded-xl flex justify-center items-center mx-3 my-3",
+            `md:w-40 md:h-40 w-32 h-32 border md:px-6 md:py-8 rounded-xl flex justify-center items-center mx-3 my-3 
+            ${state === 1 ? "lg:w-[236px] lg:h-[236px]" : "lg:w-[500px] lg:h-[185px]" }`
         })}
       >
         <input className="input-zone" {...getInputProps()} />
