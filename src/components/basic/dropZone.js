@@ -16,7 +16,7 @@ function Dropzone({ onDrop, accept, open, state }) {
   //   </li>
   // ));
   return (
-    <div className="w-full">
+    <div className={(state === 1 ? "" : "w-full")}>
       <div
         {...getRootProps({
           className:
