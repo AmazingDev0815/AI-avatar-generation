@@ -1,9 +1,24 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import MainLayout from "../../layout/mainLayout"
+import Dropzone from "../basic/dropZone";
+import cuid from 'cuid'
+import Avatar from "../basic/avatar";
 
 const Setting = () => {
   const [notification, setNotification] = useState(false);
   const [promotionalEmail, setPromotionalEmail] = useState(false);
+  const [image, setImage] = useState();
+
+  const onDrop = useCallback((acceptedFiles) => {
+    acceptedFiles.map((file) => {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        setImage(e.target.result);
+      };
+      reader.readAsDataURL(file);
+      return file;
+    });
+  }, []);
 
   return (
     <MainLayout>
@@ -51,7 +66,10 @@ const Setting = () => {
                   placeholder="Email Address"
                 />
               </div>
-              <div className="mt-6" id="upload"></div>
+              <div className="mt-6 flex" id="upload">
+                <Avatar image={image} size="64px" state={false} username="Vlatka Orcic"/>
+                <Dropzone onDrop={onDrop} accept={"image/*"} state={0}/>
+              </div>
               <div className="mt-6 flex flex-col" id="setNotification">
                 <label className="inline-flex relative items-center mr-5 cursor-pointer">
                     <input
