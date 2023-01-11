@@ -15,6 +15,10 @@ const Header = () => {
     navigate("/login");
   }
 
+  const handleSetting = () => {
+    navigate("/setting");
+  }
+
   return (
     <>
       <nav className="border-gray-200 px-5 sm:px-10 md:px-20 rounded w-full">
@@ -75,12 +79,12 @@ const Header = () => {
                     </button>
                   </li>
                   <li className="md:flex hidden">
-                    <button className="block">
+                    <button className="block" >
                       <BellIcon className="w-[20px] h-[20px] text-gray-700 hover:text-primary-600 " />
                     </button>
                   </li>
                   <li className="md:flex hidden">
-                    <button className="block">
+                    <button className="block" onClick={handleSetting}>
                       <Cog8ToothIcon className="w-[20px] h-[20px] text-gray-700 hover:text-primary-600 " />
                     </button>
                   </li>
