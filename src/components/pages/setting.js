@@ -1,7 +1,6 @@
 import { useCallback, useState } from "react";
 import MainLayout from "../../layout/mainLayout"
 import Dropzone from "../basic/dropZone";
-import cuid from 'cuid'
 import Avatar from "../basic/avatar";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 
@@ -25,22 +24,22 @@ const Setting = () => {
 
   return (
     <MainLayout>
-      <div className="flex flex-1 flex-col mb-40 px-20 w-full">
-        <div className="rounded-3xl flex items-center w-full h-60 relative">
-          <img alt="background" src={require('../../assets/img/settingHeader.png')} className="absolute rounded-3xl -z-10" />
-          <img alt="current avatar" src={require('../../assets/img/avatarPlaceholder(1).png')} className="rounded-full w-1/6 mr-6 scale-[0.8]"/>
-          <div className="flex flex-col">
+      <div className="flex flex-1 flex-col mb-10 md:mb-40 md:px-20 px-3 w-full">
+        <div className="rounded-3xl flex md:flex-row flex-col md:items-center justify-center md:justify-start w-full h-60 relative">
+          <img alt="background" src={require('../../assets/img/settingHeader.png')} className="absolute h-60 rounded-3xl -z-10 object-cover" />
+          <img alt="current avatar" src={require('../../assets/img/avatarPlaceholder(1).png')} className="rounded-full md:w-1/6 md:h-auto ml-6 w-20 h-20 md:scale-[0.8]"/>
+          <div className="flex flex-col ml-6">
             <h1 className="text-3xl text-white">Vlatka Orcic</h1>
             <span className="text-white">vlatka.orcic@gmail.com</span>
           </div>
         </div>
-        <div className="my-12 flex flex-col px-8" id="settingSection">
-          <div className="flex pb-5 border-b">
-            <div className="w-1/5 text-sm mr-8">
+        <div className="my-12 flex flex-col md:px-8" id="settingSection">
+          <div className=" flex flex-col md:flex-row pb-5 border-b">
+            <div className="md:w-1/5 w-full text-sm md:mr-8">
               <h1 className="font-poppinsMedium">Profile Information</h1>
               <span className="text-gray-400">Update your photo, username and preferences.</span>
             </div>
-            <div className="w-4/5 px-6">
+            <div className="md:w-4/5 w-full md:px-6 px-3 md:mt-0 mt-8">
               <div>
                 <label
                   htmlFor="username"
@@ -73,7 +72,7 @@ const Setting = () => {
                 </div>
                 
               </div>
-              <div className="mt-6 flex" id="upload">
+              <div className="mt-6 flex flex-col md:flex-row" id="upload">
                 <Avatar image={image} size="64px" state={avatarState} />
                 <Dropzone onDrop={onDrop} accept={"image/*"} state={0}/>
               </div>
@@ -131,12 +130,12 @@ const Setting = () => {
               </div>
             </div>
           </div>
-          <div className="flex mt-6">
-            <div className="w-1/5 text-sm mr-8">
+          <div className="flex flex-col md:flex-row mt-6">
+            <div className="md:w-1/5 text-sm md:mr-8">
               <h1 className="font-poppinsMedium">Account Control</h1>
               <span className="text-gray-400">Delete your images or terminate your account.</span>
             </div>
-            <div className="w-4/5 px-6">
+            <div className="md:w-4/5 px-3 md:px-6 mt-8 md:mt-0">
               <div className="flex flex-col" id="delete_image">
                 <h1 className="font-poppinsMedium">Delete generated images</h1>
                 <span className="text-gray-400">We will delete all of your generated images.</span>
