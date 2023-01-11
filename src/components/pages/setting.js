@@ -24,10 +24,10 @@ const Setting = () => {
 
   return (
     <MainLayout>
-      <div className="flex flex-1 flex-col mb-10 md:mb-40 md:px-20 px-3 w-full">
+      <div className="flex flex-1 flex-col mb-10 md:mb-40 md:px-10 lg:px-20 px-3 w-full">
         <div className="rounded-3xl flex md:flex-row flex-col md:items-center justify-center md:justify-start w-full h-60 relative">
-          <img alt="background" src={require('../../assets/img/settingHeader.png')} className="absolute h-60 rounded-3xl -z-10 object-cover" />
-          <img alt="current avatar" src={require('../../assets/img/avatarPlaceholder(1).png')} className="rounded-full md:w-1/6 md:h-auto ml-6 w-20 h-20 md:scale-[0.8]"/>
+          <img alt="background" src={require('../../assets/img/settingHeader.png')} className="absolute h-60 rounded-3xl w-full -z-10 object-cover" />
+          <img alt="current avatar" src={require('../../assets/img/avatarPlaceholder(1).png')} className="rounded-full md:w-40 md:h-40 ml-6 w-20 h-20"/>
           <div className="flex flex-col ml-6">
             <h1 className="text-3xl text-white">Vlatka Orcic</h1>
             <span className="text-white">vlatka.orcic@gmail.com</span>
@@ -118,12 +118,12 @@ const Setting = () => {
               </div>
               <div className="mt-6 mb-4 font-poppinsSemiBold" id="confirm">
                 <button
-                className="bg-primary-600 rounded-lg px-4 py-2.5 mt-6 mr-3 text-white text-sm"
+                className="bg-primary-600 hover:bg-primary-700 rounded-lg px-4 py-2.5 mt-6 mr-3 text-white text-sm"
                 type="submit">
                   Save changes
                 </button>
                 <button
-                className="border border-gray-300 rounded-lg px-4 py-2.5 mt-6 text-gray-900 text-sm"
+                className="border border-gray-300 hover:bg-gray-100 rounded-lg px-4 py-2.5 mt-6 text-gray-900 text-sm"
                 type="submit">
                   Cancel
                 </button>
@@ -140,7 +140,7 @@ const Setting = () => {
                 <h1 className="font-poppinsMedium">Delete generated images</h1>
                 <span className="text-gray-400">We will delete all of your generated images.</span>
                 <button
-                className="bg-primary-600 font-poppinsSemiBold mt-2 w-36 rounded-lg px-4 py-2.5 text-white text-sm"
+                className="bg-primary-600 hover:bg-primary-700 font-poppinsSemiBold mt-2 w-36 rounded-lg px-4 py-2.5 text-white text-sm"
                 type="submit">
                   Delete Images
                 </button>
@@ -149,7 +149,7 @@ const Setting = () => {
                 <h1 className="font-poppinsMedium">Delete account</h1>
                 <span className="text-gray-400">We will delete your account and delete all data.</span>
                 <button
-                className="bg-primary-600 font-poppinsSemiBold mt-2 w-36 rounded-lg px-4 py-2.5 text-white text-sm"
+                className="bg-primary-600 hover:bg-primary-700 font-poppinsSemiBold mt-2 w-36 rounded-lg px-4 py-2.5 text-white text-sm"
                 type="submit">
                   Delete Account
                 </button>

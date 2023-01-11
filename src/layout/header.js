@@ -31,7 +31,7 @@ const Header = () => {
 
   return (
     <>
-      <nav className="border-gray-200 px-3 md:px-20 rounded w-full">
+      <nav className="border-gray-200 px-3 md:px-10 lg:px-20 rounded w-full">
         <div className="flex items-center justify-between">
           <div className="relative flex justify-between md:w-auto md:static md:block">
             <div className="flex justify-center items-center">
