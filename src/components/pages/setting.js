@@ -3,17 +3,20 @@ import MainLayout from "../../layout/mainLayout"
 import Dropzone from "../basic/dropZone";
 import cuid from 'cuid'
 import Avatar from "../basic/avatar";
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
 
 const Setting = () => {
   const [notification, setNotification] = useState(false);
   const [promotionalEmail, setPromotionalEmail] = useState(false);
   const [image, setImage] = useState();
+  const [avatarState, setAvatarState] = useState(false)
 
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.map((file) => {
       const reader = new FileReader();
       reader.onload = function (e) {
         setImage(e.target.result);
+        setAvatarState(true)
       };
       reader.readAsDataURL(file);
       return file;
@@ -59,15 +62,19 @@ const Setting = () => {
                 >
                   Email address
                 </label>
-                <input
-                  type="text"
-                  id="email"
-                  className="border border-gray-300 focus:shadow-primary focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none text-base rounded-lg mt-1 block w-full py-2.5 px-3.5"
-                  placeholder="Email Address"
-                />
+                <div className="relative">
+                  <EnvelopeIcon className="h-5 w-5 text-primary-600 absolute top-3 left-3"/>
+                  <input
+                    type="text"
+                    id="email"
+                    className="border pl-10 border-gray-300 focus:shadow-primary focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none text-base rounded-lg mt-1 block w-full py-2.5 px-3.5"
+                    placeholder="Email Address"
+                  />
+                </div>
+                
               </div>
               <div className="mt-6 flex" id="upload">
-                <Avatar image={image} size="64px" state={false} username="Vlatka Orcic"/>
+                <Avatar image={image} size="64px" state={avatarState} />
                 <Dropzone onDrop={onDrop} accept={"image/*"} state={0}/>
               </div>
               <div className="mt-6 flex flex-col" id="setNotification">
