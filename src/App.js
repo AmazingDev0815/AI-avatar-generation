@@ -11,6 +11,7 @@ import Payment from "./components/pages/payment";
 import AvatarDetail from "./components/pages/avatarDetail";
 import UploadImage from "./components/pages/uploadImage";
 import Setting from "./components/pages/setting";
+import ImageCrop from "./components/basic/imageCroptest";
 
 function App() {
   useEffect(() => {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/upload" element={<UploadImage />} />
         <Route path="/avatar-detail" element={<AvatarDetail />} />
         <Route path="/setting" element={<Setting />} />
+        <Route path="/image-crop" element={<ImageCrop />} />
       </Routes>
     </BrowserRouter>
   );
