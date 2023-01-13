@@ -1,6 +1,6 @@
 //*Dropzone.js*//
 import { useDropzone } from "react-dropzone";
-function Dropzone({ onDrop, accept, open }) {
+function Dropzone({ onDrop, accept, open, state }) {
   const { getRootProps, getInputProps, isDragActive, acceptedFiles } =
     useDropzone({
       accept: {
@@ -16,11 +16,12 @@ function Dropzone({ onDrop, accept, open }) {
   //   </li>
   // ));
   return (
-    <div>
+    <div className={(state === 1 ? "" : "w-full")}>
       <div
         {...getRootProps({
           className:
-            "lg:w-[236px] lg:h-[236px] md:w-40 md:h-40 w-32 h-32 border md:px-6 md:py-8 rounded-xl flex justify-center items-center mx-3 my-3",
+            `border md:px-6 md:py-8 rounded-xl flex justify-center items-center
+            ${state === 1 ? "md:w-40 md:h-40 lg:w-[236px] lg:h-[236px] mx-3 my-3 w-32 h-32" : "w-full h-[185px] mt-5 md:mt-0" }`
         })}
       >
         <input className="input-zone" {...getInputProps()} />
@@ -28,7 +29,7 @@ function Dropzone({ onDrop, accept, open }) {
           <button
             type="button"
             onClick={open}
-            className="btn text-primary-600 font-poppinsBold text-sm leading-5 flex flex-col items-center"
+            className="btn text-primary-600 font-poppinsSemiBold text-sm leading-5 flex flex-col items-center"
           >
             <div>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">

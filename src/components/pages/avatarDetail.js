@@ -22,9 +22,9 @@ const AvatarDetail = () => {
   
   return (
     <MainLayout>
-      <div className="flex flex-1 flex-col items-center my-10 md:px-10" id="upload">
+      <div className="flex flex-1 flex-col justify-center items-center mb-40 md:px-10" id="upload">
         <div className="w-3/4 text-center md:px-4 lg:px-16">
-          <h1 className="font-poppinsBold text-3xl mt-16">Avatar Details</h1>
+          <h1 className="font-poppinsSemiBold text-3xl mt-16">Avatar Details</h1>
           <p className="mt-1 text-gray-600">
             In order to create the best possible avatar for you, we ask that you
             provide a name and gender. By knowing your avatar's gender, we can
@@ -79,7 +79,7 @@ const AvatarDetail = () => {
               </div>
             </div>
             <button
-              className="bg-primary-600 rounded-lg px-11 disabled:bg-primary-200 py-2.5 mt-6 text-white font-poppinsBold text-sm"
+              className="bg-primary-600 rounded-lg px-11 disabled:bg-primary-200 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm"
               type="submit"
               disabled={disable}
             >

@@ -43,7 +43,7 @@ const SignUp = () => {
       <LeftSide />
       <div className="flex md:w-1/2 h-full justify-center py-10 items-center bg-white">
         <form className="bg-white w-2/3 lg:w-1/2" onSubmit={handleSignUp}>
-          <h1 className="text-gray-800 font-poppinsBold text-3xl mb-3">
+          <h1 className="text-gray-800 font-poppinsSemiBold text-3xl mb-3">
             Create an account
           </h1>
           <p className="text-base font-normal text-gray-600 mb-8">
@@ -124,7 +124,7 @@ const SignUp = () => {
           </div>
           <button
             type="submit"
-            className="block w-full mt-4 py-2 rounded-lg font-poppinsBold mb-8 border border-gray-300"
+            className="block w-full mt-4 py-2 rounded-lg font-poppinsSemiBold mb-8 border border-gray-300"
           >
             <span className="inline-block align-middle mr-3">
               <svg
@@ -158,7 +158,7 @@ const SignUp = () => {
               Already have an account ?{" "}
               <Link
                 to="/login"
-                className="hover:text-primary-700 cursor-pointer font-poppinsBold"
+                className="hover:text-primary-700 cursor-pointer font-poppinsSemiBold"
               >
                 Log in
               </Link>

@@ -13,7 +13,7 @@ const Home = () => {
           className="flex flex-col w-full lg:w-1/2 md:px-20 px-5"
           id="supporting_head"
         >
-          <h1 className="text-gray-900 font-poppinsBold text-3xl sm:text-5xl leading-normal mb-6">
+          <h1 className="text-gray-900 font-poppinsSemiBold text-3xl sm:text-5xl leading-normal mb-6">
             Firstly, you need to{" "}
             <span className="text-primary-600">Avatar up!</span>
           </h1>
@@ -37,7 +37,7 @@ const Home = () => {
           </div>
           <div className="mt-6" id="price">
             <span className="text-gray-600 text-sm sm:text-base">
-              <span className="text-gray-900 text-3xl sm:text-4xl font-poppinsBold">
+              <span className="text-gray-900 text-3xl sm:text-4xl font-poppinsSemiBold">
                 Only $10{" "}
               </span>{" "}
               / per Avatar
@@ -52,7 +52,7 @@ const Home = () => {
           </div>
           <button
             onClick={payment}
-            className="block mb-10 lg:mb-0 mt-3 text-sm bg-primary-600 w-40 hover:bg-primary-700 py-3 px-6 rounded-lg text-white font-poppinsBold"
+            className="block mb-10 lg:mb-0 mt-3 text-sm bg-primary-600 w-40 hover:bg-primary-700 py-3 px-6 rounded-lg text-white font-poppinsSemiBold"
           >
             Create Avatar
           </button>

@@ -45,6 +45,10 @@ module.exports = {
           800: '#05603A',
           900: '#054F31',
         },
+      },
+      backgroundImage: {
+        'setting-header': "url(./assets/img/settingHeader.png)",
+        'avatar': "url(./assets/img/avatarPlaceholder.png)",
       }
     },
     fontFamily: {
@@ -52,6 +56,7 @@ module.exports = {
       'poppinsBold': ['poppinsBold', 'Poppinsbold'],
       'poppinsRegular': ['poppinsRegular', 'Poppinsregular'],
       'poppinsMedium': ['poppinsMedium', 'Poppinsmedium'],
+      'poppinsSemiBold': ['poppinsSemiBold', 'Poppinsremibold'],
     }
   },
   plugins: [

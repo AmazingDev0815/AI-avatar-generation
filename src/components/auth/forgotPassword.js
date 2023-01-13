@@ -41,7 +41,7 @@ const ForgotPassword = () => {
               </div>
             </div>
           </div>
-          <h1 className="text-gray-800 font-poppinsBold text-center text-3xl mb-3">
+          <h1 className="text-gray-800 font-poppinsSemiBold text-center text-3xl mb-3">
             Forgot Password?
           </h1>
           <p className="text-base font-normal text-center text-gray-600 mb-8">
@@ -73,14 +73,14 @@ const ForgotPassword = () => {
           </div>
           <button
             type="submit"
-            className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsBold mb-2"
+            className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-2"
           >
             Reset Password
           </button>
           <div className="text-center mt-8">
             <Link
               to="/login"
-              className="text-sm font-poppinsBold justify-center flex"
+              className="text-sm font-poppinsSemiBold justify-center flex"
             >
               <ArrowLeftIcon className="w-3 align-middle mr-2" />
               <span>Back to log in</span>
