@@ -5,3 +5,5 @@ const MyAvatars = () => {
     </div>
   )
 }
+
+export default MyAvatars
