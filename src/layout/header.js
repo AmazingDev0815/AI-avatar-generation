@@ -45,9 +45,9 @@ const Header = () => {
               </Link>
               {login && (
                 <div className="md:flex hidden">
-                  <a href="#" className="pr-2">
+                  <Link to="/my-avatars" className="pr-2">
                     My Avatars
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>

@@ -13,6 +13,7 @@ import UploadImage from "./components/pages/uploadImage";
 import Setting from "./components/pages/setting";
 import ImageCrop from "./components/basic/imageCroptest";
 import Success from "./components/pages/success";
+import MyAvatars from "./components/pages/myAvatars";
 
 function App() {
   useEffect(() => {
