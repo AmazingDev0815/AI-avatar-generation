@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 import MainLayout from "../../layout/mainLayout";
 
@@ -12,12 +13,14 @@ const AvatarDetail = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [avatarName, setAvatarName] = useState("");
   const [disable, setDisable] = useState(true);
+  const navigate = useNavigate();
   useEffect(() => {
     setDisable(!(!!selectedOption?.value && !!avatarName));
   }, [selectedOption, avatarName]);
 
   const SubmitInfo = (e) => {
     e.preventDefault();
+    navigate('/success');
   };
   
   return (
