@@ -35,6 +35,7 @@ function App() {
         <Route path="/setting" element={<Setting />} />
         <Route path="/image-crop" element={<ImageCrop />} />
         <Route path="/success" element={<Success />} />
+        <Route path="/my-avatars" element={<MyAvatars />} />
       </Routes>
     </BrowserRouter>
   );

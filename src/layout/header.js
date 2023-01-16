@@ -66,14 +66,14 @@ const Header = () => {
                       Create
                     </button>
                   </li>
-                  <li className="md:flex hidden">
+                  {/* <li className="md:flex hidden">
                     <button className="block" >
-                      <BellIcon className="w-[20px] h-[20px] text-gray-700 hover:text-primary-600 " />
+                      <BellIcon className="w-5 h-5 text-gray-700 hover:text-primary-600 " />
                     </button>
-                  </li>
+                  </li> */}
                   <li className="md:flex hidden">
                     <button className="block" onClick={handleSetting}>
-                      <Cog8ToothIcon className="w-[20px] h-[20px] text-gray-700 hover:text-primary-600 " />
+                      <Cog8ToothIcon className="w-5 h-5 text-gray-700 hover:text-primary-600 " />
                     </button>
                   </li>
                   <li>
