@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layout/mainLayout";
 
 const Success = () => {
+  const navigate = useNavigate();
+  const goMyAvatar = () => {
+    navigate('/my-avatars')
+  }
   return (
     <MainLayout>
       <div className="flex flex-1 flex-col justify-center items-center mb-40 p-5">
@@ -11,7 +16,7 @@ const Success = () => {
           <span>Our AI engine is now creating new avatars. Once they are ready, we will send you an email notification.</span>
           <span>Thank you for choosing our service!</span>
         </div>
-        <button className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm">Go to My Avatars</button>
+        <button className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm" onClick={goMyAvatar}>Go to My Avatars</button>
       </div>
     </MainLayout>
   )

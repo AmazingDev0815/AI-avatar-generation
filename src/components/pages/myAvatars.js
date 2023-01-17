@@ -5,7 +5,7 @@ import Waiting from "../myAvatars/waiting";
 
 const MyAvatars = () => {
   const loading = false;
-  const created = true;
+  const created = false;
   return (
     <MainLayout>
       {!created ? <NotCreated /> : loading ? <Waiting /> : <Created />}
