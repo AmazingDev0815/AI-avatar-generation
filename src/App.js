@@ -14,6 +14,7 @@ import Setting from "./components/pages/setting";
 import ImageCrop from "./components/basic/imageCroptest";
 import Success from "./components/pages/success";
 import MyAvatars from "./components/pages/myAvatars";
+import Carousel from "./components/basic/carousel";
 
 function App() {
   useEffect(() => {
@@ -37,6 +38,7 @@ function App() {
         <Route path="/image-crop" element={<ImageCrop />} />
         <Route path="/success" element={<Success />} />
         <Route path="/my-avatars" element={<MyAvatars />} />
+        <Route path="/carousel" element={<Carousel />} />
       </Routes>
     </BrowserRouter>
   );
