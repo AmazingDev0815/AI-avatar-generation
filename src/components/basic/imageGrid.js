@@ -1,23 +1,38 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import ReactCrop from "react-image-crop";
+import ReactCrop, { centerCrop, makeAspectCrop } from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 
 // Rendering individual images
 const Imagetag = ({ image, removeImage }) => {
-  const [crop, setCrop] = useState();
-
+  const [crop, setCrop] = useState({});
   const [disableCrop, setDisableCrop] = useState(false);
   const [imgWidth, setImgWidth] = useState(176);
   const [imgHeight, setImgHeight] = useState(176);
 
-  const img = new Image();
-  img.src = image.src;
-  img.onload = function () {
-    setImgWidth(img.naturalWidth);
-    setImgHeight(img.naturalHeight);
-    setDisableCrop(imgWidth === imgHeight);
+  const onImageLoad = (e) => {
+    const { naturalWidth: width, naturalHeight: height } = e.currentTarget;
+    setImgWidth(width);
+    setImgHeight(height);
+    setDisableCrop(width === height);
+    const crop = centerCrop(
+      makeAspectCrop(
+        {
+          unit: "%",
+          width: 100,
+        },
+        1 / 1,
+        width,
+        height
+      ),
+      width,
+      height
+    );
+
+    setCrop(crop);
   };
+
+  const onCropChange = (crop, percentCrop) => setCrop(percentCrop);
 
   const handleRemove = () => {
     removeImage(image);
@@ -30,24 +45,34 @@ const Imagetag = ({ image, removeImage }) => {
       >
         <XMarkIcon width="12" height="12" />
       </button>
-      <div className="w-32 h-32 md:w-40 md:h-40 lg:w-[236px] lg:h-[236px] flex justify-center items-center">
-        <ReactCrop
-          crop={crop}
-          onChange={setCrop}
-          aspect={1}
-          locked={disableCrop}
-        >
-          <img
-            alt={`img - ${image.id}`}
-            src={image.src}
-            className={`file-img rounded-xl ${
-              imgHeight > imgWidth
-                ? "w-auto h-32 md:w-auto md:h-40 lg:w-auto lg:h-[236px]"
-                : "w-32 h-auto md:w-40 md:h-auto lg:w-[236px] lg:h-auto"
-            }`}
-          />
-        </ReactCrop>
-      </div>
+      {disableCrop ? (
+        <img
+          alt={`img - ${image.id}`}
+          src={image.src}
+          className="file-img rounded-xl w-auto h-32 md:w-auto md:h-40 lg:w-auto lg:h-[236px]"
+          onLoad={onImageLoad}
+        />
+      ) : (
+        <div className="w-32 h-32 md:w-40 md:h-40 lg:w-[236px] lg:h-[236px] flex justify-center items-center">
+          <ReactCrop
+            crop={crop}
+            onChange={onCropChange}
+            aspect={1}
+            locked
+          >
+            <img
+              alt={`img - ${image.id}`}
+              src={image.src}
+              className={`file-img rounded-xl ${
+                imgHeight > imgWidth
+                  ? "w-auto h-32 md:w-auto md:h-40 lg:w-auto lg:h-[236px]"
+                  : "w-32 h-auto md:w-40 md:h-auto lg:w-[236px] lg:h-auto"
+              }`}
+              onLoad={onImageLoad}
+            />
+          </ReactCrop>
+        </div>
+      )}
     </div>
   );
 };
