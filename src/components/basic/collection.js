@@ -62,12 +62,12 @@ const Collection = () => {
       <span className="text-gray-600 text-sm" id="created_date">16.01.2023.</span>
       <div className="flex mt-6 w-full" id="image_gallery">
         <Slider {...settings}>
-          <img src={require("../../assets/img/demo(1).png")} className="rounded-xl mr-9" />
-          <img src={require("../../assets/img/demo(2).png")} className="rounded-xl mr-9" />
-          <img src={require("../../assets/img/demo(3).png")} className="rounded-xl mr-9" />
-          <img src={require("../../assets/img/demo(4).png")} className="rounded-xl mr-9" />
-          <img src={require("../../assets/img/demo(5).png")} className="rounded-xl mr-9" />
-          <img src={require("../../assets/img/demo(6).png")} className="rounded-xl mr-9" />
+          <img alt="demo" src={require("../../assets/img/demo(1).png")} className="rounded-xl mr-9" />
+          <img alt="demo" src={require("../../assets/img/demo(2).png")} className="rounded-xl mr-9" />
+          <img alt="demo" src={require("../../assets/img/demo(3).png")} className="rounded-xl mr-9" />
+          <img alt="demo" src={require("../../assets/img/demo(4).png")} className="rounded-xl mr-9" />
+          <img alt="demo" src={require("../../assets/img/demo(5).png")} className="rounded-xl mr-9" />
+          <img alt="demo" src={require("../../assets/img/demo(6).png")} className="rounded-xl mr-9" />
         </Slider>
       </div>
       <div className="flex justify-center">
