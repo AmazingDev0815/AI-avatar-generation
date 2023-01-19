@@ -58,7 +58,7 @@ const Header = () => {
             }
             id="mobile menu"
           >
-            <ul className="flex justify-center items-center p-4 border-gray-100 rounded-lg w-full flex-row md:space-x-8 space-x-3 xs:space-x-6 mt-0 text-sm font-medium border-0 bg-white">
+            <ul className="flex justify-center items-center p-4 border-gray-100 rounded-lg w-full flex-row md:space-x-8 space-x-3 xs:space-x-6 mt-0 text-sm font-medium border-0">
               {login ? (
                 <>
                   <li>
