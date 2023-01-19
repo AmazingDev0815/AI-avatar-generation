@@ -9,21 +9,21 @@ const Collection = () => {
     slidesToShow: 6,
     speed: 500,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: false,
     dots: false,
     swipeToSlide: true,
     responsive: [
       {
         breakpoint: 1280,
         settings: {
-          arrows: true,
+          arrows: false,
           slidesToShow: 5,
         },
       },
       {
         breakpoint: 1024,
         settings: {
-          arrows: true,
+          arrows: false,
           slidesToShow: 4,
         },
       },
