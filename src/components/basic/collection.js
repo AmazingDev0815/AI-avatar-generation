@@ -1,8 +1,13 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useNavigate } from "react-router-dom";
 
 const Collection = () => {
+  const navigate = useNavigate();
+  const goToCollection = () => {  
+    navigate('/my-avatars/gustavo');
+  }
   const settings = {
     centerMode: true,
     centerPadding: '10px',
@@ -66,7 +71,7 @@ const Collection = () => {
         </Slider>
       </div>
       <div className="flex justify-center">
-        <button className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm" >View Collection</button>
+        <button className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm" onClick={goToCollection}>View Collection</button>
       </div>
     </div>
   );

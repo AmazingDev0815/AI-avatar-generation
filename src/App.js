@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CheckEmail from "./components/auth/checkEmail";
 import ConfirmReset from "./components/auth/confirmReset";
 import ForgotPassword from "./components/auth/forgotPassword";
@@ -15,13 +15,14 @@ import ImageCrop from "./components/basic/imageCroptest";
 import Success from "./components/pages/success";
 import MyAvatars from "./components/pages/myAvatars";
 import Carousel from "./components/basic/carousel";
+import Group from "./components/pages/avatarGroup";
 
 function App() {
   useEffect(() => {
     document.title = "MAVA: Awesome Avatar Generation";
   }, []);
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -30,17 +31,19 @@ function App() {
         <Route path="/check-email" element={<CheckEmail />} />
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/confirm-reset" element={<ConfirmReset />} />
-        {/* <Route path="/home" element={<Home />} /> */}
         <Route path="/payment" element={<Payment />} />
         <Route path="/upload" element={<UploadImage />} />
         <Route path="/avatar-detail" element={<AvatarDetail />} />
         <Route path="/setting" element={<Setting />} />
         <Route path="/image-crop" element={<ImageCrop />} />
         <Route path="/success" element={<Success />} />
+
         <Route path="/my-avatars" element={<MyAvatars />} />
+        <Route path="/my-avatars/:id" element={<Group />} />
+
         <Route path="/carousel" element={<Carousel />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 
