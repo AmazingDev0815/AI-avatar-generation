@@ -26,9 +26,9 @@ const Setting = () => {
     <MainLayout>
       <div className="flex flex-1 flex-col mb-10 md:mb-40 md:px-10 lg:px-20 px-3 w-full">
         <div className="rounded-3xl flex md:flex-row flex-col md:items-center justify-center md:justify-start w-full h-60 relative">
-          <img alt="background" src={require('../../assets/img/settingHeader.png')} className="absolute h-60 rounded-3xl w-full -z-10 object-cover" />
-          <img alt="current avatar" src={require('../../assets/img/avatarPlaceholder(1).png')} className="rounded-full md:w-40 md:h-40 ml-6 w-20 h-20"/>
-          <div className="flex flex-col ml-6">
+          <img alt="background" src={require('../../assets/img/settingHeader.png')} className="absolute h-60 rounded-3xl w-full object-cover" />
+          <img alt="current avatar" src={require('../../assets/img/avatarPlaceholder(1).png')} className="rounded-full md:w-40 md:h-40 ml-6 z-10 w-20 h-20"/>
+          <div className="flex flex-col ml-6 z-10">
             <h1 className="text-3xl text-white">Vlatka Orcic</h1>
             <span className="text-white">vlatka.orcic@gmail.com</span>
           </div>

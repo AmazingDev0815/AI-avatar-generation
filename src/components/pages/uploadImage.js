@@ -1,5 +1,5 @@
 import cuid from "cuid";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layout/mainLayout";
 import Dropzone from "../basic/dropZone";
@@ -21,6 +21,14 @@ const UploadImage = () => {
       return file;
     });
   }, []);
+
+  // to limit image number 
+  
+  useEffect(() => {
+    if(images.length > 20) {
+      setImages([...images.slice(0, 20)])
+    }
+  }, [images])
 
   const handleClick = () => {
     navigate("/avatar-detail");
@@ -77,7 +85,7 @@ const UploadImage = () => {
         </ul>
         {images.length > 0 ? (
           <div className="h-[200px]">
-            {images.length >= 20 && (
+            {images.length === 20 && (
               <button
                 className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm"
                 onClick={handleClick}

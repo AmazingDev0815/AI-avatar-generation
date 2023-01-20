@@ -58,7 +58,7 @@ const Home = () => {
           </button>
         </div>
         <div
-          className="lg:w-1/2 w-full -ml-32 scale-[calc(420/1024*0.947)] xs:-ml-40 2xs:-ml-20 xs:scale-[calc(640/1024*0.947)] sm:scale-[calc(768/1024*0.947)] md:ml-20 md:scale-[calc(840/1024*0.947)] xmd:ml-32 xmd:scale-[0.947] lg:ml-0 lg:scale-[calc(1024/1440*0.947)] xl:scale-[calc(0.947)] md:flex relative h-[600px]"
+          className="lg:w-1/2 w-full -ml-32 scale-[calc(420/1024*0.947)] -my-32 xs:my-0 xs:-ml-40 2xs:-ml-20 xs:scale-[calc(640/1024*0.947)] sm:scale-[calc(768/1024*0.947)] md:ml-20 md:scale-[calc(840/1024*0.947)] xmd:ml-32 xmd:scale-[0.947] lg:ml-0 lg:scale-[calc(1024/1440*0.947)] xl:scale-[calc(0.947)] md:flex relative h-[600px]"
           id="avatar-group"
         >
           <div className="absolute w-[127px] h-[176px] top-[0px] left-[178px] overflow-hidden rounded-full bg-center bg-[url('assets/img/15.png')]"></div>

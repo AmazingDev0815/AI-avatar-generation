@@ -131,7 +131,7 @@ const Payment = () => {
         <h1 className="text-gray-900 text-xl font-poppinsSemiBold">
           Pay with card
         </h1>
-        <form onSubmit={payClick}>
+        <form onSubmit={payClick} className="flex justify-center flex-col items-center">
           <div className="mt-8 w-5/6 md:w-full">
             <label
               htmlFor="email"

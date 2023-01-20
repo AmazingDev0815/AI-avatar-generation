@@ -19,6 +19,8 @@
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
     "react-select-country-list": "^2.2.3",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

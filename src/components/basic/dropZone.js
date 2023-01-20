@@ -6,6 +6,7 @@ function Dropzone({ onDrop, accept, open, state }) {
       accept: {
         "image/png": [".png"],
         "image/jpg": [".jpg"],
+        "image/jpeg": [".jpeg"],
       },
       onDrop,
     });
@@ -21,7 +22,7 @@ function Dropzone({ onDrop, accept, open, state }) {
         {...getRootProps({
           className:
             `border md:px-6 md:py-8 rounded-xl flex justify-center items-center
-            ${state === 1 ? "md:w-40 md:h-40 lg:w-[236px] lg:h-[236px] mx-3 my-3 w-32 h-32" : "w-full h-[185px] mt-5 md:mt-0" }`
+            ${state === 1 ? "md:w-52 md:h-52 lg:w-[236px] lg:h-[236px] mx-3 my-3 xs:w-40 xs:h-40 w-52 h-52" : "w-full h-[185px] mt-5 md:mt-0" }`
         })}
       >
         <input className="input-zone" {...getInputProps()} />

@@ -21,6 +21,7 @@ const Header = () => {
   
   const myAvatarClick = () => {
     console.log('myAvatar')
+    navigate("/my-avatars")
     setNavbarOpen(false)
   }
 
@@ -45,9 +46,9 @@ const Header = () => {
               </Link>
               {login && (
                 <div className="md:flex hidden">
-                  <a href="#" className="pr-2">
+                  <Link to="/my-avatars" className="pr-2">
                     My Avatars
-                  </a>
+                  </Link>
                 </div>
               )}
             </div>
@@ -58,7 +59,7 @@ const Header = () => {
             }
             id="mobile menu"
           >
-            <ul className="flex justify-center items-center p-4 border-gray-100 rounded-lg w-full flex-row md:space-x-8 space-x-3 xs:space-x-6 mt-0 text-sm font-medium border-0 bg-white">
+            <ul className="flex justify-center items-center p-4 border-gray-100 rounded-lg w-full flex-row md:space-x-8 space-x-3 xs:space-x-6 mt-0 text-sm font-medium border-0">
               {login ? (
                 <>
                   <li>
@@ -66,14 +67,14 @@ const Header = () => {
                       Create
                     </button>
                   </li>
-                  <li className="md:flex hidden">
+                  {/* <li className="md:flex hidden">
                     <button className="block" >
-                      <BellIcon className="w-[20px] h-[20px] text-gray-700 hover:text-primary-600 " />
+                      <BellIcon className="w-5 h-5 text-gray-700 hover:text-primary-600 " />
                     </button>
-                  </li>
+                  </li> */}
                   <li className="md:flex hidden">
                     <button className="block" onClick={handleSetting}>
-                      <Cog8ToothIcon className="w-[20px] h-[20px] text-gray-700 hover:text-primary-600 " />
+                      <Cog8ToothIcon className="w-5 h-5 text-gray-700 hover:text-primary-600 " />
                     </button>
                   </li>
                   <li>

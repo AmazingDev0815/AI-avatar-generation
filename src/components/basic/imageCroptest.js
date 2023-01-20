@@ -5,18 +5,14 @@ import MainLayout from "../../layout/mainLayout";
 
 const ImageCrop = () => {
   const [crop, setCrop] = useState();
-  const [completedCrop, setCompletedCrop] = useState();
   const [srcImg, setSrcImg] = useState(null);
   const [image, setImage] = useState(null);
   const [result, setResult] = useState(null);
 
-  console.log('crop === ', crop )
   const handleImage = async (event) => {
     setSrcImg(URL.createObjectURL(event.target.files[0]));
     console.log(event.target.files[0]);
   };
-
-  console.log("image => ", image)
 
   const getCroppedImg = async () => {
     try {
@@ -62,10 +58,9 @@ const ImageCrop = () => {
             <ReactCrop
               crop={crop}
               onChange={setCrop}
-              // onComplete={setCompletedCrop}
               className="w-40 h-40"
             >
-              <img src={srcImg} onLoad={e => setImage(e)} alt="origin"/>
+              <img src={srcImg} onLoad={e => setImage(e.currentTarget)} alt="origin"/>
             </ReactCrop>
 
             <button
@@ -74,12 +69,13 @@ const ImageCrop = () => {
             >
               Crop
             </button>
+            
           </div>
         )}
 
         {result && (
           <div>
-            <img src={srcImg} alt="Cropped Image" />
+            <img src={result} alt="Cropped Image" />
           </div>
         )}
       </div>
