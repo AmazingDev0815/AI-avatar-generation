@@ -1,23 +1,19 @@
 import {
   ArrowDownTrayIcon,
   ChevronRightIcon,
-  TrashIcon,
 } from "@heroicons/react/24/outline";
 import { Link, useParams } from "react-router-dom";
 import MainLayout from "../../layout/mainLayout";
+import MyModal from "../basic/modal";
 
 const Group = () => {
   const { id } = useParams();
   // console.log('group =========> ', id)
 
   const onDownload = () => {
-    console.log('dwonload')
-  }
+    console.log("dwonload");
+  };
 
-  const onDelete = () => {
-    console.log('delete')
-  }
-  
   return (
     <MainLayout>
       <div className="flex flex-col flex-1 w-full px-3 md:px-20 mt-16">
@@ -40,7 +36,9 @@ const Group = () => {
           </div>
           <button className="px-4 py-2.5 flex text-white hover:bg-primary-700 bg-primary-600 rounded-lg items-center">
             <ArrowDownTrayIcon className="w-5 h-5 stroke-2 mr-2" />
-            <span className="text-sm font-poppinsSemiBold" onClick={onDownload}>Download All</span>
+            <span className="text-sm font-poppinsSemiBold" onClick={onDownload}>
+              Download All
+            </span>
           </button>
         </div>
         <div className="mt-8" id="style_1">
@@ -49,71 +47,62 @@ const Group = () => {
             className="flex flex-wrap items-center justify-start"
             id="images"
           >
-            <div className="mt-6 pr-6 w-1/5">
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
               <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
@@ -129,71 +118,61 @@ const Group = () => {
             className="flex flex-wrap items-center justify-start"
             id="images"
           >
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 pr-6 w-1/5">
-              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
@@ -202,10 +181,7 @@ const Group = () => {
           </div>
         </div>
         <div className="flex justify-center">
-          <button className="px-4 py-2.5 flex text-gray-700 border hover:bg-gray-200 border-gray-300 rounded-lg items-center my-8">
-            <TrashIcon className="w-5 h-5 stroke-2 mr-2" />
-            <span className="text-sm font-poppinsSemiBold" onClick={onDelete}>Delete Collection</span>
-          </button>
+          <MyModal />
         </div>
       </div>
     </MainLayout>

@@ -21,6 +21,7 @@ const Header = () => {
   
   const myAvatarClick = () => {
     console.log('myAvatar')
+    navigate("/my-avatars")
     setNavbarOpen(false)
   }
 
