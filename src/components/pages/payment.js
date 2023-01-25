@@ -20,7 +20,10 @@ const Payment = () => {
         id="productList"
       >
         <div>
-          <Link to="/" className="text-sm font-poppinsSemiBold flex items-center">
+          <Link
+            to="/"
+            className="text-sm font-poppinsSemiBold flex items-center"
+          >
             <ArrowLeftIcon className="w-4 align-middle mr-2" />
             <div className="bg-primary-600 text-primary-200 h-8 w-8 rounded-full justify-center items-center flex mr-2">
               M
@@ -131,7 +134,10 @@ const Payment = () => {
         <h1 className="text-gray-900 text-xl font-poppinsSemiBold">
           Pay with card
         </h1>
-        <form onSubmit={payClick} className="flex justify-center flex-col items-center">
+        <form
+          onSubmit={payClick}
+          className="flex justify-center flex-col items-center"
+        >
           <div className="mt-8 w-5/6 md:w-full">
             <label
               htmlFor="email"

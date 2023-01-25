@@ -55,12 +55,7 @@ const Imagetag = ({ image, removeImage }) => {
         />
       ) : (
         <div className="xs:w-40 xs:h-40 w-52 h-52 md:w-52 md:h-52 lg:w-[236px] lg:h-[236px] flex justify-center items-center">
-          <ReactCrop
-            crop={crop}
-            onChange={onCropChange}
-            aspect={1}
-            locked
-          >
+          <ReactCrop crop={crop} onChange={onCropChange} aspect={1} locked>
             <img
               alt={`img - ${image.id}`}
               src={image.src}

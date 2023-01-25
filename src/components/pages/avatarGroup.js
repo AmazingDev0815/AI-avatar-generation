@@ -54,55 +54,73 @@ const Group = () => {
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
@@ -118,61 +136,81 @@ const Group = () => {
             className="flex flex-wrap items-center justify-start"
             id="images"
           >
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"
               />
             </div>
-            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">              <img
+            <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {" "}
+              <img
                 alt="demo"
                 src={require("../../assets/img/demo.png")}
                 className="rounded-xl"

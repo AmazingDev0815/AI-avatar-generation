@@ -1,10 +1,15 @@
 import { useState } from "react";
-import { Bars3Icon, BellIcon, Cog8ToothIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Bars3Icon,
+  BellIcon,
+  Cog8ToothIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import { Link, useNavigate } from "react-router-dom";
 // import { Menu } from "@headlessui/react";
 
 const Header = () => {
-  const [navbarOpen, setNavbarOpen] = useState(false)
+  const [navbarOpen, setNavbarOpen] = useState(false);
   const navigate = useNavigate();
   const login = true;
   const LoginHandle = () => {
@@ -13,22 +18,22 @@ const Header = () => {
 
   const createAvatar = () => {
     navigate("/login");
-  }
+  };
 
   const handleSetting = () => {
     navigate("/setting");
-  }
-  
+  };
+
   const myAvatarClick = () => {
-    console.log('myAvatar')
-    navigate("/my-avatars")
-    setNavbarOpen(false)
-  }
+    console.log("myAvatar");
+    navigate("/my-avatars");
+    setNavbarOpen(false);
+  };
 
   const settingClick = () => {
     setNavbarOpen(false);
-    navigate("/setting")
-  }
+    navigate("/setting");
+  };
 
   return (
     <>
@@ -54,16 +59,17 @@ const Header = () => {
             </div>
           </div>
           <div
-            className={
-              "flex items-center justify-between w-auto"
-            }
+            className={"flex items-center justify-between w-auto"}
             id="mobile menu"
           >
             <ul className="flex justify-center items-center p-4 border-gray-100 rounded-lg w-full flex-row md:space-x-8 space-x-3 xs:space-x-6 mt-0 text-sm font-medium border-0">
               {login ? (
                 <>
                   <li>
-                    <button onClick={createAvatar} className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsSemiBold">
+                    <button
+                      onClick={createAvatar}
+                      className="block w-full text-sm bg-primary-600 hover:bg-primary-700 py-2.5 px-7 rounded-lg text-white font-poppinsSemiBold"
+                    >
                       Create
                     </button>
                   </li>
@@ -97,21 +103,42 @@ const Header = () => {
                   </button>
                 </li>
               )}
-              <li>            
+              <li>
                 <button
                   className="cursor-pointer text-xl leading-none py-1 border border-solid border-transparent rounded bg-transparent block md:hidden outline-none focus:outline-none"
                   type="button"
                   onClick={() => setNavbarOpen(!navbarOpen)}
                 >
-                  {navbarOpen ? <XMarkIcon className="text-xl h-6 w-6 stroke-[2.5px]" /> : <Bars3Icon className="text-xl h-6 w-6 stroke-[2.5px]" />}
+                  {navbarOpen ? (
+                    <XMarkIcon className="text-xl h-6 w-6 stroke-[2.5px]" />
+                  ) : (
+                    <Bars3Icon className="text-xl h-6 w-6 stroke-[2.5px]" />
+                  )}
                 </button>
               </li>
             </ul>
           </div>
         </div>
-        <div className={"flex-col justify-center px-4 font-poppinsSemiBold " + (navbarOpen ? "flex" : "hidden")} id="menu">
-          <div className="py-9 border-b cursor-pointer hover:text-primary-600" onClick={myAvatarClick}>My Avatars</div>
-          <div className="py-9 flex items-center cursor-pointer hover:text-primary-600" onClick={settingClick}><Cog8ToothIcon className="w-5 h-5 stroke-2 mr-2" />Settings</div>
+        <div
+          className={
+            "flex-col justify-center px-4 font-poppinsSemiBold " +
+            (navbarOpen ? "flex" : "hidden")
+          }
+          id="menu"
+        >
+          <div
+            className="py-9 border-b cursor-pointer hover:text-primary-600"
+            onClick={myAvatarClick}
+          >
+            My Avatars
+          </div>
+          <div
+            className="py-9 flex items-center cursor-pointer hover:text-primary-600"
+            onClick={settingClick}
+          >
+            <Cog8ToothIcon className="w-5 h-5 stroke-2 mr-2" />
+            Settings
+          </div>
         </div>
       </nav>
     </>

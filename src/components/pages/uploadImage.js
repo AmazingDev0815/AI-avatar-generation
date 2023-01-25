@@ -22,13 +22,13 @@ const UploadImage = () => {
     });
   }, []);
 
-  // to limit image number 
-  
+  // to limit image number
+
   useEffect(() => {
-    if(images.length > 20) {
-      setImages([...images.slice(0, 20)])
+    if (images.length > 20) {
+      setImages([...images.slice(0, 20)]);
     }
-  }, [images])
+  }, [images]);
 
   const handleClick = () => {
     navigate("/avatar-detail");
@@ -42,8 +42,13 @@ const UploadImage = () => {
 
   return (
     <MainLayout>
-      <div className="flex flex-col flex-1 justify-center items-center px-10" id="upload">
-        <h1 className="font-poppinsSemiBold text-3xl mt-16">Upload Your Images</h1>
+      <div
+        className="flex flex-col flex-1 justify-center items-center px-10"
+        id="upload"
+      >
+        <h1 className="font-poppinsSemiBold text-3xl mt-16">
+          Upload Your Images
+        </h1>
         <p className="mt-1 text-gray-600">
           Upload 20 photos close up profile pictures of you or your loved one
           and we will generate a new set of avatars.
@@ -66,20 +71,26 @@ const UploadImage = () => {
         >
           <ImageGrid images={images} remove={remove} />
           {images.length < 20 ? (
-            <Dropzone onDrop={onDrop} accept={"image/*"} state={1}/>
+            <Dropzone onDrop={onDrop} accept={"image/*"} state={1} />
           ) : null}
         </div>
         <ul className="flex flex-col text-center mt-6 " id="description">
           <span>
-            <span className="text-primary-600 font-poppinsSemiBold mr-2">●</span>
+            <span className="text-primary-600 font-poppinsSemiBold mr-2">
+              ●
+            </span>
             Make sure only one person is in the frame
           </span>
           <span>
-            <span className="text-primary-600 font-poppinsSemiBold mr-2">●</span>Use
-            only close-up face images
+            <span className="text-primary-600 font-poppinsSemiBold mr-2">
+              ●
+            </span>
+            Use only close-up face images
           </span>
           <span>
-            <span className="text-primary-600 font-poppinsSemiBold mr-2">●</span>
+            <span className="text-primary-600 font-poppinsSemiBold mr-2">
+              ●
+            </span>
             Avoid pics with sunglasses
           </span>
         </ul>

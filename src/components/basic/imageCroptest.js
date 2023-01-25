@@ -55,12 +55,12 @@ const ImageCrop = () => {
         </div>
         {srcImg && (
           <div>
-            <ReactCrop
-              crop={crop}
-              onChange={setCrop}
-              className="w-40 h-40"
-            >
-              <img src={srcImg} onLoad={e => setImage(e.currentTarget)} alt="origin"/>
+            <ReactCrop crop={crop} onChange={setCrop} className="w-40 h-40">
+              <img
+                src={srcImg}
+                onLoad={(e) => setImage(e.currentTarget)}
+                alt="origin"
+              />
             </ReactCrop>
 
             <button
@@ -69,7 +69,6 @@ const ImageCrop = () => {
             >
               Crop
             </button>
-            
           </div>
         )}
 
