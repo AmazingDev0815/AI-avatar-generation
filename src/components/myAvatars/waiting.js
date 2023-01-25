@@ -1,8 +1,10 @@
+import { LocalImg } from "../basic/imgProvider";
+
 const Waiting = () => {
   return (
     <div className="flex flex-1 flex-col justify-center items-center mb-40 p-5">
       <img
-        src={require("../../assets/img/party.gif")}
+        src={LocalImg.party}
         alt="Don't have any avatars"
         className="w-32 h-32"
       />
