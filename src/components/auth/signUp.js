@@ -115,9 +115,9 @@ const SignUp = () => {
               placeholder="Create a password"
               onChange={(e) => setPassword(e.target.value)}
             />
-            {error.email && (
+            {error.password && (
               <div className="font-poppinsMedium mb-2 text-red-500">
-                {error.email}
+                {error.password}
               </div>
             )}
             <span className="text-sm">Must be at least 8 characters.</span>

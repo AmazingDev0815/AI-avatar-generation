@@ -7,23 +7,28 @@ export default function MyModal() {
 
   const closeModal = () => {
     setIsOpen(false);
-  }
+  };
 
   const openModal = () => {
     setIsOpen(true);
-  }
+  };
 
   const onDelete = () => {
-    console.log('delete');
+    console.log("delete");
     closeModal();
-  }
+  };
 
   return (
     <>
       <div className="flex items-center justify-center">
-        <button className="px-4 py-2.5 flex text-gray-700 border hover:bg-gray-200 border-gray-300 rounded-lg items-center my-8" onClick={openModal}>
+        <button
+          className="px-4 py-2.5 flex text-gray-700 border hover:bg-gray-200 border-gray-300 rounded-lg items-center my-8"
+          onClick={openModal}
+        >
           <TrashIcon className="w-5 h-5 stroke-2 mr-2" />
-          <span className="text-sm font-poppinsSemiBold">Delete Collection</span>
+          <span className="text-sm font-poppinsSemiBold">
+            Delete Collection
+          </span>
         </button>
       </div>
 
@@ -66,11 +71,26 @@ export default function MyModal() {
                       </div>
                     </div>
                   </Dialog.Title>
-                  <div className="mt-4 font-poppinsSemiBold text-lg text-gray-900 text-center">Delete collection</div>
-                  <div className="mt-1 text-sm text-gray-600 text-center">Are you sure you want to delete this collection? This action cannot be undone.</div>
+                  <div className="mt-4 font-poppinsSemiBold text-lg text-gray-900 text-center">
+                    Delete collection
+                  </div>
+                  <div className="mt-1 text-sm text-gray-600 text-center">
+                    Are you sure you want to delete this collection? This action
+                    cannot be undone.
+                  </div>
                   <div className="mt-8 flex justify-center">
-                    <button className="w-1/2 mr-3 border rounded-lg py-2.5 hover:bg-gray-200 text-gray-700 font-poppinsSemiBold" onClick={closeModal}>Cancel</button>
-                    <button className="w-1/2 border rounded-lg py-2.5 bg-red-600 hover:bg-red-700 text-white font-poppinsSemiBold"onClick={onDelete}>Delete</button>
+                    <button
+                      className="w-1/2 mr-3 border rounded-lg py-2.5 hover:bg-gray-200 text-gray-700 font-poppinsSemiBold"
+                      onClick={closeModal}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      className="w-1/2 border rounded-lg py-2.5 bg-red-600 hover:bg-red-700 text-white font-poppinsSemiBold"
+                      onClick={onDelete}
+                    >
+                      Delete
+                    </button>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

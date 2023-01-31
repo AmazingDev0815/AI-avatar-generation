@@ -17,12 +17,15 @@ function Dropzone({ onDrop, accept, open, state }) {
   //   </li>
   // ));
   return (
-    <div className={(state === 1 ? "" : "w-full")}>
+    <div className={state === 1 ? "" : "w-full"}>
       <div
         {...getRootProps({
-          className:
-            `border md:px-6 md:py-8 rounded-xl flex justify-center items-center
-            ${state === 1 ? "md:w-52 md:h-52 lg:w-[236px] lg:h-[236px] mx-3 my-3 xs:w-40 xs:h-40 w-52 h-52" : "w-full h-[185px] mt-5 md:mt-0" }`
+          className: `border md:px-6 md:py-8 rounded-xl flex justify-center items-center
+            ${
+              state === 1
+                ? "md:w-52 md:h-52 lg:w-[236px] lg:h-[236px] mx-3 my-3 xs:w-40 xs:h-40 w-52 h-52"
+                : "w-full h-[185px] mt-5 md:mt-0"
+            }`,
         })}
       >
         <input className="input-zone" {...getInputProps()} />
