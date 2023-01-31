@@ -1,3 +1,5 @@
+import { LocalImg } from "./imgProvider";
+
 const Avatar = ({ image, size, state, username }) => {
   return (
     <div id="avatar" className="mr-6 flex md:justify-center items-center">
@@ -18,7 +20,7 @@ const Avatar = ({ image, size, state, username }) => {
           <img
             width={size}
             height={size}
-            src={require("../../assets/img/avatarPlaceholder.png")}
+            src={LocalImg.avatarPlaceholder}
             className="absolute"
             style={{ maxWidth: size }}
           />

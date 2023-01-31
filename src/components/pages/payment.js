@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Select from "react-select";
 import countryList from "react-select-country-list";
+import { LocalImg } from "../basic/imgProvider";
 
 const Payment = () => {
   const [email, setEmail] = useState("");
@@ -42,12 +43,12 @@ const Payment = () => {
                 <img
                   alt="avatarModel"
                   className="w-6 h-12"
-                  src={require("../../assets/img/price1.png")}
+                  src={LocalImg.price1}
                 />
                 <img
                   alt="avatarModel"
                   className="w-6 h-12"
-                  src={require("../../assets/img/price2.png")}
+                  src={LocalImg.price2}
                 />
               </div>
               <div className="pl-3.5 flex flex-col flex-1">

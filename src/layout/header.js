@@ -6,6 +6,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { Link, useNavigate } from "react-router-dom";
+import { LocalImg } from "../components/basic/imgProvider";
 // import { Menu } from "@headlessui/react";
 
 const Header = () => {
@@ -87,7 +88,7 @@ const Header = () => {
                     <button className="block h-10 w-10">
                       <img
                         alt="avatar"
-                        src={require("../assets/img/3.png")}
+                        src={LocalImg[3]}
                         className="rounded-full"
                       />
                     </button>

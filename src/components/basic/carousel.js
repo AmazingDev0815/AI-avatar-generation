@@ -1,6 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { LocalImg } from "./imgProvider";
 
 const Carousel = () => {
   const settings = {
@@ -42,38 +43,32 @@ const Carousel = () => {
       <h2> Responsive </h2>
       <Slider {...settings}>
         <div>
-          <img
-            src={require("../../assets/img/demo(1).png")}
-            alt="Credit to Joshua Earle on Unsplash"
-          />
+          <img src={LocalImg.demo_1} alt="Credit to Joshua Earle on Unsplash" />
+        </div>
+        <div>
+          <img src={LocalImg.demo_2} alt="Credit to Alisa Anton on Unsplash" />
         </div>
         <div>
           <img
-            src={require("../../assets/img/demo(2).png")}
-            alt="Credit to Alisa Anton on Unsplash"
-          />
-        </div>
-        <div>
-          <img
-            src={require("../../assets/img/demo(3).png")}
+            src={LocalImg.demo_3}
             alt="Credit to Igor Ovsyannykov on Unsplash"
           />
         </div>
         <div>
           <img
-            src={require("../../assets/img/demo(4).png")}
+            src={LocalImg.demo_4}
             alt="Credit to Pierre Châtel-Innocenti on Unsplash"
           />
         </div>
         <div>
           <img
-            src={require("../../assets/img/demo(5).png")}
+            src={LocalImg.demo_5}
             alt="Credit to Richard Nolan on Unsplash"
           />
         </div>
         <div>
           <img
-            src={require("../../assets/img/demo(6).png")}
+            src={LocalImg.demo_6}
             alt="Credit to Cristina Gottardi on Unsplash"
           />
         </div>

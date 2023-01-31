@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layout/mainLayout";
 import Dropzone from "../basic/dropZone";
 import ImageGrid from "../basic/imageGrid";
+import { LocalImg } from "../basic/imgProvider";
 
 const UploadImage = () => {
   const [images, setImages] = useState([]);
@@ -110,22 +111,13 @@ const UploadImage = () => {
             <span className="font-poppinsSemiBold text-3xl">Examples: </span>
             <div className="mt-6 flex" id="upload_example_group">
               <div className="mr-6 ">
-                <img
-                  alt="example"
-                  src={require("../../assets/img/upload(1).png")}
-                />
+                <img alt="example" src={LocalImg.upload_1} />
               </div>
               <div className="mr-6 ">
-                <img
-                  alt="example"
-                  src={require("../../assets/img/upload(2).png")}
-                />
+                <img alt="example" src={LocalImg.upload_2} />
               </div>
               <div className="mr-6 ">
-                <img
-                  alt="example"
-                  src={require("../../assets/img/upload(3).png")}
-                />
+                <img alt="example" src={LocalImg.upload_3} />
               </div>
             </div>
           </div>

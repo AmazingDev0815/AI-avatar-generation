@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layout/mainLayout";
+import { LocalImg } from "../basic/imgProvider";
 
 const Success = () => {
   const navigate = useNavigate();
@@ -9,11 +10,7 @@ const Success = () => {
   return (
     <MainLayout>
       <div className="flex flex-1 flex-col justify-center items-center mb-40 p-5">
-        <img
-          src={require("../../assets/img/success.gif")}
-          alt="success"
-          className="w-32 h-32"
-        />
+        <img src={LocalImg.success} alt="success" className="w-32 h-32" />
         <h1 className="font-poppinsBold text-4xl md:text-5xl text-gray-900 mt-3 text-center">
           Just a little more...{" "}
         </h1>

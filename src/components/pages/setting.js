@@ -3,6 +3,7 @@ import MainLayout from "../../layout/mainLayout";
 import Dropzone from "../basic/dropZone";
 import Avatar from "../basic/avatar";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
+import { LocalImg } from "../basic/imgProvider";
 
 const Setting = () => {
   const [notification, setNotification] = useState(false);
@@ -28,12 +29,12 @@ const Setting = () => {
         <div className="rounded-3xl flex md:flex-row flex-col md:items-center justify-center md:justify-start w-full h-60 relative">
           <img
             alt="background"
-            src={require("../../assets/img/settingHeader.png")}
+            src={LocalImg.settingHeader}
             className="absolute h-60 rounded-3xl w-full object-cover"
           />
           <img
             alt="current avatar"
-            src={require("../../assets/img/avatarPlaceholder(1).png")}
+            src={LocalImg.avatarPlaceholder_1}
             className="rounded-full md:w-40 md:h-40 ml-6 z-10 w-20 h-20"
           />
           <div className="flex flex-col ml-6 z-10">
