@@ -1,23 +1,42 @@
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
+import { handleSignIn } from "../../redux/authentication";
 
 const Login = () => {
+  // ** States
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({});
+  
+  // ** Store Vars
+  const dispatch = useDispatch()
+  const store = useSelector(state => state.auth);
 
   const navigate = useNavigate();
-  const handleLogin = (e) => {
+  
+  const onSubmit = (e) => {
     e.preventDefault();
     handleValidate();
   };
 
   useEffect(() => {
     if (error.email === "" && error.password === "") {
+      console.log('data => ', email, password)
+      const data = {
+        username: 'test',
+        password: '123123'
+      }
+      dispatch(handleSignIn(data));
+    }
+  }, [error, dispatch])
+
+  useEffect(() => {
+    if(Object.keys(store.userData).length) {
       navigate("/");
     }
-  }, [error, navigate]);
+  }, [store])
 
   const handleValidate = () => {
     let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
@@ -44,7 +63,7 @@ const Login = () => {
     <div className="h-screen md:flex font-poppinslight">
       <LeftSide />
       <div className="flex md:w-1/2 h-full justify-center py-10 items-center bg-white">
-        <form className="bg-white w-2/3 lg:w-1/2" onSubmit={handleLogin}>
+        <form className="bg-white w-2/3 lg:w-1/2" onSubmit={onSubmit}>
           <h1 className="text-gray-800 font-poppinsSemiBold text-3xl mb-3">
             Log in
           </h1>

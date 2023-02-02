@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
@@ -16,7 +17,7 @@ const SignUp = () => {
 
   useEffect(() => {
     if (error.email === "" && error.password === "" && error.username === "") {
-      navigate("/");
+      navigate("/login");
     }
   }, [error, navigate]);
 
