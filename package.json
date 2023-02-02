@@ -5,6 +5,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
+    "@reduxjs/toolkit": "^1.9.2",
     "@stripe/react-stripe-js": "^1.16.1",
     "@stripe/stripe-js": "^1.46.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -16,6 +17,7 @@
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
     "react-image-crop": "^10.0.9",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.7.0",
