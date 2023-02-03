@@ -44,7 +44,10 @@ export const handleSignIn = createAsyncThunk(
         }
         return response.data;
       })
-      .catch((err) => console.log("loginError => ", err));
+      .catch((err) => {
+        console.log("loginError => ", err);
+        return {};
+      });
     return login;
   }
 );
@@ -58,7 +61,7 @@ export const authSlice = createSlice({
   name: "authentication",
   initialState: {
     userData: initialUser(),
-    response: {}
+    response: {},
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -71,7 +74,7 @@ export const authSlice = createSlice({
       })
       .addCase(handleSignOut.fulfilled, (state, action) => {
         state.userData = initialUser();
-      })
+      });
   },
 });
 
