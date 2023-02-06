@@ -1,24 +1,24 @@
-// Create private route to redirect login if not authenticated
-import { Route, Redirect } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import { MoonLoader } from "react-spinners";
 
-function PrivateRoute({ children, isAuthenticated, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={({ location }) =>
-        isAuthenticated ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: { from: location },
-            }}
-          />
-        )
-      }
-    />
-  );
-}
+export const PrivateRoute = ({ children }) => {
+  const dispatch = useDispatch();
+  const { isLoading, isAuthenticate } = useSelector((state) => state.auth);
+  console.log("isAuthenticate", isAuthenticate, isLoading);
 
-export default PrivateRoute;
+  if (isLoading)
+    return (
+      <div className="flex flex-1 justify-center items-center h-screen">
+        <MoonLoader
+          size={150}
+          color="#36d7b7"
+          loading={true}
+          cssOverride={{}}
+          speedMultiplier={1}
+        />
+      </div>
+    );
+
+  return isAuthenticate ? children : <Navigate to="/login" replace />;
+};
