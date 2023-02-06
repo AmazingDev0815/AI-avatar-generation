@@ -10,17 +10,20 @@ export const getUser = createAsyncThunk("authentication/getUser", async () => {
   const upn = window.localStorage.getItem("upn")
     ? JSON.parse(window.localStorage.getItem("upn"))
     : {};
-  const userData = (Object.keys(authData).length && Object.keys(upn)) ? await axios
-    .get(baseUrl + upn, {
-      headers: { Authorization: `Bearer ${authData.accessToken}` },
-    })
-    .then((res) => {
-      return { userData: res.data, isAuthenticate: true };
-    })
-    .catch((err) => {
-      console.log("getUserError => ", err);
-      return { userData: {}, isAuthenticate: false };
-    }) : {userData: {}, isAuthenticate: false};
+  const userData =
+    Object.keys(authData).length && Object.keys(upn)
+      ? await axios
+          .get(baseUrl + upn, {
+            headers: { Authorization: `Bearer ${authData.accessToken}` },
+          })
+          .then((res) => {
+            return { userData: res.data, isAuthenticate: true };
+          })
+          .catch((err) => {
+            console.log("getUserError => ", err);
+            return { userData: {}, isAuthenticate: false };
+          })
+      : { userData: {}, isAuthenticate: false };
   return userData;
 });
 
@@ -58,15 +61,15 @@ export const handleSignIn = createAsyncThunk(
       })
       .then((response) => {
         console.log("loginResponse ===> ", response.data);
-        if (response.data.accessToken && response.data?.status === "Success") {
+        if (response.data.accessToken) {
           localStorage.setItem("userData", JSON.stringify(response.data));
           localStorage.setItem("upn", JSON.stringify(data.username));
         }
-        return response.data;
+        return { response: response.data, error: {} };
       })
       .catch((err) => {
         console.log("loginError => ", err.response.data);
-        return {};
+        return { response: {}, error: err.response.data };
       });
     dispatch(getUser());
     return login;
@@ -98,17 +101,62 @@ export const deleteAccount = createAsyncThunk(
   }
 );
 
-export const requestResetPassword = createAsyncThunk("authentication/requestResetPassword", async(email) => {
-  await axios
-    .post(baseUrl + "users/request-reset-password", {email: email, prefixUri: "http://localhost:3000/reset-password"})
-    .then((response) => {
-      console.log("response => ", response);
-    })
-    .catch((err) => {
-      console.log("err => ", err);
-    })
-})
+export const requestResetPassword = createAsyncThunk(
+  "authentication/requestResetPassword",
+  async (email) => {
+    const request = await axios
+      .post(baseUrl + "users/request-reset-password", {
+        email: email,
+        prefixUri: "http://localhost:3000/reset-password/",
+      })
+      .then((response) => {
+        return { isLoading: false, error: {}, response: { success: true } };
+      })
+      .catch((err) => {
+        console.log("err => ", err);
+        return {
+          isLoading: false,
+          error: err.response.data,
+          response: { success: false },
+        };
+      });
+    return request;
+  }
+);
 
+export const clearState = createAsyncThunk(
+  "authentication/clearState",
+  async () => {
+    return {
+      userData: {},
+      response: {},
+      isAuthenticate: false,
+      isLoading: true,
+      error: {},
+      success: false,
+    };
+  }
+);
+
+export const resetPassword = createAsyncThunk(
+  "authentication/resetPassword",
+  async (data) => {
+    const reset = await axios
+      .post(baseUrl + "users/reset-password", {
+        token: data.token,
+        newPassword: data.password,
+        confirmNewPassword: data.confirm,
+      })
+      .then((res) => {
+        return { isLoading: false, error: {}, success: true };
+      })
+      .catch((err) => {
+        console.log("err => ", err);
+        return { isLoading: false, error: err.response.data, success: false };
+      });
+    return reset;
+  }
+);
 
 export const authSlice = createSlice({
   name: "authentication",
@@ -118,18 +166,17 @@ export const authSlice = createSlice({
     isAuthenticate: false,
     isLoading: true,
     error: {},
+    success: false,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(handleSignUp.fulfilled, (state, action) => {
-        // state.response = action.payload;
+        state.response = action.payload;
       })
       .addCase(handleSignIn.fulfilled, (state, action) => {
-        // state.response = action.payload;
-      })
-      .addCase(handleSignOut.fulfilled, (state, action) => {
-        // state.response = initialUser();
+        state.response = action.payload.response;
+        state.error = action.payload.error;
       })
       .addCase(getUser.fulfilled, (state, action) => {
         state.userData = action.payload.userData;
@@ -138,6 +185,29 @@ export const authSlice = createSlice({
       })
       .addCase(getUser.pending, (state) => {
         state.isLoading = true;
+      })
+      .addCase(requestResetPassword.fulfilled, (state, action) => {
+        state.isLoading = action.payload.isLoading;
+        state.error = action.payload.error;
+        state.response = action.payload.response;
+      })
+      .addCase(requestResetPassword.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(resetPassword.fulfilled, (state, action) => {
+        state.isLoading = action.payload.isLoading;
+        state.error = action.payload.error;
+        state.success = action.payload.success;
+      })
+      .addCase(resetPassword.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(clearState.fulfilled, (state, action) => {
+        state.isAuthenticate = action.payload.isAuthenticate;
+        state.userData = action.payload.userData;
+        state.response = action.payload.response;
+        state.error = action.payload.error;
+        state.success = action.payload.success;
       });
   },
 });

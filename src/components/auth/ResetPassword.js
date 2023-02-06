@@ -1,12 +1,19 @@
 import { ArrowLeftIcon, KeyIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
+import { resetPassword } from "../../redux/user/user";
 
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState({});
+
+  const {token} = useParams();
+
+  const dispatch = useDispatch();
+  const store = useSelector(state => state.auth);
 
   const navigate = useNavigate();
   const handleReset = (e) => {
@@ -16,8 +23,16 @@ const ResetPassword = () => {
 
   useEffect(() => {
     if (error.confirm === "" && error.password === "") {
-      navigate("/confirm-reset");
+      const data = {
+        token: token,
+        password: password,
+        confirm: confirm
+      }
+      dispatch(resetPassword(data));
     }
+    if(store.success) {
+      navigate('/confirm-reset')
+    }  
   }, [error, navigate]);
 
   const handleValidate = () => {
@@ -104,6 +119,11 @@ const ResetPassword = () => {
               </div>
             )}
           </div>
+          {error.resetPasswordError && (
+              <div className="font-poppinsMedium text-red-500">
+                {error.resetPasswordError}
+              </div>
+            )}
           <button
             type="submit"
             className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-2"

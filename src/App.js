@@ -37,7 +37,7 @@ function App() {
           <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />
           <Route path="/forgot-password" element={<PublicRoute><ForgotPassword /></PublicRoute>} />
           <Route path="/check-email" element={<PublicRoute><CheckEmail /></PublicRoute>} />
-          <Route path="/reset-password" element={<PublicRoute><ResetPassword /></PublicRoute>} />
+          <Route path="/reset-password/:token" element={<PublicRoute><ResetPassword /></PublicRoute>} />
           <Route path="/confirm-reset" element={<PublicRoute><ConfirmReset /></PublicRoute>} />
           <Route path="/payment" element={<PrivateRoute><Payment /></PrivateRoute>} />
           <Route path="/upload" element={<PrivateRoute><UploadImage /></PrivateRoute>} />
