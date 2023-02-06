@@ -36,8 +36,8 @@ const Login = () => {
     if(Object.keys(store.userData).length && (store.userData?.status === "Success")) {
       setError({})
       navigate("/");
-    } else if (store.userData?.status === "Failed") {
-      setError({errors: "Please check email and password"})
+    } else if (Object.keys(store.error).length) {
+      setError({loginError: "Email or Password was incorrect"});
     }
   }, [store])
 
@@ -127,9 +127,9 @@ const Login = () => {
           >
             Forgot Password ?
           </Link>
-          {error.errors && (
+          {error.loginError && (
               <div className="font-poppinsMedium mt-2 text-red-500">
-                {error.errors}
+                {error.loginError}
               </div>
             )}
           <button

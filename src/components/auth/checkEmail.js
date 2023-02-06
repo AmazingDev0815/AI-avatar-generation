@@ -1,14 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
 import { ArrowLeftIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
+import { useEffect } from "react";
+import { clearState } from "../../redux/user/user";
+import { useDispatch } from "react-redux";
 
 const CheckEmail = () => {
-  const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/reset-password");
   };
+
+  useEffect(() => {
+    dispatch(clearState());
+  }, [])
 
   return (
     <div className="h-screen md:flex font-poppinslight">
