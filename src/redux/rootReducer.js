@@ -1,8 +1,8 @@
 // ** Reducers Imports
-import auth from './authentication'
+import auth from './user/user'
 
 const rootReducer = {
-  auth,
+  auth: auth,
 }
 
 export default rootReducer;

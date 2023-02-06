@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
 
-export const PrivateRoute = ({ children }) => {
+export const PublicRoute = ({ children }) => {
   const { isLoading, isAuthenticate } = useSelector((state) => state.auth);
 
   if (isLoading)
@@ -18,5 +18,5 @@ export const PrivateRoute = ({ children }) => {
       </div>
     );
 
-  return isAuthenticate ? children : <Navigate to="/login" replace />;
+  return !isAuthenticate ? children : <Navigate to="/" replace />;
 };

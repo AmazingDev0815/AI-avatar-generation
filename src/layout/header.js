@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { LocalImg } from "../components/basic/imgProvider";
 import { useDispatch, useSelector } from "react-redux";
 import { Menu, Transition } from "@headlessui/react";
-import { handleSignOut } from "../redux/authentication";
+import { handleSignOut } from "../redux/user/user";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

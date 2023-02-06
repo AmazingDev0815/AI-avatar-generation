@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
-import { handleSignIn } from "../../redux/authentication";
+import { handleSignIn } from "../../redux/user/user";
 
 const Login = () => {
   // ** States
@@ -25,16 +25,19 @@ const Login = () => {
     if (error.email === "" && error.password === "") {
       console.log('data => ', email, password)
       const data = {
-        username: 'test',
-        password: '123123'
+        username: email,
+        password: password
       }
       dispatch(handleSignIn(data));
     }
   }, [error, dispatch])
 
   useEffect(() => {
-    if(Object.keys(store.userData).length) {
+    if(Object.keys(store.userData).length && (store.userData?.status === "Success")) {
+      setError({})
       navigate("/");
+    } else if (store.userData?.status === "Failed") {
+      setError({errors: "Please check email and password"})
     }
   }, [store])
 
@@ -124,6 +127,11 @@ const Login = () => {
           >
             Forgot Password ?
           </Link>
+          {error.errors && (
+              <div className="font-poppinsMedium mt-2 text-red-500">
+                {error.errors}
+              </div>
+            )}
           <button
             type="submit"
             className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-2"

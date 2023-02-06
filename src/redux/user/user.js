@@ -3,11 +3,21 @@ import axios from "axios";
 
 const baseUrl = "https://avatar-service-test-hwj6miv7nq-uc.a.run.app/";
 
-const initialUser = () => {
+export const getUser = createAsyncThunk("authentication/getUser", async () => {
   const item = window.localStorage.getItem("userData");
-  //** Parse stored json or if none return initialValue
-  return item ? JSON.parse(item) : {};
-};
+  const authData = item ? JSON.parse(item) : {};
+  const upn = window.localStorage.getItem("upn") ? JSON.parse(window.localStorage.getItem("upn")) : {};
+  const userData = await axios
+    .get(baseUrl + upn, { headers: {"Authorization": `Bearer ${authData.accessToken}`}})
+    .then(res => {
+      return {userData:res.data, isAuthenticate: true}
+    })
+    .catch(err => {
+      console.log("getUserError => ", err);
+      return {userData: {}, isAuthenticate:false}
+    }) 
+  return userData;
+})
 
 export const handleSignUp = createAsyncThunk(
   "authentication/handleSignUp",
@@ -35,7 +45,7 @@ export const handleSignUp = createAsyncThunk(
 
 export const handleSignIn = createAsyncThunk(
   "authentication/handleSignIn",
-  async (data) => {
+  async (data, {dispatch}) => {
     const login = await axios
       .post(baseUrl + "authentication/token", {
         upn: data.username,
@@ -45,6 +55,7 @@ export const handleSignIn = createAsyncThunk(
         console.log("loginResponse ===> ", response.data);
         if (response.data.accessToken && response.data?.status === "Success") {
           localStorage.setItem("userData", JSON.stringify(response.data));
+          localStorage.setItem("upn", JSON.stringify(data.username));
         }
         return response.data;
       })
@@ -52,13 +63,17 @@ export const handleSignIn = createAsyncThunk(
         console.log("loginError => ", err.response.data);
         return {};
       });
+      dispatch(getUser());
     return login;
   }
 );
 
 export const handleSignOut = createAsyncThunk(
   "authentication/handleSignOut",
-  async () => localStorage.removeItem("userData")
+  async (data,{dispatch}) => {localStorage.removeItem("userData");
+  localStorage.removeItem('upn');
+  dispatch(getUser());
+}
 );
 
 export const deleteAccount = createAsyncThunk(
@@ -83,8 +98,10 @@ export const deleteAccount = createAsyncThunk(
 export const authSlice = createSlice({
   name: "authentication",
   initialState: {
-    userData: initialUser(),
+    userData: {},
     response: {},
+    isAuthenticate: false,
+    isLoading: true
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -93,11 +110,19 @@ export const authSlice = createSlice({
         state.response = action.payload;
       })
       .addCase(handleSignIn.fulfilled, (state, action) => {
-        state.userData = action.payload;
+        state.response = action.payload;
       })
       .addCase(handleSignOut.fulfilled, (state, action) => {
-        state.userData = initialUser();
-      });
+        // state.response = initialUser();
+      })
+      .addCase(getUser.fulfilled, (state, action) => {
+        state.userData = action.payload.userData;
+        state.isAuthenticate = action.payload.isAuthenticate;
+        state.isLoading = false;
+      })
+      .addCase(getUser.pending, (state) => {
+        state.isLoading = true;
+      })
   },
 });
 

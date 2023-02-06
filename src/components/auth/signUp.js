@@ -1,7 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
+import { handleSignUp } from "../../redux/user/user";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -9,17 +10,35 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState({});
 
+  const dispatch = useDispatch();
+  const store = useSelector(state => state.auth);
+
   const navigate = useNavigate();
-  const handleSignUp = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     handleValidate();
   };
 
   useEffect(() => {
     if (error.email === "" && error.password === "" && error.username === "") {
+      const data = {
+        email: email,
+        password: password,
+        confirmPassword: password,
+        username: username,
+        upn: email
+      }
+      dispatch(handleSignUp(data))
+    }
+  }, [error]);
+
+  useEffect(() => {
+    if(store.response?.success === false) {
+      setError({errors: store.response.errors[0].errorMessage})
+    } else if(store.response?.upn) {
       navigate("/login");
     }
-  }, [error, navigate]);
+  }, [store])
 
   const handleValidate = () => {
     let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
@@ -43,7 +62,7 @@ const SignUp = () => {
     <div className="h-screen md:flex font-poppinslight">
       <LeftSide />
       <div className="flex md:w-1/2 h-full justify-center py-10 items-center bg-white">
-        <form className="bg-white w-2/3 lg:w-1/2" onSubmit={handleSignUp}>
+        <form className="bg-white w-2/3 lg:w-1/2" onSubmit={onSubmit}>
           <h1 className="text-gray-800 font-poppinsSemiBold text-3xl mb-3">
             Create an account
           </h1>
@@ -123,7 +142,18 @@ const SignUp = () => {
             )}
             <span className="text-sm">Must be at least 8 characters.</span>
           </div>
+          {error.errors && (
+              <div className="font-poppinsMedium mb-2 text-red-500">
+                {error.errors}
+              </div>
+            )}
           <button
+            type="submit"
+            className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-2"
+          >
+            Sign up
+          </button>
+          {/* <button
             type="submit"
             className="block w-full mt-4 py-2 rounded-lg font-poppinsSemiBold mb-8 border border-gray-300"
           >
@@ -153,7 +183,7 @@ const SignUp = () => {
               </svg>
             </span>
             <span className="text-base">Sign up with Google</span>
-          </button>
+          </button> */}
           <div className="text-center">
             <span className="text-sm font-poppinsRegular justify-center">
               Already have an account ?{" "}
