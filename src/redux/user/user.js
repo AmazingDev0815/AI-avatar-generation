@@ -1,23 +1,28 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import authHeader from "../authHeader";
 
 const baseUrl = "https://avatar-service-test-hwj6miv7nq-uc.a.run.app/";
 
 export const getUser = createAsyncThunk("authentication/getUser", async () => {
   const item = window.localStorage.getItem("userData");
   const authData = item ? JSON.parse(item) : {};
-  const upn = window.localStorage.getItem("upn") ? JSON.parse(window.localStorage.getItem("upn")) : {};
-  const userData = await axios
-    .get(baseUrl + upn, { headers: {"Authorization": `Bearer ${authData.accessToken}`}})
-    .then(res => {
-      return {userData:res.data, isAuthenticate: true}
+  const upn = window.localStorage.getItem("upn")
+    ? JSON.parse(window.localStorage.getItem("upn"))
+    : {};
+  const userData = (Object.keys(authData).length && Object.keys(upn)) ? await axios
+    .get(baseUrl + upn, {
+      headers: { Authorization: `Bearer ${authData.accessToken}` },
     })
-    .catch(err => {
+    .then((res) => {
+      return { userData: res.data, isAuthenticate: true };
+    })
+    .catch((err) => {
       console.log("getUserError => ", err);
-      return {userData: {}, isAuthenticate:false}
-    }) 
+      return { userData: {}, isAuthenticate: false };
+    }) : {userData: {}, isAuthenticate: false};
   return userData;
-})
+});
 
 export const handleSignUp = createAsyncThunk(
   "authentication/handleSignUp",
@@ -45,7 +50,7 @@ export const handleSignUp = createAsyncThunk(
 
 export const handleSignIn = createAsyncThunk(
   "authentication/handleSignIn",
-  async (data, {dispatch}) => {
+  async (data, { dispatch }) => {
     const login = await axios
       .post(baseUrl + "authentication/token", {
         upn: data.username,
@@ -63,37 +68,47 @@ export const handleSignIn = createAsyncThunk(
         console.log("loginError => ", err.response.data);
         return {};
       });
-      dispatch(getUser());
+    dispatch(getUser());
     return login;
   }
 );
 
 export const handleSignOut = createAsyncThunk(
   "authentication/handleSignOut",
-  async (data,{dispatch}) => {localStorage.removeItem("userData");
-  localStorage.removeItem('upn');
-  dispatch(getUser());
-}
+  async (data, { dispatch }) => {
+    localStorage.removeItem("userData");
+    localStorage.removeItem("upn");
+    dispatch(getUser());
+  }
 );
 
 export const deleteAccount = createAsyncThunk(
   "authentication/deleteAccount",
-  async (token) => {
-    const config = {
-      headers: { "Authorization": `Bearer ${token}` }
-    }
-    axios
-      .delete(baseUrl + "users", config)
+  async (data, { dispatch }) => {
+    await axios
+      .delete(baseUrl + "users", { headers: authHeader() })
       .then((res) => {
-        console.log("deleteUser => ", res);
-        console.log("token => ", token);
         localStorage.removeItem("userData");
+        localStorage.removeItem("upn");
       })
-      .catch((err) => {console.log("errorDelete => ", err);
-      console.log("token => ", token);
-    });
+      .catch((err) => {
+        console.log("errorDelete => ", err);
+      });
+    dispatch(getUser());
   }
 );
+
+export const requestResetPassword = createAsyncThunk("authentication/requestResetPassword", async(email) => {
+  await axios
+    .post(baseUrl + "users/request-reset-password", {email: email, prefixUri: "http://localhost:3000/reset-password"})
+    .then((response) => {
+      console.log("response => ", response);
+    })
+    .catch((err) => {
+      console.log("err => ", err);
+    })
+})
+
 
 export const authSlice = createSlice({
   name: "authentication",
@@ -101,16 +116,17 @@ export const authSlice = createSlice({
     userData: {},
     response: {},
     isAuthenticate: false,
-    isLoading: true
+    isLoading: true,
+    error: {},
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(handleSignUp.fulfilled, (state, action) => {
-        state.response = action.payload;
+        // state.response = action.payload;
       })
       .addCase(handleSignIn.fulfilled, (state, action) => {
-        state.response = action.payload;
+        // state.response = action.payload;
       })
       .addCase(handleSignOut.fulfilled, (state, action) => {
         // state.response = initialUser();
@@ -122,7 +138,7 @@ export const authSlice = createSlice({
       })
       .addCase(getUser.pending, (state) => {
         state.isLoading = true;
-      })
+      });
   },
 });
 

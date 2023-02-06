@@ -2,10 +2,14 @@ import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
 import { ArrowLeftIcon, KeyIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
+import { requestResetPassword } from "../../redux/user/user";
+import { useDispatch } from "react-redux";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState({});
+
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
   const handleSubmit = (e) => {
@@ -15,6 +19,7 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     if (error.email === "") {
+      dispatch(requestResetPassword(email));
       navigate("/check-email");
     }
   }, [error, navigate]);
