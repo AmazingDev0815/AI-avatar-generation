@@ -4,6 +4,7 @@ import Dropzone from "../basic/dropZone";
 import Avatar from "../basic/avatar";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { LocalImg } from "../basic/imgProvider";
+import MyModal from "../basic/modal";
 
 const Setting = () => {
   const [notification, setNotification] = useState(false);
@@ -160,24 +161,26 @@ const Setting = () => {
                 <span className="text-gray-400">
                   We will delete all of your generated images.
                 </span>
-                <button
+                <MyModal obj="image" />
+                {/* <button
                   className="bg-primary-600 hover:bg-primary-700 font-poppinsSemiBold mt-2 w-36 rounded-lg px-4 py-2.5 text-white text-sm"
                   type="submit"
                 >
                   Delete Images
-                </button>
+                </button> */}
               </div>
               <div className="flex flex-col mt-6" id="delete_account">
                 <h1 className="font-poppinsMedium">Delete account</h1>
                 <span className="text-gray-400">
                   We will delete your account and delete all data.
                 </span>
-                <button
+                <MyModal obj="account" />
+                {/* <button
                   className="bg-primary-600 hover:bg-primary-700 font-poppinsSemiBold mt-2 w-36 rounded-lg px-4 py-2.5 text-white text-sm"
-                  type="submit"
+                  onClick={onDelete}
                 >
                   Delete Account
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
