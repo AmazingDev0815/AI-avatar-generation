@@ -1,19 +1,22 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
 import { ArrowLeftIcon, EnvelopeIcon } from "@heroicons/react/24/outline";
-import { useEffect } from "react";
-import { clearState } from "../../redux/user/user";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
+import { checkEmail } from "../../redux/user/user";
 
 const CheckEmail = () => {
+  const [requestEmail, setRequestEmail] = useState("");
+
   const dispatch = useDispatch();
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   useEffect(() => {
-    dispatch(clearState());
+    dispatch(checkEmail());
+    setRequestEmail(JSON.parse(window.localStorage.getItem("requestEmail")));
   }, [])
 
   return (
@@ -32,10 +35,11 @@ const CheckEmail = () => {
             Check your email
           </h1>
           <p className="text-base font-normal text-center text-gray-600 mb-8">
-            We sent a password reset link to marko@gmail.com
+            We sent a password reset link to {requestEmail}
           </p>
           <button
             type="submit"
+            onClick={() => window.location = `mailto:${requestEmail}`}
             className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-8"
           >
             Open email app

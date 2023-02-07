@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
 import { ArrowLeftIcon, KeyIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { requestResetPassword } from "../../redux/user/user";
+import { clearState, requestResetPassword } from "../../redux/user/user";
 import { useDispatch, useSelector } from "react-redux";
 
 const ForgotPassword = () => {
@@ -10,28 +10,30 @@ const ForgotPassword = () => {
   const [error, setError] = useState({});
 
   const dispatch = useDispatch();
-  const store = useSelector(state => state.auth);
+  const store = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     handleValidate();
-  
   };
 
   useEffect(() => {
-    if(Object.keys(store.error).length && store.error?.message==="ENTITY_NOT_FOUND") {
-      setError({resetPasswordError: "Email is incorrect. Please try again"});
-    } 
-  }, [store])
+    if (
+      Object.keys(store.error).length &&
+      store.error?.message === "ENTITY_NOT_FOUND"
+    ) {
+      setError({ resetPasswordError: "Email is incorrect. Please try again" });
+    }
+  }, [store]);
 
   useEffect(() => {
     if (error.email === "") {
       dispatch(requestResetPassword(email));
     }
-    if(store.response?.success) {
+    if (store.response?.success) {
       navigate("/check-email");
-    } 
+    }
   }, [error, navigate, store]);
 
   const handleValidate = () => {
@@ -87,10 +89,10 @@ const ForgotPassword = () => {
             )}
           </div>
           {error.resetPasswordError && (
-              <div className="font-poppinsMedium mt-2 text-red-500">
-                {error.resetPasswordError}
-              </div>
-            )}
+            <div className="font-poppinsMedium mt-2 text-red-500">
+              {error.resetPasswordError}
+            </div>
+          )}
           <button
             type="submit"
             className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-2"
