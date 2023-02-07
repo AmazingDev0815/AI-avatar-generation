@@ -16,7 +16,14 @@ const ForgotPassword = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleValidate();
+  
   };
+
+  useEffect(() => {
+    if(Object.keys(store.error).length && store.error?.message==="ENTITY_NOT_FOUND") {
+      setError({resetPasswordError: "Email is incorrect. Please try again"});
+    } 
+  }, [store])
 
   useEffect(() => {
     if (error.email === "") {
@@ -24,10 +31,8 @@ const ForgotPassword = () => {
     }
     if(store.response?.success) {
       navigate("/check-email");
-    } else {
-      setError({resetPasswordError: "Email is incorrect. Please try again"});
     } 
-  }, [error, navigate]);
+  }, [error, navigate, store]);
 
   const handleValidate = () => {
     let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);

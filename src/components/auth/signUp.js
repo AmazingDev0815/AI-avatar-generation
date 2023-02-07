@@ -34,7 +34,7 @@ const SignUp = () => {
 
   useEffect(() => {
     if(store.response?.success === false) {
-      setError({errors: store.response.errors[0].errorMessage})
+      setError({errors: (store.response.errors[0].errorMessage === "Duplicated")&& "Email is duplicated. Please input another."})
     } else if(store.response?.upn) {
       navigate("/login");
     }

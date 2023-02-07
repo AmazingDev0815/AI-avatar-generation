@@ -36,7 +36,7 @@ const Login = () => {
     if(Object.keys(store.userData).length && (store.userData?.status === "Success")) {
       setError({})
       navigate("/");
-    } else if (Object.keys(store.error).length) {
+    } else if (Object.keys(store.error).length && store.error?.message === "VALIDATION_ERROR") {
       setError({loginError: "Email or Password was incorrect"});
     }
   }, [store])

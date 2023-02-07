@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
-import { resetPassword } from "../../redux/user/user";
+import { clearState, resetPassword } from "../../redux/user/user";
 
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
@@ -22,6 +22,12 @@ const ResetPassword = () => {
   };
 
   useEffect(() => {
+    if(Object.keys(store.error).length && store.error?.message === "APPLICATION_ERROR") {
+      setError({resetPasswordError: "Token is incorrect or expired. Please try again."})
+    }
+  }, [store])
+
+  useEffect(() => {
     if (error.confirm === "" && error.password === "") {
       const data = {
         token: token,
@@ -32,8 +38,8 @@ const ResetPassword = () => {
     }
     if(store.success) {
       navigate('/confirm-reset')
-    }  
-  }, [error, navigate]);
+    }
+  }, [error, navigate, store]);
 
   const handleValidate = () => {
     let passwordValid = password.length >= 8;
