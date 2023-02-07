@@ -2,7 +2,8 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import authHeader from "../authHeader";
 
-const baseUrl = "https://avatar-service-test-hwj6miv7nq-uc.a.run.app/";
+const baseUrl = process.env.REACT_APP_BASE_URL;
+const prefixUri = process.env.REACT_APP_PREFIX_URI;
 
 export const getUser = createAsyncThunk("authentication/getUser", async () => {
   const item = window.localStorage.getItem("userData");
@@ -60,7 +61,6 @@ export const handleSignIn = createAsyncThunk(
         password: data.password,
       })
       .then((response) => {
-        console.log("loginResponse ===> ", response.data);
         if (response.data.accessToken) {
           localStorage.setItem("userData", JSON.stringify(response.data));
           localStorage.setItem("upn", JSON.stringify(data.username));
@@ -79,8 +79,7 @@ export const handleSignIn = createAsyncThunk(
 export const handleSignOut = createAsyncThunk(
   "authentication/handleSignOut",
   async (data, { dispatch }) => {
-    localStorage.removeItem("userData");
-    localStorage.removeItem("upn");
+    localStorage.clear();
     dispatch(getUser());
   }
 );
@@ -91,8 +90,7 @@ export const deleteAccount = createAsyncThunk(
     await axios
       .delete(baseUrl + "users", { headers: authHeader() })
       .then((res) => {
-        localStorage.removeItem("userData");
-        localStorage.removeItem("upn");
+        localStorage.clear();
       })
       .catch((err) => {
         console.log("errorDelete => ", err);
@@ -107,9 +105,10 @@ export const requestResetPassword = createAsyncThunk(
     const request = await axios
       .post(baseUrl + "users/request-reset-password", {
         email: email,
-        prefixUri: "http://localhost:3000/reset-password/",
+        prefixUri: prefixUri + "reset-password/",
       })
       .then((response) => {
+        localStorage.setItem("requestEmail", JSON.stringify(email));
         return { isLoading: false, error: {}, response: { success: true } };
       })
       .catch((err) => {
@@ -127,6 +126,7 @@ export const requestResetPassword = createAsyncThunk(
 export const clearState = createAsyncThunk(
   "authentication/clearState",
   async () => {
+    localStorage.clear();
     return {
       userData: {},
       response: {},
@@ -157,6 +157,10 @@ export const resetPassword = createAsyncThunk(
     return reset;
   }
 );
+
+export const checkEmail = createAsyncThunk("authentication/checkEmail", async() => {
+  return true;
+})
 
 export const authSlice = createSlice({
   name: "authentication",
@@ -201,6 +205,9 @@ export const authSlice = createSlice({
       })
       .addCase(resetPassword.pending, (state) => {
         state.isLoading = true;
+      })
+      .addCase(checkEmail.fulfilled, (state) => {
+        state.response = {};
       })
       .addCase(clearState.fulfilled, (state, action) => {
         state.isAuthenticate = action.payload.isAuthenticate;
