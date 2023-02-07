@@ -5,12 +5,17 @@ import Avatar from "../basic/avatar";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { LocalImg } from "../basic/imgProvider";
 import MyModal from "../basic/modal";
+import { useSelector } from "react-redux";
 
 const Setting = () => {
+  const store = useSelector((state) => state.auth);
+
   const [notification, setNotification] = useState(false);
   const [promotionalEmail, setPromotionalEmail] = useState(false);
   const [image, setImage] = useState();
   const [avatarState, setAvatarState] = useState(false);
+  const [userName, setUserName] = useState(store.userData.name);
+  const [email, setEmail] = useState(store.userData.email);
 
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.map((file) => {
@@ -39,8 +44,8 @@ const Setting = () => {
             className="rounded-full md:w-40 md:h-40 ml-6 z-10 w-20 h-20"
           />
           <div className="flex flex-col ml-6 z-10">
-            <h1 className="text-3xl text-white">Vlatka Orcic</h1>
-            <span className="text-white">vlatka.orcic@gmail.com</span>
+            <h1 className="text-3xl text-white">{userName}</h1>
+            <span className="text-white">{email}</span>
           </div>
         </div>
         <div className="my-12 flex flex-col md:px-8" id="settingSection">
@@ -64,6 +69,8 @@ const Setting = () => {
                   id="username"
                   className="border border-gray-300 focus:shadow-primary focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none text-base rounded-lg mt-1 block w-full py-2.5 px-3.5"
                   placeholder="User Name"
+                  onChange={(e) => setUserName(e.target.value)}
+                  value={userName}
                 />
               </div>
               <div className="mt-6">
@@ -80,6 +87,8 @@ const Setting = () => {
                     id="email"
                     className="border pl-10 border-gray-300 focus:shadow-primary focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none text-base rounded-lg mt-1 block w-full py-2.5 px-3.5"
                     placeholder="Email Address"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                   />
                 </div>
               </div>
