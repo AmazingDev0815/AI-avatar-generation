@@ -54,8 +54,11 @@ export const getGoogleToken = createAsyncThunk(
         redirectUri: redirectUri,
       })
       .then((res) => {
-        localStorage.setItem("userData", res.data);
-        localStorage.setItem("upn", res.data.upn);
+        localStorage.setItem(
+          "userData",
+          JSON.stringify({ accessToken: res.data.accessToken })
+        );
+        localStorage.setItem("upn", JSON.stringify(res.data.upn));
         console.log(res);
       })
       .catch((err) => {
@@ -252,6 +255,9 @@ export const authSlice = createSlice({
       })
       .addCase(getGoogleUrl.fulfilled, (state, action) => {
         state.googleUrl = action.payload.url;
+      })
+      .addCase(getGoogleToken.pending, (state) => {
+        state.isLoading = true;
       })
       .addCase(clearState.fulfilled, (state, action) => {
         state.isAuthenticate = action.payload.isAuthenticate;
