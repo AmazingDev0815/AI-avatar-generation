@@ -5,6 +5,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.7",
     "@heroicons/react": "^2.0.13",
+    "@react-oauth/google": "^0.7.0",
     "@reduxjs/toolkit": "^1.9.2",
     "@stripe/react-stripe-js": "^1.16.1",
     "@stripe/stripe-js": "^1.46.0",

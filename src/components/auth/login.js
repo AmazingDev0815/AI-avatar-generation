@@ -2,20 +2,26 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
-import { handleSignIn } from "../../redux/user/user";
+import {
+  getGoogleToken,
+  getGoogleUrl,
+  handleSignIn,
+} from "../../redux/user/user";
 
 const Login = () => {
   // ** States
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({});
-  
+  const queryParameters = new URLSearchParams(window.location.search);
   // ** Store Vars
-  const dispatch = useDispatch()
-  const store = useSelector(state => state.auth);
+  const dispatch = useDispatch();
+  const store = useSelector((state) => state.auth);
+  // ** Google login redirectUri
+  const redirectUri = process.env.REACT_APP_PREFIX_URI + "google-oauth";
 
   const navigate = useNavigate();
-  
+
   const onSubmit = (e) => {
     e.preventDefault();
     handleValidate();
@@ -23,23 +29,34 @@ const Login = () => {
 
   useEffect(() => {
     if (error.email === "" && error.password === "") {
-      console.log('data => ', email, password)
+      console.log("data => ", email, password);
       const data = {
         username: email,
-        password: password
-      }
+        password: password,
+      };
       dispatch(handleSignIn(data));
     }
-  }, [error, dispatch])
+    dispatch(getGoogleUrl(redirectUri));
+  }, [error, dispatch]);
 
   useEffect(() => {
-    if(Object.keys(store.userData).length && (store.userData?.status === "Success")) {
-      setError({})
+    let code = queryParameters.get("code");
+    if (
+      Object.keys(store.userData).length &&
+      store.userData?.status === "Success"
+    ) {
+      setError({});
       navigate("/");
-    } else if (Object.keys(store.error).length && store.error?.message === "VALIDATION_ERROR") {
-      setError({loginError: "Email or Password was incorrect"});
+    } else if (
+      Object.keys(store.error).length &&
+      store.error?.message === "VALIDATION_ERROR"
+    ) {
+      setError({ loginError: "Email or Password was incorrect" });
     }
-  }, [store])
+    if (code) {
+      dispatch(getGoogleToken({code, redirectUri}));
+    }
+  }, [store]);
 
   const handleValidate = () => {
     let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
@@ -58,10 +75,6 @@ const Login = () => {
     });
   };
 
-  const handleGoogleLogin = () => {
-    console.log("google login");
-    navigate("/");
-  };
   return (
     <div className="h-screen md:flex font-poppinslight">
       <LeftSide />
@@ -128,20 +141,21 @@ const Login = () => {
             Forgot Password ?
           </Link>
           {error.loginError && (
-              <div className="font-poppinsMedium mt-2 text-red-500">
-                {error.loginError}
-              </div>
-            )}
+            <div className="font-poppinsMedium mt-2 text-red-500">
+              {error.loginError}
+            </div>
+          )}
           <button
             type="submit"
             className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-2"
           >
             Sign in
           </button>
-          <button
-            type="button"
-            onClick={handleGoogleLogin}
-            className="block w-full mt-4 py-2 rounded-lg font-poppinsSemiBold mb-8 border border-gray-300"
+          <a
+            href={store.googleUrl}
+            target="_self"
+            rel="noopener noreferrer"
+            className="flex justify-center w-full mt-4 py-2 rounded-lg font-poppinsSemiBold mb-8 border border-gray-300"
           >
             <span className="inline-block align-middle mr-3">
               <svg
@@ -169,7 +183,7 @@ const Login = () => {
               </svg>
             </span>
             <span className="text-base">Sign in with Google</span>
-          </button>
+          </a>
           <div className="text-center">
             <span className="text-sm font-poppinsRegular justify-center">
               Don't have an account ?{" "}

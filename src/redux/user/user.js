@@ -28,6 +28,43 @@ export const getUser = createAsyncThunk("authentication/getUser", async () => {
   return userData;
 });
 
+export const getGoogleUrl = createAsyncThunk(
+  "authentication/getGoogleUrl",
+  async (redirecturi) => {
+    return await axios
+      .post(baseUrl + "authentication/oauth-url", {
+        redirectUri: redirecturi,
+      })
+      .then((res) => {
+        return { url: res.data.authUrl };
+      })
+      .catch((err) => {
+        console.log(err);
+        return { url: "" };
+      });
+  }
+);
+
+export const getGoogleToken = createAsyncThunk(
+  "authentication/getGoogleToken",
+  async ({ code, redirectUri }, { dispatch }) => {
+    await axios
+      .post(baseUrl + "authentication/oauth-token", {
+        code: code,
+        redirectUri: redirectUri,
+      })
+      .then((res) => {
+        localStorage.setItem("userData", res.data);
+        localStorage.setItem("upn", res.data.upn);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    dispatch(getUser());
+  }
+);
+
 export const handleSignUp = createAsyncThunk(
   "authentication/handleSignUp",
   async (data) => {
@@ -158,9 +195,12 @@ export const resetPassword = createAsyncThunk(
   }
 );
 
-export const checkEmail = createAsyncThunk("authentication/checkEmail", async() => {
-  return true;
-})
+export const checkEmail = createAsyncThunk(
+  "authentication/checkEmail",
+  async () => {
+    return true;
+  }
+);
 
 export const authSlice = createSlice({
   name: "authentication",
@@ -171,6 +211,7 @@ export const authSlice = createSlice({
     isLoading: true,
     error: {},
     success: false,
+    googleUrl: "",
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -208,6 +249,9 @@ export const authSlice = createSlice({
       })
       .addCase(checkEmail.fulfilled, (state) => {
         state.response = {};
+      })
+      .addCase(getGoogleUrl.fulfilled, (state, action) => {
+        state.googleUrl = action.payload.url;
       })
       .addCase(clearState.fulfilled, (state, action) => {
         state.isAuthenticate = action.payload.isAuthenticate;
