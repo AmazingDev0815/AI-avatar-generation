@@ -1,15 +1,14 @@
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ReactCrop, { centerCrop, makeAspectCrop } from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
 
 // Rendering individual images
-const Imagetag = ({ image, removeImage }) => {
+const Imagetag = ({ image, removeImage, cropCoordinate }) => {
   const [crop, setCrop] = useState({});
   const [disableCrop, setDisableCrop] = useState(false);
   const [imgWidth, setImgWidth] = useState(176);
   const [imgHeight, setImgHeight] = useState(176);
-
   const onImageLoad = (e) => {
     const { naturalWidth: width, naturalHeight: height } = e.currentTarget;
     setImgWidth(width);
@@ -37,6 +36,10 @@ const Imagetag = ({ image, removeImage }) => {
   const handleRemove = () => {
     removeImage(image);
   };
+
+  useEffect(() => {
+    cropCoordinate(crop)
+  }, [crop])
 
   return (
     <div className="file-item mx-3 my-3 relative">
@@ -74,14 +77,22 @@ const Imagetag = ({ image, removeImage }) => {
 };
 
 // ImageList Component//
-const ImageGrid = ({ images, remove }) => {
+const ImageGrid = ({ images, remove, crops }) => {
   // render each image by calling Image component
   const renderImage = (image) => {
     const index = (file) => {
       remove(file);
     };
+    const setCrop = (crop) => {
+      const data = {
+        id: image.id,
+        crop: crop,
+        image: image,
+      }
+      crops(data)
+    }
     return (
-      <Imagetag image={image} key={`${image.id}-image`} removeImage={index} />
+      <Imagetag image={image} key={`${image.id}-image`} removeImage={index} cropCoordinate={setCrop} />
     );
   };
   // Return the list of files//
