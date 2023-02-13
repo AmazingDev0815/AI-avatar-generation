@@ -1,7 +1,9 @@
 import cuid from "cuid";
 import { useCallback, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layout/mainLayout";
+import { uploadUserImages } from "../../redux/product/product";
 import Dropzone from "../basic/dropZone";
 import ImageGrid from "../basic/imageGrid";
 import { LocalImg } from "../basic/imgProvider";
@@ -11,19 +13,26 @@ const UploadImage = () => {
   const [imageWithCrop, setImageWithCrop] = useState([]);
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const productStore = useSelector((state) => state.product);
+
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.map((file) => {
       const reader = new FileReader();
       reader.onload = function (e) {
         setImages((prevState) => [
           ...prevState,
-          { id: cuid(), src: e.target.result, crop: {} },
+          { id: cuid(), src: e.target.result, file: file },
         ]);
       };
       reader.readAsDataURL(file);
       return file;
     });
   }, []);
+
+  const onSubmit = async () => {
+    dispatch(uploadUserImages(imageWithCrop))
+  };
 
   // to limit image number
 
@@ -33,24 +42,32 @@ const UploadImage = () => {
     }
   }, [images]);
 
-  const handleClick = () => {
-    navigate("/avatar-detail");
-  };
+  useEffect(() => {
+    if(productStore.uploadSuccess) {
+      navigate("/avatar-detail")
+    }
+  }, [productStore])
 
   const remove = (file) => {
     const newFiles = [...images];
     const newFilesWithCrop = [...imageWithCrop];
     newFiles.splice(newFiles.indexOf(file), 1);
-    newFilesWithCrop.splice(newFilesWithCrop.findIndex(item => item.id === file.id), 1);
+    newFilesWithCrop.splice(
+      newFilesWithCrop.findIndex((item) => item.id === file.id),
+      1
+    );
     setImages(newFiles);
     setImageWithCrop(newFilesWithCrop);
   };
 
   const crops = (crop) => {
     const newImages = [...imageWithCrop];
-    if(newImages.filter(item => item.id === crop.id).length > 0) {
+    if (newImages.filter((item) => item.id === crop.id).length > 0) {
       // crop changed
-      newImages.splice(newImages.findIndex(item => item.id === crop.id), 1);
+      newImages.splice(
+        newImages.findIndex((item) => item.id === crop.id),
+        1
+      );
       newImages.push(crop);
     } else {
       // add new crop
@@ -120,7 +137,7 @@ const UploadImage = () => {
             {images.length === 20 && (
               <button
                 className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm"
-                onClick={handleClick}
+                onClick={onSubmit}
               >
                 Next
               </button>

@@ -4,8 +4,9 @@ import { MoonLoader } from "react-spinners";
 
 export const PrivateRoute = ({ children }) => {
   const { isLoading, isAuthenticate } = useSelector((state) => state.auth);
+  const { productLoading } = useSelector((state) => state.product);
 
-  if (isLoading)
+  if (isLoading || productLoading)
     return (
       <div className="flex flex-1 justify-center items-center h-screen">
         <MoonLoader
