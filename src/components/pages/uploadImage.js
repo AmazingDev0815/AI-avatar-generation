@@ -12,23 +12,28 @@ const UploadImage = () => {
   const [images, setImages] = useState([]);
   const [imageWithCrop, setImageWithCrop] = useState([]);
 
+  const newImages = [...imageWithCrop];
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const productStore = useSelector((state) => state.product);
 
   const onDrop = useCallback((acceptedFiles) => {
-    acceptedFiles.map((file) => {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        setImages((prevState) => [
-          ...prevState,
-          { id: cuid(), src: e.target.result, file: file },
-        ]);
-      };
-      reader.readAsDataURL(file);
-      return file;
+    acceptedFiles.map((file, key) => {
+      if((imageWithCrop.length + key) <= 19) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          setImages((prevState) => [
+            ...prevState,
+            { id: cuid(), src: e.target.result, file: file },
+          ]);
+        };
+        reader.readAsDataURL(file);
+        return file;
+      }
+      
     });
-  }, []);
+  }, [imageWithCrop]);
 
   const onSubmit = async () => {
     dispatch(uploadUserImages(imageWithCrop))
@@ -48,20 +53,20 @@ const UploadImage = () => {
     }
   }, [productStore])
 
+
   const remove = (file) => {
     const newFiles = [...images];
-    const newFilesWithCrop = [...imageWithCrop];
+    // const newFilesWithCrop = [...imageWithCrop];
     newFiles.splice(newFiles.indexOf(file), 1);
-    newFilesWithCrop.splice(
-      newFilesWithCrop.findIndex((item) => item.id === file.id),
+    newImages.splice(
+      newImages.findIndex((item) => item.id === file.id),
       1
     );
     setImages(newFiles);
-    setImageWithCrop(newFilesWithCrop);
+    setImageWithCrop(newImages);
   };
 
   const crops = (crop) => {
-    const newImages = [...imageWithCrop];
     if (newImages.filter((item) => item.id === crop.id).length > 0) {
       // crop changed
       newImages.splice(
@@ -75,7 +80,6 @@ const UploadImage = () => {
     }
 
     setImageWithCrop(newImages);
-    console.log("newImages", newImages);
   };
 
   return (
