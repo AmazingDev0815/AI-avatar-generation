@@ -1,9 +1,27 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { TrashIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Fragment, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteAccount } from "../../redux/user/user";
 
-export default function MyModal() {
-  let [isOpen, setIsOpen] = useState(false);
+export default function MyModal({ obj }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const dispatch = useDispatch();
+  const store = useSelector(state => state.auth);
+
+  const title =
+    obj === "account"
+      ? "Delete account"
+      : obj === "image"
+      ? "Delete images"
+      : "Delete collection";
+  const text =
+    obj === "account"
+      ? "Are you sure you want to delete your account? This action cannot be undone."
+      : obj === "image"
+      ? "Are you sure you want to delete generated images? This action cannot be undone."
+      : "Are you sure you want to delete this collection? This action cannot be undone.";
 
   const closeModal = () => {
     setIsOpen(false);
@@ -15,22 +33,47 @@ export default function MyModal() {
 
   const onDelete = () => {
     console.log("delete");
+    switch (obj) {
+      case "account": 
+        dispatch(deleteAccount(store.userData.accessToken));
+        
+        break;
+      case "images": 
+
+      default:
+
+        break;
+    }
     closeModal();
   };
 
   return (
     <>
-      <div className="flex items-center justify-center">
-        <button
-          className="px-4 py-2.5 flex text-gray-700 border hover:bg-gray-200 border-gray-300 rounded-lg items-center my-8"
-          onClick={openModal}
-        >
-          <TrashIcon className="w-5 h-5 stroke-2 mr-2" />
-          <span className="text-sm font-poppinsSemiBold">
-            Delete Collection
-          </span>
-        </button>
-      </div>
+        {obj === "account" ? (
+          <button
+            className="bg-primary-600 hover:bg-primary-700 font-poppinsSemiBold mt-2 w-36 rounded-lg px-4 py-2.5 text-white text-sm"
+            onClick={openModal}
+          >
+            Delete Account
+          </button>
+        ) : obj === "image" ? (
+          <button
+            className="bg-primary-600 hover:bg-primary-700 font-poppinsSemiBold mt-2 w-36 rounded-lg px-4 py-2.5 text-white text-sm"
+            onClick={openModal}
+          >
+            Delete Images
+          </button>
+        ) : (
+          <button
+            className="px-4 py-2.5 flex text-gray-700 border hover:bg-gray-200 border-gray-300 rounded-lg items-center my-8"
+            onClick={openModal}
+          >
+            <TrashIcon className="w-5 h-5 stroke-2 mr-2" />
+            <span className="text-sm font-poppinsSemiBold">
+              Delete Collection
+            </span>
+          </button>
+        )}
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -72,11 +115,10 @@ export default function MyModal() {
                     </div>
                   </Dialog.Title>
                   <div className="mt-4 font-poppinsSemiBold text-lg text-gray-900 text-center">
-                    Delete collection
+                    {title}
                   </div>
                   <div className="mt-1 text-sm text-gray-600 text-center">
-                    Are you sure you want to delete this collection? This action
-                    cannot be undone.
+                    {text}
                   </div>
                   <div className="mt-8 flex justify-center">
                     <button

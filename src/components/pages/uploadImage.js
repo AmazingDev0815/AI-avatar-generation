@@ -8,6 +8,8 @@ import { LocalImg } from "../basic/imgProvider";
 
 const UploadImage = () => {
   const [images, setImages] = useState([]);
+  const [imageWithCrop, setImageWithCrop] = useState([]);
+
   const navigate = useNavigate();
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.map((file) => {
@@ -15,7 +17,7 @@ const UploadImage = () => {
       reader.onload = function (e) {
         setImages((prevState) => [
           ...prevState,
-          { id: cuid(), src: e.target.result },
+          { id: cuid(), src: e.target.result, crop: {} },
         ]);
       };
       reader.readAsDataURL(file);
@@ -37,8 +39,26 @@ const UploadImage = () => {
 
   const remove = (file) => {
     const newFiles = [...images];
+    const newFilesWithCrop = [...imageWithCrop];
     newFiles.splice(newFiles.indexOf(file), 1);
+    newFilesWithCrop.splice(newFilesWithCrop.findIndex(item => item.id === file.id), 1);
     setImages(newFiles);
+    setImageWithCrop(newFilesWithCrop);
+  };
+
+  const crops = (crop) => {
+    const newImages = [...imageWithCrop];
+    if(newImages.filter(item => item.id === crop.id).length > 0) {
+      // crop changed
+      newImages.splice(newImages.findIndex(item => item.id === crop.id), 1);
+      newImages.push(crop);
+    } else {
+      // add new crop
+      newImages.push(crop);
+    }
+
+    setImageWithCrop(newImages);
+    console.log("newImages", newImages);
   };
 
   return (
@@ -70,7 +90,7 @@ const UploadImage = () => {
           className="my-6 flex flex-wrap justify-center items-center"
           id="upload_image"
         >
-          <ImageGrid images={images} remove={remove} />
+          <ImageGrid images={images} remove={remove} crops={crops} />
           {images.length < 20 ? (
             <Dropzone onDrop={onDrop} accept={"image/*"} state={1} />
           ) : null}

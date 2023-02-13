@@ -1,13 +1,22 @@
 import LeftSide from "../../layout/authLeft";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { clearState } from "../../redux/user/user";
 
 const ConfirmReset = () => {
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     navigate("/login");
   };
+
+  useEffect(() => {
+    dispatch(clearState());
+  }, []);
   return (
     <div className="h-screen md:flex font-poppinslight">
       <LeftSide />
