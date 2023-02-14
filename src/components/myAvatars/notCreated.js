@@ -1,6 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import { LocalImg } from "../basic/imgProvider";
 
 const NotCreated = () => {
+
+  const navigate = useNavigate();
+
+  const create = () => {
+    navigate("/payment");
+  }
+
   return (
     <div className="flex flex-1 flex-col justify-center items-center mb-40 p-5">
       <img
@@ -20,7 +28,7 @@ const NotCreated = () => {
           Let’s sort that out. Click on the Create button to get started!
         </span>
       </div>
-      <button className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm">
+      <button onClick={create} className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm">
         Create
       </button>
     </div>

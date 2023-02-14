@@ -11,7 +11,7 @@ const MyAvatars = () => {
   const loading = false;
   return (
     <MainLayout>
-      {!created ? <NotCreated /> : loading ? <Waiting /> : <Created />}
+      {created ? <Created /> : loading ? <Waiting /> : <NotCreated />}
     </MainLayout>
   );
 };

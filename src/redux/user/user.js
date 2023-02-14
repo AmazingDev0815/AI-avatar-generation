@@ -217,7 +217,7 @@ export const checkEmail = createAsyncThunk(
 );
 
 export const depositPayment = createAsyncThunk(
-  "product/depositeCredits",
+  "product/depositPayment",
   async (sessionId, {dispatch}) => {
     axios.post(baseUrl + `payment/${sessionId}`, {}, { headers: authHeader() });
     dispatch(getUser());
@@ -284,7 +284,13 @@ export const authSlice = createSlice({
         state.response = action.payload.response;
         state.error = action.payload.error;
         state.success = action.payload.success;
-      });
+      })
+      // .addCase(depositPayment.pending, (state) => {
+      //   state.isLoading = true
+      // })
+      // .addCase(depositPayment.fulfilled, (state) => {
+      //   state.isLoading = false
+      // });
   },
 });
 
