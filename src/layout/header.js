@@ -145,7 +145,7 @@ const Header = () => {
                                 </a>
                               )}
                             </Menu.Item> */}
-                            {/* <Menu.Item>
+                            <Menu.Item>
                               {({ active }) => (
                                 <a
                                   href="#"
@@ -174,7 +174,7 @@ const Header = () => {
                                   About us
                                 </a>
                               )}
-                            </Menu.Item> */}
+                            </Menu.Item>
                             <Menu.Item>
                               {({ active }) => (
                                 <button

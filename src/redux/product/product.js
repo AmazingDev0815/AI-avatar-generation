@@ -1,21 +1,58 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import authHeader from "../authHeader";
+import { getUser } from "../user/user";
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 export const getUserImageCollections = createAsyncThunk(
   "product/getUserImageCollections",
-  async (upn) => {
-    await axios
-      .get(baseUrl + "user-photos" + upn)
+  async () => {
+    return await axios
+      .get(baseUrl + "image-collections", {
+        headers: authHeader(),
+        params: {
+          FilterByUser: true,
+          Page: 1,
+          PageSize: 100,
+        },
+      },)
       .then((res) => {
-        console.log("UserPhotos => ", res);
-        return { products: { userPhotos: res.data } };
+        return { products: res.data };
       })
       .catch((err) => {
         console.log("Error => ", err.response.data);
         return { error: { userPhotos: err.response.data } };
+      });
+  }
+);
+
+export const getImageCollection = createAsyncThunk(
+  "product/getImageCollection",
+  async (id) => {
+    return await axios
+      .get(baseUrl + `image-collections/${id}`, {headers: authHeader()})
+      .then((res) => {
+        console.log("UserPhotos => ", res);
+        return { selected: res.data };
+      })
+      .catch((err) => {
+        console.log("Error => ", err.response.data);
+        return { error: { userPhotos: err.response.data } };
+      });
+  }
+);
+
+export const getImageCollectionDownload = createAsyncThunk(
+  "product/getImageCollectionDownload",
+  async (id) => {
+    await axios
+      .get(baseUrl + `image-collections/${id}/download`, {headers: authHeader()})
+      .then((res) => {
+        console.log("UserPhotos => ", res);
+      })
+      .catch((err) => {
+        console.log("Error => ", err.response.data);
       });
   }
 );
@@ -61,46 +98,84 @@ export const uploadUserImages = createAsyncThunk(
       })
       .catch((err) => {
         console.log(err);
-        return {status : false};
+        return { status: false };
       });
     return update;
   }
 );
 
-export const clearUploadState = createAsyncThunk("product/clearUploadState", async() => false);
+export const clearUploadState = createAsyncThunk(
+  "product/clearUploadState",
+  async () => false
+);
 
-export const generatingProduct = createAsyncThunk("product/generatingAvatars", async({name, gender}) => {
-  await axios
-    .post(baseUrl + "generating-tasks/create", {name, gender}, {headers: authHeader()})
-    .then(res => console.log("res => ", res))
+export const generatingProduct = createAsyncThunk(
+  "product/generatingAvatars",
+  async ({ name, gender }, {dispatch}) => {
+    await axios
+      .post(
+        baseUrl + "generating-tasks/create",
+        { name, gender },
+        { headers: authHeader() }
+      )
+      .then((res) => console.log("res => ", res));
+    dispatch(getUser());
+  }
+);
+
+export const deleteAvatars = createAsyncThunk("product/deleteAvatars", async(data, {dispatch}) => {
+  await axios.delete(baseUrl + "image-collections/all", {headers: authHeader()})
+  dispatch(getUserImageCollections());
 })
+
+export const getCurrentAvailableCount = createAsyncThunk(
+  "product/getCurrentAvailableCount",
+  async () => {
+    return axios.get(baseUrl + "gpu-instances/available-count", {
+      headers: authHeader(),
+    })
+  }
+);
+
+
 
 export const authSlice = createSlice({
   name: "product",
   initialState: {
     products: {},
+    selected: {},
     productLoading: false,
-    payment: true,
+    payment: 0,
     uploadSuccess: false,
     error: {},
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(getUserImageCollections.pending, (state, action) => {
+        state.productLoading = true;
+      })
       .addCase(getUserImageCollections.fulfilled, (state, action) => {
         state.products = action.payload.products;
         state.error = action.payload.error;
+        state.productLoading = false;
+      })
+      .addCase(getImageCollection.fulfilled, (state, action) => {
+        state.selected = action.payload.selected;
       })
       .addCase(uploadUserImages.fulfilled, (state, action) => {
         state.uploadSuccess = action.payload.status;
         state.productLoading = false;
       })
       .addCase(uploadUserImages.pending, (state, action) => {
-        state.productLoading = true
+        state.productLoading = true;
       })
       .addCase(clearUploadState.fulfilled, (state) => {
-        state.uploadSuccess = false
+        state.uploadSuccess = false;
       })
+      .addCase(getCurrentAvailableCount.fulfilled, (state, action) => {
+        state.payment = action.payload.data;
+      });
   },
 });
 
