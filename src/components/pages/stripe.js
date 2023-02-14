@@ -9,17 +9,19 @@ export const Payment = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  if (store.userData.credit >= 100) {
-    navigate("/upload");
-  } else {
-    let sessionId = queryParameters.get("sessionId");
-    if (sessionId) {
-      dispatch(depositPayment(sessionId));
+  useEffect(() => {
+    if (store.userData.credit >= 100) {
+      console.log("hhhhhh");
+      navigate("/upload");
     } else {
-      window.location = "https://buy.stripe.com/test_8wMg0n0hu4Vv5bOdQR";
-      return null;
+      let sessionId = queryParameters.get("sessionId");
+      if (sessionId) {
+        dispatch(depositPayment(sessionId));
+      } else {
+        window.location = "https://buy.stripe.com/test_8wMg0n0hu4Vv5bOdQR";
+      }
     }
-  }
+  }, []);
 
   return <div></div>;
 };
