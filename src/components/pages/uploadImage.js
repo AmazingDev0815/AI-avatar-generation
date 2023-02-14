@@ -3,40 +3,47 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layout/mainLayout";
-import { uploadUserImages } from "../../redux/product/product";
+import { getUserImages, uploadUserImages } from "../../redux/product/product";
 import Dropzone from "../basic/dropZone";
 import ImageGrid from "../basic/imageGrid";
 import { LocalImg } from "../basic/imgProvider";
 
 const UploadImage = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const productStore = useSelector((state) => state.product);
+  const userStore = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    dispatch(getUserImages(userStore.userData.upn));
+  }, []);
+
   const [images, setImages] = useState([]);
   const [imageWithCrop, setImageWithCrop] = useState([]);
 
   const newImages = [...imageWithCrop];
 
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const productStore = useSelector((state) => state.product);
-
-  const onDrop = useCallback((acceptedFiles) => {
-    acceptedFiles.map((file, key) => {
-      if((imageWithCrop.length + key) <= 19) {
-        const reader = new FileReader();
-        reader.onload = function (e) {
-          setImages((prevState) => [
-            ...prevState,
-            { id: cuid(), src: e.target.result, file: file },
-          ]);
-        };
-        reader.readAsDataURL(file);
-        return file;
-      }
-      
-    });
-  }, [imageWithCrop]);
+  const onDrop = useCallback(
+    (acceptedFiles) => {
+      acceptedFiles.map((file, key) => {
+        if (imageWithCrop.length + key <= 19) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            setImages((prevState) => [
+              ...prevState,
+              { id: cuid(), src: e.target.result, file: file },
+            ]);
+          };
+          reader.readAsDataURL(file);
+          return file;
+        }
+      });
+    },
+    [imageWithCrop]
+  );
 
   const onSubmit = async () => {
-    dispatch(uploadUserImages(imageWithCrop))
+    dispatch(uploadUserImages(imageWithCrop));
   };
 
   // to limit image number
@@ -48,11 +55,10 @@ const UploadImage = () => {
   }, [images]);
 
   useEffect(() => {
-    if(productStore.uploadSuccess) {
-      navigate("/avatar-detail")
+    if (productStore.uploadSuccess) {
+      navigate("/avatar-detail");
     }
-  }, [productStore])
-
+  }, [productStore]);
 
   const remove = (file) => {
     const newFiles = [...images];

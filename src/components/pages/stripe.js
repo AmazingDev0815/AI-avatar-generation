@@ -11,7 +11,6 @@ export const Payment = () => {
 
   useEffect(() => {
     if (store.userData.credit >= 100) {
-      console.log("hhhhhh");
       navigate("/upload");
     } else {
       let sessionId = queryParameters.get("sessionId");

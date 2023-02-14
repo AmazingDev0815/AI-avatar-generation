@@ -41,6 +41,16 @@ export const getImageCollection = createAsyncThunk(
   }
 );
 
+export const getUserImages = createAsyncThunk(
+  "product/getUserImages",
+  async (upn) => {
+    return await axios.get(baseUrl + `user-photos/${upn}`, {
+      headers: authHeader(),
+      params: { upn },
+    });
+  }
+);
+
 export const downloadCollection = createAsyncThunk(
   "product/downloadCollection",
   async (id) => {
@@ -56,16 +66,12 @@ export const uploadUserImages = createAsyncThunk(
   async (imageWithCrop) => {
     let formData = new FormData();
     imageWithCrop.map((item) => formData.append("Files", item.image.file));
-    const result = await axios.post(
-      "https://avatar-service-test-hwj6miv7nq-uc.a.run.app/user-photos",
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-          ...authHeader(),
-        },
-      }
-    );
+    const result = await axios.post(baseUrl + "user-photos", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+        ...authHeader(),
+      },
+    });
 
     const commands = result.data.map((item, key) => {
       return {
@@ -81,7 +87,7 @@ export const uploadUserImages = createAsyncThunk(
     // for update crop path
     const update = await axios
       .put(
-        "https://avatar-service-test-hwj6miv7nq-uc.a.run.app/user-photos/crop",
+        baseUrl + "user-photos/crop",
         {
           commands,
         },
@@ -153,6 +159,7 @@ export const authSlice = createSlice({
   initialState: {
     products: {},
     selected: {},
+    userImages: {},
     productLoading: false,
     selectedLoading: false,
     payment: 0,
@@ -176,6 +183,9 @@ export const authSlice = createSlice({
       })
       .addCase(getImageCollection.pending, (state) => {
         state.selectedLoading = true;
+      })
+      .addCase(getUserImages.fulfilled, (state, action) => {
+        state.userImages = action.payload.data;
       })
       .addCase(uploadUserImages.fulfilled, (state, action) => {
         state.uploadSuccess = action.payload.status;
