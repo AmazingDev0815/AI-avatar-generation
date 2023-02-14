@@ -33,11 +33,9 @@ export const getImageCollection = createAsyncThunk(
     return await axios
       .get(baseUrl + `image-collections/${id}`, {headers: authHeader()})
       .then((res) => {
-        console.log("UserPhotos => ", res);
         return { selected: res.data };
       })
       .catch((err) => {
-        console.log("Error => ", err.response.data);
         return { error: { userPhotos: err.response.data } };
       });
   }
@@ -145,6 +143,7 @@ export const authSlice = createSlice({
     products: {},
     selected: {},
     productLoading: false,
+    selectedLoading: false,
     payment: 0,
     uploadSuccess: false,
     error: {},
@@ -162,6 +161,10 @@ export const authSlice = createSlice({
       })
       .addCase(getImageCollection.fulfilled, (state, action) => {
         state.selected = action.payload.selected;
+        state.selectedLoading = false;
+      })
+      .addCase(getImageCollection.pending, (state) => {
+        state.selectedLoading = true;
       })
       .addCase(uploadUserImages.fulfilled, (state, action) => {
         state.uploadSuccess = action.payload.status;

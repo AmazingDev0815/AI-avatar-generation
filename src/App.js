@@ -9,7 +9,7 @@ import Login from "./components/auth/login";
 import ResetPassword from "./components/auth/ResetPassword";
 import SignUp from "./components/auth/signUp";
 import Home from "./components/pages/home";
-import Payment from "./components/pages/payment";
+// import Payment from "./components/pages/payment";
 import AvatarDetail from "./components/pages/avatarDetail";
 import UploadImage from "./components/pages/uploadImage";
 import Setting from "./components/pages/setting";
@@ -22,12 +22,24 @@ import { useEffect } from "react";
 import { getUser } from "./redux/user/user";
 import { PrivateRoute } from "./components/helpers/privateRoute";
 import { PublicRoute } from "./components/helpers/publicRoute";
+import { getCurrentAvailableCount, getUserImageCollections } from "./redux/product/product";
+import { Payment } from "./components/pages/stripe";
 
 function App() {
   const dispatch = useDispatch();
+
+  const store = useSelector(state => state.auth);
+
   useEffect(() => {
     dispatch(getUser());
   }, [dispatch])
+
+  useEffect(() => {
+    if(store.isAuthenticate) {
+      dispatch(getUserImageCollections());
+      // dispatch(getCurrentAvailableCount());
+    }
+  }, [store.isAuthenticate])
 
   return (
     <Router>
@@ -40,6 +52,7 @@ function App() {
           <Route path="/check-email" element={<PublicRoute><CheckEmail /></PublicRoute>} />
           <Route path="/reset-password/:token" element={<PublicRoute><ResetPassword /></PublicRoute>} />
           <Route path="/confirm-reset" element={<PublicRoute><ConfirmReset /></PublicRoute>} />
+          {/* <Route path='/payment' element={<Payment /> }/> */}
           <Route path="/payment" element={<PrivateRoute><Payment /></PrivateRoute>} />
           <Route path="/upload" element={<PrivateRoute><UploadImage /></PrivateRoute>} />
           <Route path="/avatar-detail" element={<PrivateRoute><AvatarDetail /></PrivateRoute>} />
