@@ -20,8 +20,11 @@ const AvatarDetail = () => {
 
   useEffect(() => {
     setDisable(!(!!selectedOption?.value && !!avatarName));
-    dispatch(clearUploadState())
   }, [selectedOption, avatarName]);
+
+  useEffect(() => {
+    dispatch(clearUploadState())
+  }, [])
 
   const SubmitInfo = (e) => {
     e.preventDefault();

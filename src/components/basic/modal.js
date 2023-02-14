@@ -2,6 +2,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { TrashIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { deleteAvatars } from "../../redux/product/product";
 import { deleteAccount } from "../../redux/user/user";
 
 export default function MyModal({ obj }) {
@@ -32,14 +33,14 @@ export default function MyModal({ obj }) {
   };
 
   const onDelete = () => {
-    console.log("delete");
+    console.log("delete", obj);
     switch (obj) {
       case "account": 
         dispatch(deleteAccount(store.userData.accessToken));
         
         break;
-      case "images": 
-
+      case "image": 
+        dispatch(deleteAvatars());
       default:
 
         break;

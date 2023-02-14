@@ -29,7 +29,6 @@ const Login = () => {
 
   useEffect(() => {
     if (error.email === "" && error.password === "") {
-      console.log("data => ", email, password);
       const data = {
         username: email,
         password: password,

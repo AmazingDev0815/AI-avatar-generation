@@ -113,7 +113,7 @@ const Header = () => {
                         <Menu.Button className="block h-10 w-10">
                           <img
                             alt="avatar"
-                            src={LocalImg[3]}
+                            src={store.userData.avatarImageUrl??LocalImg.avatarPlaceholder}
                             className="rounded-full"
                           />
                         </Menu.Button>
@@ -145,7 +145,7 @@ const Header = () => {
                                 </a>
                               )}
                             </Menu.Item> */}
-                            <Menu.Item>
+                            {/* <Menu.Item>
                               {({ active }) => (
                                 <a
                                   href="#"
@@ -174,7 +174,7 @@ const Header = () => {
                                   About us
                                 </a>
                               )}
-                            </Menu.Item>
+                            </Menu.Item> */}
                             <Menu.Item>
                               {({ active }) => (
                                 <button

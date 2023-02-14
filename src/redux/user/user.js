@@ -14,7 +14,7 @@ export const getUser = createAsyncThunk("authentication/getUser", async () => {
   const userData =
     Object.keys(authData).length && Object.keys(upn)
       ? await axios
-          .get(baseUrl + upn, {
+          .get(baseUrl + "users/info", {
             headers: { Authorization: `Bearer ${authData.accessToken}` },
           })
           .then((res) => {
@@ -124,6 +124,17 @@ export const handleSignOut = createAsyncThunk(
   }
 );
 
+export const updateUserInfo = createAsyncThunk("authentication/updateUserInfo", async({username, avatar, gender, emailNotificationState, promotionalEmailState}, {dispatch}) => {
+  let formData = new FormData();
+  formData.append("AvatarFile", avatar);
+  formData.append("Gender", gender);
+  formData.append("Name", username);
+  formData.append("ReceiveEmailNotificationEnabled", emailNotificationState);
+  formData.append("ReceivePromotionalEmailEnabled", promotionalEmailState);
+  await axios.put(baseUrl + "users", formData, {headers: {...authHeader(), "Content-Type": "multipart/form-data",}})
+  dispatch(getUser());
+})
+
 export const deleteAccount = createAsyncThunk(
   "authentication/deleteAccount",
   async (data, { dispatch }) => {
@@ -202,6 +213,14 @@ export const checkEmail = createAsyncThunk(
   "authentication/checkEmail",
   async () => {
     return true;
+  }
+);
+
+export const depositPayment = createAsyncThunk(
+  "product/depositeCredits",
+  async (sessionId, {dispatch}) => {
+    axios.post(baseUrl + `payment/${sessionId}`, {}, { headers: authHeader() });
+    dispatch(getUser());
   }
 );
 
