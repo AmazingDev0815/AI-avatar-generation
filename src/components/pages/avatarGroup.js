@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
 import MainLayout from "../../layout/mainLayout";
-import { getImageCollection } from "../../redux/product/product";
+import { downloadCollection, getImageCollection } from "../../redux/product/product";
 import { LocalImg } from "../basic/imgProvider";
 import MyModal from "../basic/modal";
 
@@ -22,6 +22,7 @@ const Group = () => {
   }, []);
 
   const onDownload = () => {
+    dispatch(downloadCollection(id));
     console.log("dwonload");
   };
 
@@ -148,7 +149,7 @@ const Group = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <MyModal />
+            <MyModal id={id}/>
           </div>
         </div>
       )}

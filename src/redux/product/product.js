@@ -16,7 +16,7 @@ export const getUserImageCollections = createAsyncThunk(
           Page: 1,
           PageSize: 100,
         },
-      },)
+      })
       .then((res) => {
         return { products: res.data };
       })
@@ -31,7 +31,7 @@ export const getImageCollection = createAsyncThunk(
   "product/getImageCollection",
   async (id) => {
     return await axios
-      .get(baseUrl + `image-collections/${id}`, {headers: authHeader()})
+      .get(baseUrl + `image-collections/${id}`, { headers: authHeader() })
       .then((res) => {
         return { selected: res.data };
       })
@@ -41,17 +41,13 @@ export const getImageCollection = createAsyncThunk(
   }
 );
 
-export const getImageCollectionDownload = createAsyncThunk(
-  "product/getImageCollectionDownload",
+export const downloadCollection = createAsyncThunk(
+  "product/downloadCollection",
   async (id) => {
-    await axios
-      .get(baseUrl + `image-collections/${id}/download`, {headers: authHeader()})
-      .then((res) => {
-        console.log("UserPhotos => ", res);
-      })
-      .catch((err) => {
-        console.log("Error => ", err.response.data);
-      });
+    await axios.get(baseUrl + `image-collections/${id}/download`, {
+      headers: authHeader(),
+      params: { id: id },
+    });
   }
 );
 
@@ -109,7 +105,7 @@ export const clearUploadState = createAsyncThunk(
 
 export const generatingProduct = createAsyncThunk(
   "product/generatingAvatars",
-  async ({ name, gender }, {dispatch}) => {
+  async ({ name, gender }, { dispatch }) => {
     await axios
       .post(
         baseUrl + "generating-tasks/create",
@@ -121,21 +117,36 @@ export const generatingProduct = createAsyncThunk(
   }
 );
 
-export const deleteAvatars = createAsyncThunk("product/deleteAvatars", async(data, {dispatch}) => {
-  await axios.delete(baseUrl + "image-collections/all", {headers: authHeader()})
-  dispatch(getUserImageCollections());
-})
+export const deleteAvatars = createAsyncThunk(
+  "product/deleteAvatars",
+  async (data, { dispatch }) => {
+    await axios.delete(baseUrl + "image-collections/all", {
+      headers: authHeader(),
+    });
+    dispatch(getUserImageCollections());
+    return { selected: {} };
+  }
+);
+
+export const deleteCollection = createAsyncThunk(
+  "product/deleteCollection",
+  async (id, { dispatch }) => {
+    await axios.delete(baseUrl + `image-collections/${id}`, {
+      headers: authHeader(),
+    });
+    dispatch(getUserImageCollections());
+    return { selected: {} };
+  }
+);
 
 export const getCurrentAvailableCount = createAsyncThunk(
   "product/getCurrentAvailableCount",
   async () => {
     return axios.get(baseUrl + "gpu-instances/available-count", {
       headers: authHeader(),
-    })
+    });
   }
 );
-
-
 
 export const authSlice = createSlice({
   name: "product",
@@ -151,7 +162,7 @@ export const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getUserImageCollections.pending, (state, action) => {
+      .addCase(getUserImageCollections.pending, (state) => {
         state.productLoading = true;
       })
       .addCase(getUserImageCollections.fulfilled, (state, action) => {
@@ -170,7 +181,7 @@ export const authSlice = createSlice({
         state.uploadSuccess = action.payload.status;
         state.productLoading = false;
       })
-      .addCase(uploadUserImages.pending, (state, action) => {
+      .addCase(uploadUserImages.pending, (state) => {
         state.productLoading = true;
       })
       .addCase(clearUploadState.fulfilled, (state) => {
@@ -178,6 +189,12 @@ export const authSlice = createSlice({
       })
       .addCase(getCurrentAvailableCount.fulfilled, (state, action) => {
         state.payment = action.payload.data;
+      })
+      .addCase(deleteCollection.fulfilled, (state, action) => {
+        state.selected = action.payload.selected;
+      })
+      .addCase(deleteAvatars.fulfilled, (state, action) => {
+        state.selected = action.payload.selected;
       });
   },
 });
