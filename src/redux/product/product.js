@@ -120,6 +120,7 @@ export const generatingProduct = createAsyncThunk(
       )
       .then((res) => console.log("res => ", res));
     dispatch(getUser());
+    dispatch(getTaskState());
   }
 );
 
@@ -154,6 +155,10 @@ export const getCurrentAvailableCount = createAsyncThunk(
   }
 );
 
+export const getTaskState = createAsyncThunk("product/getTaskState", async () => {
+  return await axios.get(baseUrl + "generating-tasks/my-task", {headers:authHeader()})
+})
+
 export const authSlice = createSlice({
   name: "product",
   initialState: {
@@ -163,6 +168,7 @@ export const authSlice = createSlice({
     productLoading: false,
     selectedLoading: false,
     payment: 0,
+    taskState: {},
     uploadSuccess: false,
     error: {},
   },
@@ -187,6 +193,12 @@ export const authSlice = createSlice({
       .addCase(getUserImages.fulfilled, (state, action) => {
         state.userImages = action.payload.data;
       })
+      .addCase(generatingProduct.pending, (state) => {
+        state.productLoading = true
+      })
+      .addCase(generatingProduct.fulfilled, (state) => {
+        state.productLoading = false
+      })
       .addCase(uploadUserImages.fulfilled, (state, action) => {
         state.uploadSuccess = action.payload.status;
         state.productLoading = false;
@@ -196,6 +208,9 @@ export const authSlice = createSlice({
       })
       .addCase(clearUploadState.fulfilled, (state) => {
         state.uploadSuccess = false;
+      })
+      .addCase(getTaskState.fulfilled, (state, action) => {
+        state.taskState = action.payload.data;
       })
       .addCase(getCurrentAvailableCount.fulfilled, (state, action) => {
         state.payment = action.payload.data;

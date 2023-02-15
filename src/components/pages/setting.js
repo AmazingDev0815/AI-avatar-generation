@@ -88,7 +88,7 @@ const Setting = () => {
             <img
               alt="current avatar"
               src={store.userData.avatarImageUrl}
-              className="rounded-full md:w-40 md:h-40 ml-6 z-10 w-20 h-20 border border-white border-[3px]"
+              className="rounded-full md:w-40 md:h-40 ml-6 z-10 w-20 h-20 border-white border-[3px]"
             />
           ) : (
             <img
