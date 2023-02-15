@@ -22,7 +22,7 @@ import { useEffect } from "react";
 import { getUser } from "./redux/user/user";
 import { PrivateRoute } from "./components/helpers/privateRoute";
 import { PublicRoute } from "./components/helpers/publicRoute";
-import { getCurrentAvailableCount, getTaskState, getUserImageCollections } from "./redux/product/product";
+import { getCurrentAvailableCount, getTaskState, getImageCollections, getUserImages } from "./redux/product/product";
 import { Payment } from "./components/pages/stripe";
 
 function App() {
@@ -36,9 +36,9 @@ function App() {
 
   useEffect(() => {
     if(store.isAuthenticate) {
-      dispatch(getUserImageCollections());
+      dispatch(getImageCollections());
       dispatch(getTaskState());
-      // dispatch(getCurrentAvailableCount());
+      dispatch(getUserImages(store.userData.upn));
     }
   }, [store.isAuthenticate])
 

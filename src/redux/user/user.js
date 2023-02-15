@@ -124,16 +124,24 @@ export const handleSignOut = createAsyncThunk(
   }
 );
 
-export const updateUserInfo = createAsyncThunk("authentication/updateUserInfo", async({username, avatar, gender, emailNotificationState, promotionalEmailState}, {dispatch}) => {
-  let formData = new FormData();
-  formData.append("AvatarFile", avatar);
-  formData.append("Gender", gender);
-  formData.append("Name", username);
-  formData.append("ReceiveEmailNotificationEnabled", emailNotificationState);
-  formData.append("ReceivePromotionalEmailEnabled", promotionalEmailState);
-  await axios.put(baseUrl + "users", formData, {headers: {...authHeader(), "Content-Type": "multipart/form-data",}})
-  dispatch(getUser());
-})
+export const updateUserInfo = createAsyncThunk(
+  "authentication/updateUserInfo",
+  async (
+    { username, avatar, gender, emailNotificationState, promotionalEmailState },
+    { dispatch }
+  ) => {
+    let formData = new FormData();
+    formData.append("AvatarFile", avatar);
+    formData.append("Gender", gender);
+    formData.append("Name", username);
+    formData.append("ReceiveEmailNotificationEnabled", emailNotificationState);
+    formData.append("ReceivePromotionalEmailEnabled", promotionalEmailState);
+    await axios.put(baseUrl + "users", formData, {
+      headers: { ...authHeader(), "Content-Type": "multipart/form-data" },
+    });
+    dispatch(getUser());
+  }
+);
 
 export const deleteAccount = createAsyncThunk(
   "authentication/deleteAccount",
@@ -218,9 +226,17 @@ export const checkEmail = createAsyncThunk(
 
 export const depositPayment = createAsyncThunk(
   "product/depositPayment",
-  async (sessionId, {dispatch}) => {
-    axios.post(baseUrl + `payment/${sessionId}`, {}, { headers: authHeader() });
+  async (sessionId, { dispatch }) => {
+    const paymentstate = await axios
+      .post(baseUrl + `payment/${sessionId}`, {}, { headers: authHeader() })
+      .then((res) => {
+        return { userpaied: true };
+      })
+      .catch((res) => {
+        return { userpaied: false };
+      });
     dispatch(getUser());
+    return paymentstate;
   }
 );
 
@@ -233,6 +249,7 @@ export const authSlice = createSlice({
     isLoading: true,
     error: {},
     success: false,
+    userpaied: false,
     googleUrl: "",
   },
   reducers: {},
@@ -285,12 +302,12 @@ export const authSlice = createSlice({
         state.error = action.payload.error;
         state.success = action.payload.success;
       })
-      // .addCase(depositPayment.pending, (state) => {
-      //   state.isLoading = true
-      // })
-      // .addCase(depositPayment.fulfilled, (state) => {
-      //   state.isLoading = false
-      // });
+      .addCase(depositPayment.rejected, (state) => {
+        state.userpaied = false;
+      })
+      .addCase(depositPayment.fulfilled, (state, action) => {
+        state.userpaied = action.payload.userpaied;
+      });
   },
 });
 

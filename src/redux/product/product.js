@@ -5,8 +5,8 @@ import { getUser } from "../user/user";
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-export const getUserImageCollections = createAsyncThunk(
-  "product/getUserImageCollections",
+export const getImageCollections = createAsyncThunk(
+  "product/getImageCollections",
   async () => {
     return await axios
       .get(baseUrl + "image-collections", {
@@ -130,7 +130,7 @@ export const deleteAvatars = createAsyncThunk(
     await axios.delete(baseUrl + "image-collections/all", {
       headers: authHeader(),
     });
-    dispatch(getUserImageCollections());
+    dispatch(getImageCollections());
     return { selected: {} };
   }
 );
@@ -141,7 +141,7 @@ export const deleteCollection = createAsyncThunk(
     await axios.delete(baseUrl + `image-collections/${id}`, {
       headers: authHeader(),
     });
-    dispatch(getUserImageCollections());
+    dispatch(getImageCollections());
     return { selected: {} };
   }
 );
@@ -175,10 +175,10 @@ export const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getUserImageCollections.pending, (state) => {
+      .addCase(getImageCollections.pending, (state) => {
         state.productLoading = true;
       })
-      .addCase(getUserImageCollections.fulfilled, (state, action) => {
+      .addCase(getImageCollections.fulfilled, (state, action) => {
         state.products = action.payload.products;
         state.error = action.payload.error;
         state.productLoading = false;

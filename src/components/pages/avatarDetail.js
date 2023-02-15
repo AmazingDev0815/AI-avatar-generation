@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Select from "react-select";
 import MainLayout from "../../layout/mainLayout";
-import { clearUploadState, generatingProduct } from "../../redux/product/product";
+import {
+  clearUploadState,
+  generatingProduct,
+} from "../../redux/product/product";
 
 const genderOptions = [
   { label: "Other", value: 0 },
@@ -17,18 +20,23 @@ const AvatarDetail = () => {
   const [disable, setDisable] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const productStore = useSelector((state) => state.product);
 
   useEffect(() => {
     setDisable(!(!!selectedOption?.value && !!avatarName));
   }, [selectedOption, avatarName]);
 
   useEffect(() => {
-    dispatch(clearUploadState())
-  }, [])
+    if (productStore.uploadSuccess) {
+      dispatch(clearUploadState());
+    }
+  }, []);
 
   const SubmitInfo = (e) => {
     e.preventDefault();
-    dispatch(generatingProduct({name:avatarName, gender :selectedOption?.value}));
+    dispatch(
+      generatingProduct({ name: avatarName, gender: selectedOption?.value })
+    );
     navigate("/success");
   };
 

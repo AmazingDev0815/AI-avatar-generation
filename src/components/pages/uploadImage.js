@@ -41,6 +41,12 @@ const UploadImage = () => {
     dispatch(uploadUserImages(imageWithCrop));
   };
 
+  useEffect(() => {
+    if(productStore.userImages.length >= 20) {
+      navigate("/avatar-detail")
+    }
+  }, [])
+
   // to limit image number
 
   useEffect(() => {
@@ -137,7 +143,14 @@ const UploadImage = () => {
             Avoid pics with sunglasses
           </span>
         </ul>
-        {images.length > 0 ? (
+        {productStore.userImages.length >= 20 ? (
+          <button
+            className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm"
+            onClick={() => navigate("/avatar-detail")}
+          >
+            Next
+          </button>
+        ) : images.length > 0 ? (
           <div className="h-[200px]">
             {images.length === 20 && (
               <button
