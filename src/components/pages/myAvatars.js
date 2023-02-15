@@ -11,7 +11,9 @@ const MyAvatars = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (
+    if (!store.taskState.length) {
+      setLoading(false);
+    } else if (
       !store.taskState
         ?.map((item) => item.status.value)
         .filter((i) => i === 0)[0]

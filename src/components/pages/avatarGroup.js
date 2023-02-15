@@ -8,7 +8,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
 import MainLayout from "../../layout/mainLayout";
-import { downloadCollection, getImageCollection } from "../../redux/product/product";
+import {
+  downloadCollection,
+  getImageCollection,
+} from "../../redux/product/product";
 import { LocalImg } from "../basic/imgProvider";
 import MyModal from "../basic/modal";
 
@@ -23,7 +26,6 @@ const Group = () => {
 
   const onDownload = () => {
     dispatch(downloadCollection(id));
-    console.log("dwonload");
   };
 
   return (
@@ -48,7 +50,9 @@ const Group = () => {
               My Avatars
             </Link>
             <ChevronRightIcon className="text-gray-600 w-4 h-4 mr-[18px]" />
-            <span className="font-poppinsBold text-primary-600">{store.selected.name}</span>
+            <span className="font-poppinsBold text-primary-600">
+              {store.selected.name}
+            </span>
           </div>
 
           <div className="flex justify-between items-center mt-3" id="download">
@@ -56,7 +60,11 @@ const Group = () => {
               <h1 className="font-poppinsSemiBold text-3xl text-gray-900">
                 {store.selected.name}
               </h1>
-              <span className="text-xs text-gray-500 mt-3"><Moment format="DD.MM.YYYY.">{store.selected.createdDate}</Moment></span>
+              <span className="text-xs text-gray-500 mt-3">
+                <Moment format="DD.MM.YYYY.">
+                  {store.selected.createdDate}
+                </Moment>
+              </span>
             </div>
             <button className="px-4 py-2.5 flex text-white hover:bg-primary-700 bg-primary-600 rounded-lg items-center">
               <ArrowDownTrayIcon className="w-5 h-5 stroke-2 mr-2" />
@@ -76,6 +84,17 @@ const Group = () => {
               className="flex flex-wrap items-center justify-start"
               id="images"
             >
+              {store.selected.items.map((item, key) => (
+                <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+                  <img
+                    key={key}
+                    alt="demo"
+                    src={item.url.url}
+                    className="rounded-xl"
+                  />
+                </div>
+              ))}
+{/* 
               <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
                 <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
               </div>
@@ -105,10 +124,10 @@ const Group = () => {
               </div>
               <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
                 <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
+              </div> */}
             </div>
           </div>
-          <div className="mt-8" id="style_2">
+          {/* <div className="mt-8" id="style_2">
             <h1 className="text-2xl text-gray-900 font-poppinsSemiBold">
               Acrylic painting
             </h1>
@@ -147,9 +166,9 @@ const Group = () => {
                 <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="flex justify-center">
-            <MyModal id={id}/>
+            <MyModal id={id} />
           </div>
         </div>
       )}

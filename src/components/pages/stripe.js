@@ -17,7 +17,7 @@ export const Payment = () => {
       if (sessionId) {
         dispatch(depositPayment(sessionId));
       } else {
-        window.location = "https://buy.stripe.com/test_8wMg0n0hu4Vv5bOdQR";
+        window.location = process.env.REACT_APP_STRIPE;
       }
     }
   }, []);

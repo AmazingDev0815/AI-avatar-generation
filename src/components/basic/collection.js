@@ -5,7 +5,6 @@ import Moment from 'react-moment';
 import { useNavigate } from "react-router-dom";
 import { LocalImg } from "./imgProvider";
 import { useSelector } from "react-redux";
-import { Getpath } from "./getPath";
 
 const Collection = ({id}) => {
   const navigate = useNavigate();
@@ -76,13 +75,13 @@ const Collection = ({id}) => {
       </span>
       <div className="flex mt-6 w-full" id="image_gallery">
         <Slider {...settings}>
-          {/* {collection.images.map((item, key) => <img key={key} alt="demo" src={Getpath({path:item.path.path})} className="rounded-xl mr-9" />)} */}
-          <img alt="demo" src={LocalImg.demo_1} className="rounded-xl mr-9" />
+          {collection.images.map((item, key) => <img key={key} alt="demo" src={item.url.url} className="rounded-xl mr-9" />)}
+          {/* <img alt="demo" src={LocalImg.demo_1} className="rounded-xl mr-9" />
           <img alt="demo" src={LocalImg.demo_2} className="rounded-xl mr-9" />
           <img alt="demo" src={LocalImg.demo_3} className="rounded-xl mr-9" />
           <img alt="demo" src={LocalImg.demo_4} className="rounded-xl mr-9" />
           <img alt="demo" src={LocalImg.demo_5} className="rounded-xl mr-9" />
-          <img alt="demo" src={LocalImg.demo_6} className="rounded-xl mr-9" />
+          <img alt="demo" src={LocalImg.demo_6} className="rounded-xl mr-9" /> */}
         </Slider>
       </div>
       <div className="flex justify-center">

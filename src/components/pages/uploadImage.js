@@ -12,11 +12,6 @@ const UploadImage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const productStore = useSelector((state) => state.product);
-  const userStore = useSelector((state) => state.auth);
-
-  useEffect(() => {
-    dispatch(getUserImages(userStore.userData.upn));
-  }, []);
 
   const [images, setImages] = useState([]);
   const [imageWithCrop, setImageWithCrop] = useState([]);
