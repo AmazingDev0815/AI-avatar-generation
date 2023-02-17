@@ -29,7 +29,6 @@ const Login = () => {
 
   useEffect(() => {
     if (error.email === "" && error.password === "") {
-      console.log("data => ", email, password);
       const data = {
         username: email,
         password: password,
@@ -38,9 +37,12 @@ const Login = () => {
     }
     dispatch(getGoogleUrl(redirectUri));
   }, [error, dispatch]);
+  let code = queryParameters.get("code");
+  if (code && localStorage.getItem("userData") === null) {
+    dispatch(getGoogleToken({code, redirectUri}));
+  }
 
   useEffect(() => {
-    let code = queryParameters.get("code");
     if (
       Object.keys(store.userData).length &&
       store.userData?.status === "Success"
@@ -53,10 +55,9 @@ const Login = () => {
     ) {
       setError({ loginError: "Email or Password was incorrect" });
     }
-    if (code) {
-      dispatch(getGoogleToken({code, redirectUri}));
-    }
+    
   }, [store]);
+
 
   const handleValidate = () => {
     let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);

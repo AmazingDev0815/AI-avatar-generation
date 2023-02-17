@@ -1,6 +1,9 @@
+import { useSelector } from "react-redux";
 import Collection from "../basic/collection";
 
 const Created = () => {
+  const store = useSelector(state => state.product);
+
   return (
     <div className="flex flex-1 w-full flex-col justify-center items-center mb-40 p-5">
       <div
@@ -18,7 +21,7 @@ const Created = () => {
         represents you. You can also download or delete any of the avatars from
         this page. Enjoy!
       </div>
-      <Collection />
+      {store.products.items.map((item, key) => <Collection key={key} id={item.id} />)}
     </div>
   );
 };

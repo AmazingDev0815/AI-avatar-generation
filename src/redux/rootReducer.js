@@ -1,5 +1,5 @@
 // ** Reducers Imports
-import product from './user/product';
+import product from './product/product';
 import auth from './user/user'
 
 const rootReducer = {

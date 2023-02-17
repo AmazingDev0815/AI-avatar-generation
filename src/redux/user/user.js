@@ -14,7 +14,7 @@ export const getUser = createAsyncThunk("authentication/getUser", async () => {
   const userData =
     Object.keys(authData).length && Object.keys(upn)
       ? await axios
-          .get(baseUrl + upn, {
+          .get(baseUrl + "users/info", {
             headers: { Authorization: `Bearer ${authData.accessToken}` },
           })
           .then((res) => {
@@ -54,9 +54,11 @@ export const getGoogleToken = createAsyncThunk(
         redirectUri: redirectUri,
       })
       .then((res) => {
-        localStorage.setItem("userData", res.data);
-        localStorage.setItem("upn", res.data.upn);
-        console.log(res);
+        localStorage.setItem(
+          "userData",
+          JSON.stringify({ accessToken: res.data.accessToken })
+        );
+        localStorage.setItem("upn", JSON.stringify(res.data.upn));
       })
       .catch((err) => {
         console.log(err);
@@ -78,7 +80,6 @@ export const handleSignUp = createAsyncThunk(
         gender: 0,
       })
       .then((response) => {
-        console.log("SignUp ===> ", response);
         return response.data;
       })
       .catch((err) => {
@@ -117,6 +118,25 @@ export const handleSignOut = createAsyncThunk(
   "authentication/handleSignOut",
   async (data, { dispatch }) => {
     localStorage.clear();
+    dispatch(getUser());
+  }
+);
+
+export const updateUserInfo = createAsyncThunk(
+  "authentication/updateUserInfo",
+  async (
+    { username, avatar, gender, emailNotificationState, promotionalEmailState },
+    { dispatch }
+  ) => {
+    let formData = new FormData();
+    formData.append("AvatarFile", avatar);
+    formData.append("Gender", gender);
+    formData.append("Name", username);
+    formData.append("ReceiveEmailNotificationEnabled", emailNotificationState);
+    formData.append("ReceivePromotionalEmailEnabled", promotionalEmailState);
+    await axios.put(baseUrl + "users", formData, {
+      headers: { ...authHeader(), "Content-Type": "multipart/form-data" },
+    });
     dispatch(getUser());
   }
 );
@@ -202,6 +222,22 @@ export const checkEmail = createAsyncThunk(
   }
 );
 
+export const depositPayment = createAsyncThunk(
+  "product/depositPayment",
+  async (sessionId, { dispatch }) => {
+    const paymentstate = await axios
+      .post(baseUrl + `payment/${sessionId}`, {}, { headers: authHeader() })
+      .then((res) => {
+        return { userpaied: true };
+      })
+      .catch((res) => {
+        return { userpaied: false };
+      });
+    dispatch(getUser());
+    return paymentstate;
+  }
+);
+
 export const authSlice = createSlice({
   name: "authentication",
   initialState: {
@@ -211,6 +247,7 @@ export const authSlice = createSlice({
     isLoading: true,
     error: {},
     success: false,
+    userpaied: false,
     googleUrl: "",
   },
   reducers: {},
@@ -253,12 +290,21 @@ export const authSlice = createSlice({
       .addCase(getGoogleUrl.fulfilled, (state, action) => {
         state.googleUrl = action.payload.url;
       })
+      .addCase(getGoogleToken.pending, (state) => {
+        state.isLoading = true;
+      })
       .addCase(clearState.fulfilled, (state, action) => {
         state.isAuthenticate = action.payload.isAuthenticate;
         state.userData = action.payload.userData;
         state.response = action.payload.response;
         state.error = action.payload.error;
         state.success = action.payload.success;
+      })
+      .addCase(depositPayment.rejected, (state) => {
+        state.userpaied = false;
+      })
+      .addCase(depositPayment.fulfilled, (state, action) => {
+        state.userpaied = action.payload.userpaied;
       });
   },
 });

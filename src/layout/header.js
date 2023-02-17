@@ -55,7 +55,6 @@ const Header = () => {
   };
 
   const onSignOut = () => {
-    console.log("signOut");
     dispatch(handleSignOut());
   };
 
@@ -113,7 +112,7 @@ const Header = () => {
                         <Menu.Button className="block h-10 w-10">
                           <img
                             alt="avatar"
-                            src={LocalImg[3]}
+                            src={store.userData.avatarImageUrl??LocalImg.avatarPlaceholder}
                             className="rounded-full"
                           />
                         </Menu.Button>
