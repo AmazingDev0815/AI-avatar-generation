@@ -41,11 +41,11 @@ const UploadImage = () => {
     dispatch(uploadUserImages(imageWithCrop));
   };
 
-  useEffect(() => {
-    if(productStore.userImages.length >= 20) {
-      navigate("/avatar-detail")
-    }
-  }, [])
+  // useEffect(() => {
+  //   if(productStore.userImages.length >= 20) {
+  //     navigate("/avatar-detail")
+  //   }
+  // }, [])
 
   // to limit image number
 
