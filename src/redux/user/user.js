@@ -3,7 +3,6 @@ import axios from "axios";
 import authHeader from "../authHeader";
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
-const prefixUri = process.env.REACT_APP_PREFIX_URI;
 
 export const getUser = createAsyncThunk("authentication/getUser", async () => {
   const item = window.localStorage.getItem("userData");
@@ -158,11 +157,11 @@ export const deleteAccount = createAsyncThunk(
 
 export const requestResetPassword = createAsyncThunk(
   "authentication/requestResetPassword",
-  async (email) => {
+  async ({email, prefixUri}) => {
     const request = await axios
       .post(baseUrl + "users/request-reset-password", {
         email: email,
-        prefixUri: prefixUri + "reset-password/",
+        prefixUri: prefixUri + "/reset-password/",
       })
       .then((response) => {
         localStorage.setItem("requestEmail", JSON.stringify(email));
@@ -197,7 +196,7 @@ export const clearState = createAsyncThunk(
 
 export const resetPassword = createAsyncThunk(
   "authentication/resetPassword",
-  async (data) => {
+  async ({data, prefixUri}) => {
     const reset = await axios
       .post(baseUrl + "users/reset-password", {
         token: data.token,
