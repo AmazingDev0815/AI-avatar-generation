@@ -4,6 +4,7 @@ import { MoonLoader } from "react-spinners";
 
 export const PrivateRoute = ({ children }) => {
   const { isLoading, isAuthenticate } = useSelector((state) => state.auth);
+  // const { productLoading } = useSelector((state) => state.product);
 
   if (isLoading)
     return (

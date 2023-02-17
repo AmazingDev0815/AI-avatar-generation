@@ -1,33 +1,79 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import MainLayout from "../../layout/mainLayout";
 import Dropzone from "../basic/dropZone";
 import Avatar from "../basic/avatar";
-import { EnvelopeIcon } from "@heroicons/react/24/outline";
+// import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { LocalImg } from "../basic/imgProvider";
 import MyModal from "../basic/modal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import Select from "react-select";
+import { getUser, updateUserInfo } from "../../redux/user/user";
+
+const genderOptions = [
+  { label: "Other", value: 0 },
+  { label: "Male", value: 1 },
+  { label: "Female", value: 2 },
+];
 
 const Setting = () => {
   const store = useSelector((state) => state.auth);
 
-  const [notification, setNotification] = useState(false);
-  const [promotionalEmail, setPromotionalEmail] = useState(false);
-  const [image, setImage] = useState();
-  const [avatarState, setAvatarState] = useState(false);
+  const dispatch = useDispatch();
+
+  const [notification, setNotification] = useState(
+    store.userData.receiveEmailNotificationEnabled
+  );
+  const [promotionalEmail, setPromotionalEmail] = useState(
+    store.userData.receivePromotionalEmailEnabled
+  );
+  const [image, setImage] = useState({ src: store.userData.avatarImageUrl });
+  const [avatarState, setAvatarState] = useState(store.userData.avatarImageUrl);
   const [userName, setUserName] = useState(store.userData.name);
-  const [email, setEmail] = useState(store.userData.email);
+  const [selectedOption, setSelectedOption] = useState({
+    label: store.userData.gender?.name,
+    value: store.userData.gender?.value,
+  });
+  // const [email, setEmail] = useState(store.userData.email);
+  const [error, setError] = useState(null);
 
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.map((file) => {
       const reader = new FileReader();
       reader.onload = function (e) {
-        setImage(e.target.result);
+        setImage({ src: e.target.result, file: file });
         setAvatarState(true);
       };
       reader.readAsDataURL(file);
       return file;
     });
   }, []);
+
+  useEffect(() => {
+    if (userName === "") {
+      setError("Username field is required.");
+    } else {
+      setError(null);
+    }
+  }, [userName]);
+
+  const SaveChange = (e) => {
+    e.preventDefault();
+    if (!error) {
+      dispatch(
+        updateUserInfo({
+          username: userName,
+          gender: selectedOption.value,
+          avatar: image?.file ? image.file : null,
+          emailNotificationState: notification,
+          promotionalEmailState: promotionalEmail,
+        })
+      );
+    }
+  };
+
+  const CancelChange = () => {
+    dispatch(getUser());
+  };
 
   return (
     <MainLayout>
@@ -38,18 +84,31 @@ const Setting = () => {
             src={LocalImg.settingHeader}
             className="absolute h-60 rounded-3xl w-full object-cover"
           />
-          <img
-            alt="current avatar"
-            src={LocalImg.avatarPlaceholder_1}
-            className="rounded-full md:w-40 md:h-40 ml-6 z-10 w-20 h-20"
-          />
+          {store.userData.avatarImageUrl ? (
+            <img
+              alt="current avatar"
+              src={store.userData.avatarImageUrl}
+              className="rounded-full md:w-40 md:h-40 ml-6 z-10 w-20 h-20 border-white border-[3px]"
+            />
+          ) : (
+            <img
+              alt="current avatar"
+              src={LocalImg.avatarPlaceholder_1}
+              className="rounded-full md:w-40 md:h-40 ml-6 z-10 w-20 h-20"
+            />
+          )}
+
           <div className="flex flex-col ml-6 z-10">
-            <h1 className="text-3xl text-white">{userName}</h1>
-            <span className="text-white">{email}</span>
+            <h1 className="text-3xl text-white">{store.userData.name}</h1>
+            <span className="text-white">{store.userData.email}</span>
           </div>
         </div>
-        <div className="my-12 flex flex-col md:px-8" id="settingSection">
-          <div className=" flex flex-col md:flex-row pb-5 border-b">
+        <div
+          className="my-12 flex flex-col md:px-8"
+          id="settingSection"
+          onSubmit={SaveChange}
+        >
+          <form className=" flex flex-col md:flex-row pb-5 border-b">
             <div className="md:w-1/5 w-full text-sm md:mr-8">
               <h1 className="font-poppinsMedium">Profile Information</h1>
               <span className="text-gray-400">
@@ -72,8 +131,13 @@ const Setting = () => {
                   onChange={(e) => setUserName(e.target.value)}
                   value={userName}
                 />
+                {error && (
+                  <div className="font-poppinsMedium mt-2 text-red-500">
+                    {error}
+                  </div>
+                )}
               </div>
-              <div className="mt-6">
+              {/* <div className="mt-6">
                 <label
                   htmlFor="email"
                   className="block mb-1.5 text-sm font-poppinsMedium text-gray-900"
@@ -91,9 +155,39 @@ const Setting = () => {
                     value={email}
                   />
                 </div>
+              </div> */}
+              <div className="mt-6">
+                <label
+                  htmlFor="gender"
+                  className="block mb-1.5 text-sm font-poppinsMedium text-gray-900"
+                >
+                  Select your gender
+                </label>
+                <Select
+                  placeholder="Select gender"
+                  defaultValue={selectedOption}
+                  onChange={setSelectedOption}
+                  options={genderOptions}
+                  styles={{
+                    control: (baseStyles, state) => ({
+                      ...baseStyles,
+                      borderWidth: state.isFocused ? "2px" : "1px",
+                      borderRadius: "8px",
+                      borderColor: state.isFocused ? "#7F56D9" : "#D0D5DD",
+                      paddingBottom: "3px",
+                      paddingTop: "3px",
+                      boxShadow: state.isFocused
+                        ? "0px 0px 6px #7F56D9"
+                        : "none",
+                      "&:hover": {
+                        border: baseStyles.border,
+                      },
+                    }),
+                  }}
+                />
               </div>
               <div className="mt-6 flex flex-col md:flex-row" id="upload">
-                <Avatar image={image} size="64px" state={avatarState} />
+                <Avatar image={image?.src} size="64px" state={avatarState} />
                 <Dropzone onDrop={onDrop} accept={"image/*"} state={0} />
               </div>
               <div className="mt-6 flex flex-col" id="setNotification">
@@ -149,14 +243,15 @@ const Setting = () => {
                   Save changes
                 </button>
                 <button
+                  type="button"
+                  onClick={CancelChange}
                   className="border border-gray-300 hover:bg-gray-100 rounded-lg px-4 py-2.5 mt-6 text-gray-900 text-sm"
-                  type="submit"
                 >
                   Cancel
                 </button>
               </div>
             </div>
-          </div>
+          </form>
           <div className="flex flex-col md:flex-row mt-6">
             <div className="md:w-1/5 text-sm md:mr-8">
               <h1 className="font-poppinsMedium">Account Control</h1>
