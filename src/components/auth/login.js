@@ -18,7 +18,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const store = useSelector((state) => state.auth);
   // ** Google login redirectUri
-  const redirectUri = process.env.REACT_APP_PREFIX_URI + "google-oauth";
+  const redirectUri = window.location.origin + "/google-oauth";
 
   const navigate = useNavigate();
 
