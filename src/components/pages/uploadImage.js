@@ -144,12 +144,14 @@ const UploadImage = () => {
           </span>
         </ul>
         {productStore.userImages.length >= 20 ? (
-          <button
-            className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm"
-            onClick={() => navigate("/avatar-detail")}
-          >
-            Next
-          </button>
+          <div className="h-[200px]">
+            <button
+              className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm"
+              onClick={() => navigate("/avatar-detail")}
+            >
+              Next
+            </button>
+          </div>
         ) : images.length > 0 ? (
           <div className="h-[200px]">
             {images.length === 20 && (

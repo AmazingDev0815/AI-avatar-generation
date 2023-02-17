@@ -9,9 +9,9 @@ import {
 } from "../../redux/product/product";
 
 const genderOptions = [
-  { label: "Other", value: 0 },
-  { label: "Male", value: 1 },
-  { label: "Female", value: 2 },
+  { label: "Other", value: 1 },
+  { label: "Male", value: 2 },
+  { label: "Female", value: 3 },
 ];
 
 const AvatarDetail = () => {
@@ -35,7 +35,7 @@ const AvatarDetail = () => {
   const SubmitInfo = (e) => {
     e.preventDefault();
     dispatch(
-      generatingProduct({ name: avatarName, gender: selectedOption?.value })
+      generatingProduct({ name: avatarName, gender: (selectedOption?.value - 1) })
     );
     navigate("/success");
   };
