@@ -25,12 +25,12 @@ const Group = () => {
   }, []);
 
   const onDownload = () => {
-    dispatch(downloadCollection(id));
+    dispatch(downloadCollection({token:store.selected.downloadToken, name: store.selected.name}));
   };
 
   return (
     <MainLayout>
-      {store.selectedLoading ? (
+      {store.selectedLoading || store.productLoading || Object.keys(store.selected).length === 0 ? (
         <div className="flex flex-1 justify-center items-center h-screen">
           <MoonLoader
             size={150}
@@ -84,10 +84,9 @@ const Group = () => {
               className="flex flex-wrap items-center justify-start"
               id="images"
             >
-              {store.selected.items.map((item, key) => (
-                <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
+              {store.selected?.images.map((item, key) => (
+                <div key={key} className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
                   <img
-                    key={key}
                     alt="demo"
                     src={item.url.url}
                     className="rounded-xl"

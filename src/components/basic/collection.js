@@ -4,14 +4,17 @@ import "slick-carousel/slick/slick-theme.css";
 import Moment from 'react-moment';
 import { useNavigate } from "react-router-dom";
 import { LocalImg } from "./imgProvider";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getImageCollection } from "../../redux/product/product";
 
 const Collection = ({id}) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const store = useSelector(state => state.product.products);
 
   const collection = store.items.filter(item => item.id === id)[0];
   const goToCollection = () => {
+    dispatch(getImageCollection(id));
     navigate(`/my-avatars/${id}`);
   };
   const settings = {
@@ -75,7 +78,7 @@ const Collection = ({id}) => {
       </span>
       <div className="flex mt-6 w-full" id="image_gallery">
         <Slider {...settings}>
-          {collection.images.map((item, key) => <img key={key} alt="demo" src={item.url.url} className="rounded-xl mr-9" />)}
+          {collection.images.map((item, key) => <img key={key} alt="demo" src={item.url?.url} className="rounded-xl mr-9" />)}
           {/* <img alt="demo" src={LocalImg.demo_1} className="rounded-xl mr-9" />
           <img alt="demo" src={LocalImg.demo_2} className="rounded-xl mr-9" />
           <img alt="demo" src={LocalImg.demo_3} className="rounded-xl mr-9" />

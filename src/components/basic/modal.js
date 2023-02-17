@@ -35,7 +35,6 @@ export default function MyModal({ obj, id }) {
   };
 
   const onDelete = () => {
-    console.log("delete", obj);
     switch (obj) {
       case "account":
         dispatch(deleteAccount(store.userData.accessToken));

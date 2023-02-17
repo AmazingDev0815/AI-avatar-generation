@@ -21,7 +21,6 @@ export const getImageCollections = createAsyncThunk(
         return { products: res.data };
       })
       .catch((err) => {
-        console.log("Error => ", err.response.data);
         return { error: { userPhotos: err.response.data } };
       });
   }
@@ -53,10 +52,25 @@ export const getUserImages = createAsyncThunk(
 
 export const downloadCollection = createAsyncThunk(
   "product/downloadCollection",
-  async (id) => {
-    await axios.get(baseUrl + `image-collections/${id}/download`, {
+  async ({token, name}) => {
+    await axios.get(baseUrl + `image-collections/download/${token}`, {
       headers: authHeader(),
-      params: { id: id },
+      params: { token: token },
+      responseType: "blob"
+    }).then((response) => {
+      // create file link in browser's memory
+      const href = URL.createObjectURL(response.data);
+  
+      // create "a" HTML element with href to file & click
+      const link = document.createElement('a');
+      link.href = href;
+      link.setAttribute('download', `${name}.zip`); //or any other extension
+      document.body.appendChild(link);
+      link.click();
+  
+      // clean up "a" element & remove ObjectURL
+      document.body.removeChild(link);
+      URL.revokeObjectURL(href);
     });
   }
 );

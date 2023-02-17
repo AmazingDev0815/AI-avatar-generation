@@ -8,12 +8,12 @@ export const Payment = () => {
   const queryParameters = new URLSearchParams(window.location.search);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const sessionId = queryParameters.get("sessionId");
 
   useEffect(() => {
     if (store.userData.credit >= 100) {
       navigate("/upload");
     } else {
-      let sessionId = queryParameters.get("sessionId");
       if (sessionId) {
         dispatch(depositPayment(sessionId));
       } else {

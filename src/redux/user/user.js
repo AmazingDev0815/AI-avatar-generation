@@ -59,7 +59,6 @@ export const getGoogleToken = createAsyncThunk(
           JSON.stringify({ accessToken: res.data.accessToken })
         );
         localStorage.setItem("upn", JSON.stringify(res.data.upn));
-        console.log(res);
       })
       .catch((err) => {
         console.log(err);
@@ -81,7 +80,6 @@ export const handleSignUp = createAsyncThunk(
         gender: 0,
       })
       .then((response) => {
-        console.log("SignUp ===> ", response);
         return response.data;
       })
       .catch((err) => {

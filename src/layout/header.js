@@ -55,7 +55,6 @@ const Header = () => {
   };
 
   const onSignOut = () => {
-    console.log("signOut");
     dispatch(handleSignOut());
   };
 
