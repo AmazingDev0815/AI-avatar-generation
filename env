@@ -1,0 +1,4 @@
+REACT_APP_BASE_URL=https://avatar-service-test-hwj6miv7nq-uc.a.run.app/
+# REACT_APP_PREFIX_URI=https://mava.fun/
+REACT_APP_PREFIX_URI=http://localhost:3000/
+REACT_APP_STRIPE=https://buy.stripe.com/test_8wMg0n0hu4Vv5bOdQR
