@@ -65,10 +65,11 @@ const Header = () => {
           <div className="relative flex justify-between md:w-auto md:static md:block">
             <div className="flex justify-center items-center">
               <Link
-                className="text-sm font-bold leading-relaxed inline-block mr-7 py-2 whitespace-nowrap "
+                className="text-sm font-bold leading-relaxed contents mr-7 py-2 whitespace-nowrap "
                 to="/"
               >
-                <h1 className="text-3xl font-poppinsSemiBold text-primary-600">
+                <img src={LocalImg.logoHeader} alt="Mava Logo" />
+                <h1 className="text-3xl ml-1 font-poppinsSemiBold text-primary-600">
                   Mava
                 </h1>
               </Link>

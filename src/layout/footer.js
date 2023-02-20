@@ -1,14 +1,21 @@
+import { Link } from "react-router-dom";
+import { LocalImg } from "../components/basic/imgProvider";
+
 const Footer = () => {
   return (
     <footer className="w-full px-20 py-8 text-white bg-gray-800">
       <div className="flex items-center flex-col md:flex-row justify-between">
         <div className="md:w-[52%] w-full justify-around md:justify-between items-center flex flex-col md:flex-row">
-          <h1 className="text-2xl">Mava</h1>
+          <div className="flex justify-center items-center">
+            <img src={LocalImg.logoFooter} alt="Mava Logo" />
+            <h1 className="ml-1 text-2xl">Mava</h1>
+          </div>
           <div className="md:mt-0 mt-6">
             <a href="#" className="mr-8">
               Terms
             </a>
             <a href="#">Privacy</a>
+            <Link to="/contact">Contact</Link>
           </div>
         </div>
         <div className="flex md:mt-0 mt-6 space-x-6 justify-around w-1/2 md:w-auto md:justify-center items-center">

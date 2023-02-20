@@ -18,5 +18,5 @@ export const PublicRoute = ({ children }) => {
       </div>
     );
 
-  return !isAuthenticate ? children : <Navigate to="/" replace />;
+  return !isAuthenticate ? children : <Navigate to="/my-avatars" replace />;
 };

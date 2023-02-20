@@ -35,4 +35,6 @@ export const LocalImg = {
   party: require("../../assets/img/party.gif"),
   pensive: require("../../assets/img/pensive.gif"),
   success: require("../../assets/img/success.gif"),
+  logoHeader: require("../../assets/img/logo-header.png"),
+  logoFooter: require("../../assets/img/logo-footer.png"),
 };
