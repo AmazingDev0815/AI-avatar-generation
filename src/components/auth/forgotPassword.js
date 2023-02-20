@@ -29,7 +29,8 @@ const ForgotPassword = () => {
 
   useEffect(() => {
     if (error.email === "") {
-      dispatch(requestResetPassword(email));
+      const prefixUri = window.location.origin;
+      dispatch(requestResetPassword({email, prefixUri}));
     }
     if (store.response?.success) {
       navigate("/check-email");
