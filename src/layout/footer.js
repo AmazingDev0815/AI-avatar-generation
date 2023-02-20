@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className="w-full px-20 py-8 text-white bg-gray-800">
       <div className="flex items-center flex-col md:flex-row justify-between">
-        <div className="md:w-[52%] w-full justify-around md:justify-between items-center flex flex-col md:flex-row">
+        <div className="md:w-full w-full justify-around md:justify-between items-center flex flex-col md:flex-row">
           <div className="flex justify-center items-center">
             <img src={LocalImg.logoFooter} alt="Mava Logo" />
             <h1 className="ml-1 text-2xl">Mava</h1>
@@ -14,11 +14,10 @@ const Footer = () => {
             <a href="#" className="mr-8">
               Terms
             </a>
-            <a href="#">Privacy</a>
+            <a href="#" className="mr-8">Privacy</a>
             <Link to="/contact">Contact</Link>
-          </div>
-        </div>
-        <div className="flex md:mt-0 mt-6 space-x-6 justify-around w-1/2 md:w-auto md:justify-center items-center">
+          </div> 
+          <div className="flex md:mt-0 mt-6 space-x-6 justify-around w-1/2 md:w-auto md:justify-center items-center">
           <a href="#" className="text-gray-400 hover:text-gray-900">
             <svg
               className="w-6 h-6"
@@ -64,6 +63,7 @@ const Footer = () => {
               <path d="M23.7609 3.70005C23.7609 3.70005 23.5266 2.04536 22.8047 1.3188C21.8906 0.362549 20.8688 0.357861 20.4 0.301611C17.0438 0.0578612 12.0047 0.0578613 12.0047 0.0578613H11.9953C11.9953 0.0578613 6.95625 0.0578612 3.6 0.301611C3.13125 0.357861 2.10938 0.362549 1.19531 1.3188C0.473438 2.04536 0.24375 3.70005 0.24375 3.70005C0.24375 3.70005 0 5.64536 0 7.58599V9.40474C0 11.3454 0.239062 13.2907 0.239062 13.2907C0.239062 13.2907 0.473437 14.9454 1.19062 15.6719C2.10469 16.6282 3.30469 16.5954 3.83906 16.6985C5.76094 16.8813 12 16.9375 12 16.9375C12 16.9375 17.0438 16.9282 20.4 16.6891C20.8688 16.6329 21.8906 16.6282 22.8047 15.6719C23.5266 14.9454 23.7609 13.2907 23.7609 13.2907C23.7609 13.2907 24 11.35 24 9.40474V7.58599C24 5.64536 23.7609 3.70005 23.7609 3.70005ZM9.52031 11.6125V4.86724L16.0031 8.25161L9.52031 11.6125Z" />
             </svg>
           </a>
+          </div>
         </div>
       </div>
     </footer>

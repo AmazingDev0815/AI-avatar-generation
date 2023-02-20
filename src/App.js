@@ -24,6 +24,7 @@ import { PrivateRoute } from "./components/helpers/privateRoute";
 import { PublicRoute } from "./components/helpers/publicRoute";
 import { getCurrentAvailableCount, getTaskState, getImageCollections, getUserImages } from "./redux/product/product";
 import { Payment } from "./components/pages/stripe";
+import Contact from "./components/pages/contact";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function App() {
     <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
           <Route path="/google-oauth" element={<PublicRoute><Login /></PublicRoute>} />
           <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />
