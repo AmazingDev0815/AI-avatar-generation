@@ -98,11 +98,11 @@ const UploadImage = () => {
         <h1 className="font-poppinsSemiBold text-3xl mt-16">
           Upload Your Images
         </h1>
-        <p className="mt-1 text-gray-600">
+        <p className="mt-1 text-gray-600 text-center">
           Upload 20 photos close up profile pictures of you or your loved one
           and we will generate a new set of avatars.
         </p>
-        <p className="text-gray-600">
+        <p className="text-gray-600 text-center">
           You will receive images with our premade custom styles.
         </p>
         <div

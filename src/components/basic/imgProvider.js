@@ -37,4 +37,12 @@ export const LocalImg = {
   success: require("../../assets/img/success.gif"),
   logoHeader: require("../../assets/img/logo-header.png"),
   logoFooter: require("../../assets/img/logo-footer.png"),
+  check1Good: require("../../assets/img/upload-check-1-true.png"),
+  check1Bad: require("../../assets/img/upload-check-1-false.png"),
+  check2Good: require("../../assets/img/upload-check-2-true.png"),
+  check2Bad: require("../../assets/img/upload-check-2-false.png"),
+  check31Good: require("../../assets/img/upload-check-3-true-top.png"),
+  check32Good: require("../../assets/img/upload-check-3-true-bottom.png"),
+  check31Bad: require("../../assets/img/upload-check-3-false-top.png"),
+  check32Bad: require("../../assets/img/upload-check-3-false-bottom.png"),
 };

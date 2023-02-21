@@ -99,8 +99,8 @@ const Setting = () => {
           )}
 
           <div className="flex flex-col ml-6 z-10">
-            <h1 className="text-3xl text-white">{store.userData.name}</h1>
-            <span className="text-white">{store.userData.email}</span>
+            <h1 className="text-2xl sm:text-3xl text-white">{store.userData.name}</h1>
+            <span className="text-sm sm:text-base text-white">{store.userData.email}</span>
           </div>
         </div>
         <div

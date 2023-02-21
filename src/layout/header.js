@@ -74,7 +74,7 @@ const Header = () => {
                 </h1>
               </Link>
               {authState && (
-                <div className="md:flex hidden">
+                <div className="md:flex hidden ml-2">
                   <Link to="/my-avatars" className="pr-2">
                     My Avatars
                   </Link>
@@ -114,7 +114,7 @@ const Header = () => {
                           <img
                             alt="avatar"
                             src={store.userData.avatarImageUrl??LocalImg.avatarPlaceholder}
-                            className="rounded-full"
+                            className="rounded-full w-10 h-10"
                           />
                         </Menu.Button>
                       </div>
