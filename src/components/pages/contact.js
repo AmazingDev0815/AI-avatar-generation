@@ -22,6 +22,8 @@ const Contact = () => {
           : "Please confirm your email"
         : "Please enter your email",
       message: message.length ? "" : "Please leave a message",
+      firstName: firstName.length ? "" : "Please enter your firstname",
+      lastName: lastName.length ? "" : "Please enter your lastname",
     });
   };
 
@@ -54,6 +56,11 @@ const Contact = () => {
                   placeholder="First name"
                   onChange={(e) => setFirstName(e.target.value)}
                 />
+                {error.firstName && (
+                  <div className="font-poppinsMedium mt-2 text-red-500">
+                    {error.firstName}
+                  </div>
+                )}
               </div>
               <div className="w-full sm:w-1/2">
                 <label
@@ -69,6 +76,11 @@ const Contact = () => {
                   placeholder="Last name"
                   onChange={(e) => setLastName(e.target.value)}
                 />
+                 {error.lastName && (
+                  <div className="font-poppinsMedium mt-2 text-red-500">
+                    {error.lastName}
+                  </div>
+                )}
               </div>
             </div>
             <div className="w-full mt-6">
