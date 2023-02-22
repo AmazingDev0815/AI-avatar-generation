@@ -5,7 +5,7 @@ import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/outline";
 
 export default function PreviewModal() {
   const [open, setOpen] = useState(true);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
 
   const cancelButtonRef = useRef(null);
   console.log(step);
@@ -58,18 +58,23 @@ export default function PreviewModal() {
                   <div className="w-2/3 flex justify-between h-2">
                     <div
                       className={`${
+                        step >= 0 ? "bg-primary-700" : "bg-gray-300"
+                      } h-2 rounded-full mr-1 w-1/4`}
+                    ></div>
+                    <div
+                      className={`${
                         step >= 1 ? "bg-primary-700" : "bg-gray-300"
-                      } h-2 rounded-full mr-1 w-1/3 `}
+                      } h-2 rounded-full mr-1 w-1/4 `}
                     ></div>
                     <div
                       className={`${
                         step >= 2 ? "bg-primary-700" : "bg-gray-300"
-                      } h-2 rounded-full mr-1 w-1/3`}
+                      } h-2 rounded-full mr-1 w-1/4`}
                     ></div>
                     <div
                       className={`${
                         step >= 3 ? "bg-primary-700" : "bg-gray-300"
-                      } h-2 rounded-full w-1/3`}
+                      } h-2 rounded-full w-1/4`}
                     ></div>
                   </div>
                 </div>
@@ -79,7 +84,7 @@ export default function PreviewModal() {
                     className="block w-full mr-3 border-gray-300 mt-6 py-2 rounded-lg text-gray-700 disabled:text-gray-300 border disabled:border-gray-200 font-poppinsSemiBold mb-2 text-sm sm:text-base"
                     onClick={() => handleBack()}
                     ref={cancelButtonRef}
-                    disabled={step > 1 ? false : true}
+                    disabled={step > 0 ? false : true}
                   >
                     Back
                   </button>
@@ -104,6 +109,29 @@ export default function PreviewModal() {
 
 const images = (step) => {
   switch (step) {
+    case 0:
+      return (
+        <div className="px-6 flex justify-center items-center">
+          <div className="flex flex-1 relative mr-8">
+            <img src={LocalImg.check1Good} alt="Good" className="rounded-lg" />
+            <div className="flex justify-center items-center absolute bottom-3 left-3 p-1 sm:p-2 rounded sm:rounded-lg bg-success-50 text-success-700">
+              <CheckCircleIcon className="w-3 h-3 mr-1 sm:w-5 sm:h-5 sm:mr-2" />
+              <span className="font-poppinsSemiBold text-xs sm:text-sm">
+                Good
+              </span>
+            </div>
+          </div>
+          <div className="flex flex-1 relative">
+            <img src={LocalImg.check1Bad} alt="Bad" className="rounded-lg" />
+            <div className="flex justify-center items-center absolute bottom-3 left-3 p-1 sm:p-2 rounded sm:rounded-lg bg-red-50 text-red-700">
+              <XCircleIcon className="w-3 h-3 mr-1 sm:w-5 sm:h-5 sm:mr-2" />
+              <span className="font-poppinsSemiBold text-xs sm:text-sm">
+                Bad
+              </span>
+            </div>
+          </div>
+        </div>
+      );
     case 1:
       return (
         <div className="px-6 flex justify-center items-center">
@@ -154,7 +182,11 @@ const images = (step) => {
       return (
         <div className="px-4 sm:px-6 mt-10 flex justify-center items-center">
           <div className="flex flex-1 justify-end relative mr-6 sm:mr-8">
-            <img src={LocalImg.check31Good} alt="Good" className="rounded-lg scale-75 sm:scale-100" />
+            <img
+              src={LocalImg.check31Good}
+              alt="Good"
+              className="rounded-lg scale-75 sm:scale-100"
+            />
             <img
               src={LocalImg.check32Good}
               alt="Good"
@@ -168,7 +200,11 @@ const images = (step) => {
             </div>
           </div>
           <div className="flex flex-1 relative">
-            <img src={LocalImg.check31Bad} alt="Bad" className="rounded-lg scale-75 sm:scale-100" />
+            <img
+              src={LocalImg.check31Bad}
+              alt="Bad"
+              className="rounded-lg scale-75 sm:scale-100"
+            />
             <img
               src={LocalImg.check32Bad}
               alt="Bad"

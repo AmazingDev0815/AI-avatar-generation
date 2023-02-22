@@ -43,6 +43,6 @@ export const LocalImg = {
   check2Bad: require("../../assets/img/upload-check-2-false.png"),
   check31Good: require("../../assets/img/upload-check-3-true-top.png"),
   check32Good: require("../../assets/img/upload-check-3-true-bottom.png"),
-  check31Bad: require("../../assets/img/upload-check-3-false-top.png"),
-  check32Bad: require("../../assets/img/upload-check-3-false-bottom.png"),
+  check31Bad: require("../../assets/img/upload-check-3-false-bottom.png"),
+  check32Bad: require("../../assets/img/upload-check-3-false-top.png"),
 };
