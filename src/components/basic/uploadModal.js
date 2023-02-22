@@ -111,25 +111,15 @@ const images = (step) => {
   switch (step) {
     case 0:
       return (
-        <div className="px-6 flex justify-center items-center">
-          <div className="flex flex-1 relative mr-8">
-            <img src={LocalImg.check1Good} alt="Good" className="rounded-lg" />
-            <div className="flex justify-center items-center absolute bottom-3 left-3 p-1 sm:p-2 rounded sm:rounded-lg bg-success-50 text-success-700">
-              <CheckCircleIcon className="w-3 h-3 mr-1 sm:w-5 sm:h-5 sm:mr-2" />
-              <span className="font-poppinsSemiBold text-xs sm:text-sm">
-                Good
-              </span>
-            </div>
-          </div>
-          <div className="flex flex-1 relative">
-            <img src={LocalImg.check1Bad} alt="Bad" className="rounded-lg" />
-            <div className="flex justify-center items-center absolute bottom-3 left-3 p-1 sm:p-2 rounded sm:rounded-lg bg-red-50 text-red-700">
-              <XCircleIcon className="w-3 h-3 mr-1 sm:w-5 sm:h-5 sm:mr-2" />
-              <span className="font-poppinsSemiBold text-xs sm:text-sm">
-                Bad
-              </span>
-            </div>
-          </div>
+        <div className="px-1 flex flex-wrap gap-3 justify-center items-center">
+          <img src={LocalImg.check01} alt="Bad" className="rounded-lg" />
+          <img src={LocalImg.check02} alt="Bad" className="rounded-lg" />
+          <img src={LocalImg.check03} alt="Bad" className="rounded-lg" />
+          <img src={LocalImg.check04} alt="Bad" className="rounded-lg" />
+          <img src={LocalImg.check05} alt="Bad" className="rounded-lg" />
+          <img src={LocalImg.check06} alt="Bad" className="rounded-lg" />
+          <img src={LocalImg.check07} alt="Bad" className="rounded-lg" />
+          <img src={LocalImg.check08} alt="Bad" className="rounded-lg" />
         </div>
       );
     case 1:
@@ -224,6 +214,23 @@ const images = (step) => {
 
 const text = (step) => {
   switch (step) {
+    case 0:
+      return (
+        <div className="mt-16 text-center">
+          <Dialog.Title
+            as="h3"
+            className="text-xl font-poppinsSemiBold leading-6 text-gray-900"
+          >
+            Make sure you upload good images.
+          </Dialog.Title>
+          <div className="mt-2">
+            <p className="text-sm font-poppinsRegular text-gray-500">
+              To create great images we need to get the best possible portraits
+              from you. So take your time and follow the following steps.
+            </p>
+          </div>
+        </div>
+      );
     case 1:
       return (
         <div className="mt-16 text-center">
