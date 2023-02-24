@@ -46,10 +46,6 @@ module.exports = {
           900: '#054F31',
         },
       },
-      backgroundImage: {
-        'setting-header': "url(./assets/img/settingHeader.png)",
-        'avatar': "url(./assets/img/avatarPlaceholder.png)",
-      }
     },
     fontFamily: {
       'poppinslight': ['poppinslight','Poppinslight'],
