@@ -7,8 +7,7 @@ export default function PreviewModal() {
   const [open, setOpen] = useState(true);
   const [step, setStep] = useState(0);
 
-  const cancelButtonRef = useRef(null);
-  console.log(step);
+  const modalRef = useRef(null);
   const handleNext = () => {
     setStep(step + 1);
   };
@@ -17,12 +16,16 @@ export default function PreviewModal() {
     setStep(step - 1);
   };
 
+  const handleSkip = () => {
+    setOpen(false);
+  };
+
   return (
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
         className="relative z-10"
-        initialFocus={cancelButtonRef}
+        initialFocus={modalRef}
         onClose={() => {}}
         open={true}
       >
@@ -41,6 +44,7 @@ export default function PreviewModal() {
         <div className="fixed inset-0 z-10 overflow-y-auto">
           <div className="flex min-h-full justify-center p-4 text-center items-center sm:p-0">
             <Transition.Child
+              ref={modalRef}
               as={Fragment}
               enter="ease-out duration-300"
               enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
@@ -55,39 +59,51 @@ export default function PreviewModal() {
                   <div className="flex items-start">{text(step)}</div>
                 </div>
                 <div className="flex justify-center items-center mt-4 h-3">
-                  <div className="w-2/3 flex justify-between h-2">
-                    <div
-                      className={`${
-                        step >= 0 ? "bg-primary-700" : "bg-gray-300"
-                      } h-2 rounded-full mr-1 w-1/4`}
-                    ></div>
-                    <div
-                      className={`${
-                        step >= 1 ? "bg-primary-700" : "bg-gray-300"
-                      } h-2 rounded-full mr-1 w-1/4 `}
-                    ></div>
-                    <div
-                      className={`${
-                        step >= 2 ? "bg-primary-700" : "bg-gray-300"
-                      } h-2 rounded-full mr-1 w-1/4`}
-                    ></div>
-                    <div
-                      className={`${
-                        step >= 3 ? "bg-primary-700" : "bg-gray-300"
-                      } h-2 rounded-full w-1/4`}
-                    ></div>
-                  </div>
+                  {step === 0 ? null : (
+                    <div className="w-2/3 flex justify-between h-2">
+                      <div
+                        className={`${
+                          step >= 1 ? "bg-primary-700" : "bg-gray-300"
+                        } h-2 rounded-full mr-1 w-1/4`}
+                      ></div>
+                      <div
+                        className={`${
+                          step >= 2 ? "bg-primary-700" : "bg-gray-300"
+                        } h-2 rounded-full mr-1 w-1/4 `}
+                      ></div>
+                      <div
+                        className={`${
+                          step >= 3 ? "bg-primary-700" : "bg-gray-300"
+                        } h-2 rounded-full mr-1 w-1/4`}
+                      ></div>
+                      <div
+                        className={`${
+                          step >= 4 ? "bg-primary-700" : "bg-gray-300"
+                        } h-2 rounded-full w-1/4`}
+                      ></div>
+                    </div>
+                  )}
                 </div>
                 <div className="bg-gray-50 py-3 flex justify-between items-center">
-                  <button
-                    type="button"
-                    className="block w-full mr-3 border-gray-300 mt-6 py-2 rounded-lg text-gray-700 disabled:text-gray-300 border disabled:border-gray-200 font-poppinsSemiBold mb-2 text-sm sm:text-base"
-                    onClick={() => handleBack()}
-                    ref={cancelButtonRef}
-                    disabled={step > 0 ? false : true}
-                  >
-                    Back
-                  </button>
+                  {step === 0 ? (
+                    <button
+                      type="button"
+                      className="block w-full mr-3 border-gray-300 mt-6 py-2 rounded-lg text-gray-700 disabled:text-gray-300 border disabled:border-gray-200 font-poppinsSemiBold mb-2 text-sm sm:text-base"
+                      onClick={() => handleSkip()}
+                    >
+                      Skip Guide
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="block w-full mr-3 border-gray-300 mt-6 py-2 rounded-lg text-gray-700 disabled:text-gray-300 border disabled:border-gray-200 font-poppinsSemiBold mb-2 text-sm sm:text-base"
+                      onClick={() => handleBack()}
+                      disabled={step > 1 ? false : true}
+                    >
+                      Back
+                    </button>
+                  )}
+
                   <button
                     type="button"
                     className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-2 text-sm sm:text-base"
@@ -95,7 +111,7 @@ export default function PreviewModal() {
                       step > 2 ? setOpen(false) : handleNext();
                     }}
                   >
-                    Next
+                    {step === 0 ? "Start Guide" : "Next"}
                   </button>
                 </div>
               </Dialog.Panel>
@@ -111,6 +127,12 @@ const images = (step) => {
   switch (step) {
     case 0:
       return (
+        <div className="flex justify-center items-center">
+          <img src={LocalImg.party} alt="Success" />
+        </div>
+      );
+    case 1:
+      return (
         <div className="px-1 flex flex-wrap gap-3 justify-center items-center">
           <img src={LocalImg.check01} alt="Bad" className="rounded-lg" />
           <img src={LocalImg.check02} alt="Bad" className="rounded-lg" />
@@ -122,7 +144,7 @@ const images = (step) => {
           <img src={LocalImg.check08} alt="Bad" className="rounded-lg" />
         </div>
       );
-    case 1:
+    case 2:
       return (
         <div className="px-6 flex justify-center items-center">
           <div className="flex flex-1 relative mr-8">
@@ -145,7 +167,7 @@ const images = (step) => {
           </div>
         </div>
       );
-    case 2:
+    case 3:
       return (
         <div className="px-6 flex justify-center items-center">
           <div className="flex flex-1 relative mr-8">
@@ -221,6 +243,23 @@ const text = (step) => {
             as="h3"
             className="text-xl font-poppinsSemiBold leading-6 text-gray-900"
           >
+            Payment successful!
+          </Dialog.Title>
+          <div className="mt-2">
+            <p className="text-sm font-poppinsRegular text-gray-500">
+              If you haven’t used our service before we highly encourage you to
+              go through the short guide. It only takes a couple of seconds.
+            </p>
+          </div>
+        </div>
+      );
+    case 1:
+      return (
+        <div className="mt-16 text-center">
+          <Dialog.Title
+            as="h3"
+            className="text-xl font-poppinsSemiBold leading-6 text-gray-900"
+          >
             Make sure you upload good images.
           </Dialog.Title>
           <div className="mt-2">
@@ -231,7 +270,7 @@ const text = (step) => {
           </div>
         </div>
       );
-    case 1:
+    case 2:
       return (
         <div className="mt-16 text-center">
           <Dialog.Title
@@ -248,7 +287,7 @@ const text = (step) => {
           </div>
         </div>
       );
-    case 2:
+    case 3:
       return (
         <div className="mt-8 sm:mt-16 text-center">
           <Dialog.Title
