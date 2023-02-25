@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import MainLayout from "../../layout/mainLayout";
+import { contactUs } from "../../redux/user/user";
 
 const Contact = () => {
   const [firstName, setFirstName] = useState("");
@@ -7,6 +9,8 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [error, setError] = useState({});
+
+  const dispatch = useDispatch();
 
   const SendMessage = (e) => {
     e.preventDefault();
@@ -26,6 +30,19 @@ const Contact = () => {
       lastName: lastName.length ? "" : "Please enter your lastname",
     });
   };
+
+  useEffect(() => {
+    if (error.email === "" && error.firstName === "" && error.lastName === "" && error.message === "") {
+      const data = {
+        email: email,
+        firstName: firstName,
+        lastName: lastName,
+        message: message,
+      }
+      dispatch(contactUs(data));
+      setMessage("");
+    }
+  }, [error]);  
 
   return (
     <MainLayout>
@@ -116,6 +133,7 @@ const Contact = () => {
                 className="border border-gray-300 focus:shadow-primary focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none text-base rounded-lg mt-1 block w-full py-2.5 px-3.5 resize-none"
                 placeholder="Leave us a message..."
                 onChange={(e) => setMessage(e.target.value)}
+                value={message}
               />
               {error.message && (
                 <div className="font-poppinsMedium mt-2 text-red-500">
