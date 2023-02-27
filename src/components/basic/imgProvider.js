@@ -48,6 +48,8 @@ export const LocalImg = {
   avatarPlaceholder: require("../../assets/img/other/avatarPlaceholder.png"),
   avatarPlaceholder_1: require("../../assets/img/other/avatarPlaceholder(1).png"),
   avatarPlaceholder_2: require("../../assets/img/other/avatarPlaceholder(2).png"),
+  gradient_1: require("../../assets/img/other/gradient(1).png"),
+  gradient_2: require("../../assets/img/other/gradient(2).png"),
   party: require("../../assets/img/other/party.gif"),
   pensive: require("../../assets/img/other/pensive.gif"),
   success: require("../../assets/img/other/success.gif"),
@@ -73,4 +75,5 @@ export const LocalImg = {
   SuperheroFemale: require("../../assets/img/landing/Superhero-Female.png"),
   SuperheroMale: require("../../assets/img/landing/Superhero-Male.png"),
   Wizzard: require("../../assets/img/landing/Wizzard.png"),
+  Group: require("../../assets/img/landing/Group.png"),
 };
