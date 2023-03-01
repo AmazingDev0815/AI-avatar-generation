@@ -9,7 +9,6 @@ import Login from "./components/auth/login";
 import ResetPassword from "./components/auth/ResetPassword";
 import SignUp from "./components/auth/signUp";
 import Home from "./components/pages/home";
-// import Payment from "./components/pages/payment";
 import AvatarDetail from "./components/pages/avatarDetail";
 import UploadImage from "./components/pages/uploadImage";
 import Setting from "./components/pages/setting";
@@ -22,8 +21,10 @@ import { useEffect } from "react";
 import { getUser } from "./redux/user/user";
 import { PrivateRoute } from "./components/helpers/privateRoute";
 import { PublicRoute } from "./components/helpers/publicRoute";
-import { getCurrentAvailableCount, getTaskState, getImageCollections, getUserImages } from "./redux/product/product";
+import { getTaskState, getImageCollections, getUserImages } from "./redux/product/product";
 import { Payment } from "./components/pages/stripe";
+import Contact from "./components/pages/contact";
+import Landing from "./components/pages/landing";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,12 +41,14 @@ function App() {
       dispatch(getTaskState());
       dispatch(getUserImages(store.userData.upn));
     }
-  }, [store.isAuthenticate])
+  }, [dispatch, store.isAuthenticate, store.userData.upn])
 
   return (
     <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/last-home" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
           <Route path="/google-oauth" element={<PublicRoute><Login /></PublicRoute>} />
           <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />
@@ -53,7 +56,6 @@ function App() {
           <Route path="/check-email" element={<PublicRoute><CheckEmail /></PublicRoute>} />
           <Route path="/reset-password/:token" element={<PublicRoute><ResetPassword /></PublicRoute>} />
           <Route path="/confirm-reset" element={<PublicRoute><ConfirmReset /></PublicRoute>} />
-          {/* <Route path='/payment' element={<Payment /> }/> */}
           <Route path="/payment" element={<PrivateRoute><Payment /></PrivateRoute>} />
           <Route path="/upload" element={<PrivateRoute><UploadImage /></PrivateRoute>} />
           <Route path="/avatar-detail" element={<PrivateRoute><AvatarDetail /></PrivateRoute>} />

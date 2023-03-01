@@ -68,7 +68,7 @@ const Collection = ({id}) => {
   return (
     <div className="flex flex-col w-full px-8 md:px-16 py-8 mt-16 shadow-xl rounded-3xl">
       <h1
-        className="font-poppinsBold text-4xl md:text-5xl text-gray-900 mt-8"
+        className="font-poppinsBold text-3xl text-gray-900 mt-8"
         id="name"
       >
         {collection.name}

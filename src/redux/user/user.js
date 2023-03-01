@@ -237,6 +237,27 @@ export const depositPayment = createAsyncThunk(
   }
 );
 
+export const contactUs = createAsyncThunk(
+  "authentication/contactUs",
+  async (data) => {
+    const contact = await axios
+      .post(baseUrl + "contacts", {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        message: data.message,
+      })
+      .then((response) => {
+        return response.data;
+      })
+      .catch((err) => {
+        console.log("contactError => ", err);
+        return err.response.data;
+      });
+    return contact;
+  }
+);
+
 export const authSlice = createSlice({
   name: "authentication",
   initialState: {
@@ -304,6 +325,12 @@ export const authSlice = createSlice({
       })
       .addCase(depositPayment.fulfilled, (state, action) => {
         state.userpaied = action.payload.userpaied;
+      })
+      .addCase(contactUs.fulfilled, (state) => {
+        state.isLoading = false;
+      })
+      .addCase(contactUs.pending, (state) => {
+        state.isLoading = true;
       });
   },
 });
