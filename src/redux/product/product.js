@@ -145,6 +145,7 @@ export const deleteAvatars = createAsyncThunk(
       headers: authHeader(),
     });
     dispatch(getImageCollections());
+    dispatch(getUser())
     return { selected: {} };
   }
 );

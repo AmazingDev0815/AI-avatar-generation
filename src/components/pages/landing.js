@@ -31,7 +31,7 @@ const Landing = () => {
             </p>
             <button
               onClick={payment}
-              className="block lg:text-lg sm:text-base text-sm bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174] py-4 px-8 rounded-lg text-white font-poppinsSemiBold"
+              className="block lg:text-lg sm:text-base text-sm bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174] py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-white font-poppinsSemiBold"
             >
               Create for only $9.99
             </button>
@@ -102,7 +102,7 @@ const Landing = () => {
             <img
               src={LocalImg.DigitalDrawingFemale}
               alt="demo"
-              className="rounded-[30px] shadow-2xl"
+              className="rounded-lg md:rounded-[30px] shadow-2xl"
             />
           </div>
         </div>
@@ -116,12 +116,12 @@ const Landing = () => {
               styles
             </span>
           </div>
-          <div className="flex justify-center flex-wrap gap-8 mb-8">
+          <div className="flex justify-center flex-wrap gap-4 md:gap-8 mb-8">
             <div className="relative">
               <img
                 src={LocalImg.Wizzard}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Wizzard
@@ -131,7 +131,7 @@ const Landing = () => {
               <img
                 src={LocalImg.Cartoon3D}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 3D Cartoon
@@ -141,7 +141,7 @@ const Landing = () => {
               <img
                 src={LocalImg.SuperheroMale}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Superhero
@@ -151,7 +151,7 @@ const Landing = () => {
               <img
                 src={LocalImg.PrincessWarrior}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Princess Warrior
@@ -161,7 +161,7 @@ const Landing = () => {
               <img
                 src={LocalImg.Mercenary}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Mercenary
@@ -171,7 +171,7 @@ const Landing = () => {
               <img
                 src={LocalImg.Joker}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Joker
@@ -181,7 +181,7 @@ const Landing = () => {
               <img
                 src={LocalImg.Anime}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Anime
@@ -191,7 +191,7 @@ const Landing = () => {
               <img
                 src={LocalImg.Painting}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Painting
@@ -201,7 +201,7 @@ const Landing = () => {
               <img
                 src={LocalImg.SuperheroFemale}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Superhero
@@ -211,7 +211,7 @@ const Landing = () => {
               <img
                 src={LocalImg.SpacePortrait}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Space Portrait
@@ -221,7 +221,7 @@ const Landing = () => {
               <img
                 src={LocalImg.OilPainting}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Oil Painting
@@ -231,7 +231,7 @@ const Landing = () => {
               <img
                 src={LocalImg.DigitalPainting}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Digital Painting
@@ -241,7 +241,7 @@ const Landing = () => {
               <img
                 src={LocalImg.Gothic}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Gothic
@@ -251,7 +251,7 @@ const Landing = () => {
               <img
                 src={LocalImg.Haunted3D}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 3D Haunted
@@ -261,7 +261,7 @@ const Landing = () => {
               <img
                 src={LocalImg.Pinup}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Pinup
@@ -271,7 +271,7 @@ const Landing = () => {
               <img
                 src={LocalImg.DigitalDrawingFemale}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Digital Drawing
@@ -281,7 +281,7 @@ const Landing = () => {
               <img
                 src={LocalImg.AcrylicPainting}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Acrylic Painting
@@ -291,7 +291,7 @@ const Landing = () => {
               <img
                 src={LocalImg.Astronaut}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Astronaut
@@ -301,7 +301,7 @@ const Landing = () => {
               <img
                 src={LocalImg.Renaissance}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Renaissance
@@ -311,7 +311,7 @@ const Landing = () => {
               <img
                 src={LocalImg.DigitalDrawingMale}
                 alt="demo"
-                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
+                className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
               <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Digital Drawing
@@ -340,7 +340,7 @@ const Landing = () => {
           </div>
           <button
             onClick={payment}
-            className="block text-lg lg:w-64 sm:w-48 w-32 lg:bg-g sm:h-48 h-32radient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174] py-4 px-8 rounded-lg text-white font-poppinsSemiBold"
+            className="block lg:text-lg lg:w-64 w-48 bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174] py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-white font-poppinsSemiBold"
           >
             Only $9.99
           </button>

@@ -46,8 +46,8 @@ function App() {
   return (
     <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/landing" element={<Landing />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/last-home" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
           <Route path="/google-oauth" element={<PublicRoute><Login /></PublicRoute>} />
