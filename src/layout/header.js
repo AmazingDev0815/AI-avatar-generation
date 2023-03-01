@@ -65,15 +65,16 @@ const Header = () => {
           <div className="relative flex justify-between md:w-auto md:static md:block">
             <div className="flex justify-center items-center">
               <Link
-                className="text-sm font-bold leading-relaxed inline-block mr-7 py-2 whitespace-nowrap "
+                className="text-sm font-bold leading-relaxed contents mr-7 py-2 whitespace-nowrap "
                 to="/"
               >
-                <h1 className="text-3xl font-poppinsSemiBold text-primary-600">
+                <img src={LocalImg.logoHeader} alt="Mava Logo" />
+                <h1 className="text-3xl ml-1 font-poppinsSemiBold text-primary-600">
                   Mava
                 </h1>
               </Link>
               {authState && (
-                <div className="md:flex hidden">
+                <div className="md:flex hidden ml-2">
                   <Link to="/my-avatars" className="pr-2">
                     My Avatars
                   </Link>
@@ -113,7 +114,7 @@ const Header = () => {
                           <img
                             alt="avatar"
                             src={store.userData.avatarImageUrl??LocalImg.avatarPlaceholder}
-                            className="rounded-full"
+                            className="rounded-full w-10 h-10"
                           />
                         </Menu.Button>
                       </div>

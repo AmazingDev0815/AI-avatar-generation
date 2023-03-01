@@ -11,7 +11,7 @@ export const PrivateRoute = ({ children }) => {
       <div className="flex flex-1 justify-center items-center h-screen">
         <MoonLoader
           size={150}
-          color="#36d7b7"
+          color="#7F56D9"
           loading={true}
           cssOverride={{}}
           speedMultiplier={1}

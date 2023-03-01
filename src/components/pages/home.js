@@ -61,16 +61,16 @@ const Home = () => {
           className="lg:w-1/2 w-full -ml-32 scale-[calc(420/1024*0.947)] -my-32 xs:my-0 xs:-ml-40 2xs:-ml-20 xs:scale-[calc(640/1024*0.947)] sm:scale-[calc(768/1024*0.947)] md:ml-20 md:scale-[calc(840/1024*0.947)] xmd:ml-32 xmd:scale-[0.947] lg:ml-0 lg:scale-[calc(1024/1440*0.947)] xl:scale-[calc(0.947)] md:flex relative h-[600px]"
           id="avatar-group"
         >
-          <div className="absolute w-[127px] h-[176px] top-[0px] left-[178px] overflow-hidden rounded-full bg-center bg-[url('assets/img/15.png')]"></div>
-          <div className="absolute w-[127px] h-[176px] top-[27.5px] left-[323px] overflow-hidden rounded-full bg-center bg-[url('assets/img/8.png')]"></div>
-          <div className="absolute w-[127px] h-[176px] top-[120.4px] left-[458px] overflow-hidden rounded-full bg-center bg-[url('assets/img/2.png')]"></div>
-          <div className="absolute w-[127px] h-[176px] top-[308.4px] left-[458px] overflow-hidden rounded-full bg-center bg-[url('assets/img/3.png')]"></div>
-          <div className="absolute w-[127px] h-[176px] top-[403.4px] left-[323px] overflow-hidden rounded-full bg-center bg-[url('assets/img/12.png')]"></div>
-          <div className="absolute w-[127px] h-[176px] top-[378px] left-[178px] overflow-hidden rounded-full bg-center bg-[url('assets/img/11.png')]"></div>
-          <div className="absolute w-[127px] h-[176px] top-[281px] left-[42px] overflow-hidden rounded-full bg-center bg-[url('assets/img/17.png')]"></div>
-          <div className="absolute w-[127px] h-[176px] top-[93px] left-[42px] overflow-hidden rounded-full bg-center bg-[url('assets/img/6.png')]"></div>
-          <div className="absolute w-[127px] h-[176px] top-[188.59px] left-[178px] overflow-hidden rounded-full bg-center bg-[url('assets/img/7.png')]"></div>
-          <div className="absolute w-[127px] h-[176px] top-[215.5px] left-[323px] overflow-hidden rounded-full bg-center bg-[url('assets/img/14.png')]"></div>
+          <div className="absolute w-[127px] h-[176px] top-[0px] left-[178px] overflow-hidden rounded-full bg-center bg-[url('assets/img/sign/15.png')]"></div>
+          <div className="absolute w-[127px] h-[176px] top-[27.5px] left-[323px] overflow-hidden rounded-full bg-center bg-[url('assets/img/sign/8.png')]"></div>
+          <div className="absolute w-[127px] h-[176px] top-[120.4px] left-[458px] overflow-hidden rounded-full bg-center bg-[url('assets/img/sign/2.png')]"></div>
+          <div className="absolute w-[127px] h-[176px] top-[308.4px] left-[458px] overflow-hidden rounded-full bg-center bg-[url('assets/img/sign/3.png')]"></div>
+          <div className="absolute w-[127px] h-[176px] top-[403.4px] left-[323px] overflow-hidden rounded-full bg-center bg-[url('assets/img/sign/12.png')]"></div>
+          <div className="absolute w-[127px] h-[176px] top-[378px] left-[178px] overflow-hidden rounded-full bg-center bg-[url('assets/img/sign/11.png')]"></div>
+          <div className="absolute w-[127px] h-[176px] top-[281px] left-[42px] overflow-hidden rounded-full bg-center bg-[url('assets/img/sign/17.png')]"></div>
+          <div className="absolute w-[127px] h-[176px] top-[93px] left-[42px] overflow-hidden rounded-full bg-center bg-[url('assets/img/sign/6.png')]"></div>
+          <div className="absolute w-[127px] h-[176px] top-[188.59px] left-[178px] overflow-hidden rounded-full bg-center bg-[url('assets/img/sign/7.png')]"></div>
+          <div className="absolute w-[127px] h-[176px] top-[215.5px] left-[323px] overflow-hidden rounded-full bg-center bg-[url('assets/img/sign/14.png')]"></div>
         </div>
       </div>
     </MainLayout>
