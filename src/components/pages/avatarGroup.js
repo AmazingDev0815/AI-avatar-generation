@@ -12,7 +12,6 @@ import {
   downloadCollection,
   getImageCollection,
 } from "../../redux/product/product";
-import { LocalImg } from "../basic/imgProvider";
 import MyModal from "../basic/modal";
 
 const Group = () => {
@@ -22,7 +21,7 @@ const Group = () => {
 
   useEffect(() => {
     dispatch(getImageCollection(id));
-  }, []);
+  }, [dispatch, id]);
 
   const onDownload = () => {
     dispatch(

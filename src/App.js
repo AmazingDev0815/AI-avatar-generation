@@ -41,7 +41,7 @@ function App() {
       dispatch(getTaskState());
       dispatch(getUserImages(store.userData.upn));
     }
-  }, [store.isAuthenticate])
+  }, [dispatch, store.isAuthenticate, store.userData.upn])
 
   return (
     <Router>
