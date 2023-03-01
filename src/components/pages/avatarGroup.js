@@ -25,12 +25,19 @@ const Group = () => {
   }, []);
 
   const onDownload = () => {
-    dispatch(downloadCollection({token:store.selected.downloadToken, name: store.selected.name}));
+    dispatch(
+      downloadCollection({
+        token: store.selected.downloadToken,
+        name: store.selected.name,
+      })
+    );
   };
 
   return (
     <MainLayout>
-      {store.selectedLoading || store.productLoading || Object.keys(store.selected).length === 0 ? (
+      {store.selectedLoading ||
+      store.productLoading ||
+      Object.keys(store.selected).length === 0 ? (
         <div className="flex flex-1 justify-center items-center h-screen">
           <MoonLoader
             size={150}
@@ -76,96 +83,26 @@ const Group = () => {
               </span>
             </button>
           </div>
-          <div className="mt-8" id="style_1">
-            <h1 className="text-2xl text-gray-900 font-poppinsSemiBold">
-              Anime
-            </h1>
-            <div
-              className="flex flex-wrap items-center justify-start"
-              id="images"
-            >
-              {store.selected?.images.map((item, key) => (
-                <div key={key} className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                  <img
-                    alt="demo"
-                    src={item.url.url}
-                    className="rounded-xl"
-                  />
+          {store.selected?.groups.map((group, key) => (
+            <div className="mt-16" id={`style_${key}`} key={key}>
+              <h1 className="text-2xl text-gray-900 font-poppinsSemiBold">
+                {group.name}
+              </h1>
+              <div
+                className="flex flex-wrap items-center justify-start"
+                id="images"
+              >
+                {group.images.map((item, index) => (
+                  <div
+                  key={index}
+                  className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
+                >
+                  <img alt="demo" src={item.url.url} className="rounded-xl" />
                 </div>
-              ))}
-{/* 
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div> */}
-            </div>
-          </div>
-          {/* <div className="mt-8" id="style_2">
-            <h1 className="text-2xl text-gray-900 font-poppinsSemiBold">
-              Acrylic painting
-            </h1>
-            <div
-              className="flex flex-wrap items-center justify-start"
-              id="images"
-            >
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
-              </div>
-              <div className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5">
-                <img alt="demo" src={LocalImg.demo} className="rounded-xl" />
+                ))}
               </div>
             </div>
-          </div> */}
+          ))}
           <div className="flex justify-center">
             <MyModal id={id} />
           </div>
