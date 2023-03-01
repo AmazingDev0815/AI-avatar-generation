@@ -9,82 +9,90 @@ const Landing = () => {
   };
   return (
     <MainLayout>
-      <div className="flex flex-col justify-center items-center w-full px-64 pt-16 pb-60 relative">
+      <div className="flex flex-col justify-center items-center w-full 2xl:px-64 lg:px-32 px-8 pt-16 xl:pb-60 pb-20 relative">
         {/* <img src={LocalImg.gradient_1} alt="background_gradient_1" className="absolute top-0 left-0 rotate-[36.64deg]" />
         <img src={LocalImg.gradient_2} alt="background_gradient_2" className="absolute -top-[100px] -left-[400px] rotate-[15deg] opacity-60" /> */}
         <div
-          className="px-8 pb-64 flex justify-center items-center w-full"
+          className="px-8 2xl:pb-64 xl:pb-48 pb-32 flex flex-col-reverse lg:flex-row justify-center items-center w-full"
           id="start"
         >
-          <div className="flex-1 mr-20" id="hero">
-            <div className="font-poppinsBold text-[88px] leading-[90px] text-gray-900 mb-6">
+          <div
+            className="flex-1 lg:mr-20 flex flex-col items-center lg:items-start"
+            id="hero"
+          >
+            <div className="font-poppinsBold 2xl:text-[88px] xl:text-7xl sm:text-5xl text-3xl 2xl:leading-[90px] text-gray-900 lg:mb-6 mb-4 lg:mt-0 sm:mt-8 mt-4">
               Avatars{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174]">
                 Made Fun!
               </span>
             </div>
-            <p className="font-poppinsRegular text-gray-600 text-2xl mb-8">
+            <p className="font-poppinsRegular text-gray-600 sm:text-2xl mb-8">
               Make fun avatar images for you or as a gift for your loved ones!
             </p>
             <button
               onClick={payment}
-              className="block text-lg bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174] py-4 px-8 rounded-lg text-white font-poppinsSemiBold"
+              className="block lg:text-lg sm:text-base text-sm bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174] py-4 px-8 rounded-lg text-white font-poppinsSemiBold"
             >
               Create for only $9.99
             </button>
           </div>
-          <div
-            className="flex-1"
-            id="image_group"
-          ><img src={LocalImg.Group} alt="Group" /></div>
+          <div className="flex-1" id="image_group">
+            <img src={LocalImg.Group} alt="Group" />
+          </div>
         </div>
-        <div className="flex flex-col px-8 pb-64 w-full" id="offer">
-          <div className="text-center font-poppinsBold text-6xl text-gray-900 mb-6">
+        <div
+          className="flex flex-col px-8 2xl:pb-64 xl:pb-48 pb-32 w-full"
+          id="offer"
+        >
+          <div className="text-center mt-8 lg:mt-0 font-poppinsBold xl:text-6xl md:text-4xl text-3xl text-gray-900 mb-6">
             You will{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174]">
               receive
             </span>
           </div>
-          <div className="w-full flex justify-between items-center shadow-2xl px-16 py-8 gap-4 rounded-2xl">
-            <div className="flex flex-col text-center w-1/3">
-              <span className="text-5xl font-poppinsBold text-primary-600 mb-1">
+          <div className="w-full flex flex-col sm:flex-row justify-between items-center shadow-2xl xl:px-16 px-4 py-8 xl:gap-4 gap-2 rounded-2xl">
+            <div className="flex flex-col text-center sm:w-1/3 w-2/3">
+              <span className="xl:text-5xl lg:text-3xl text-2xl font-poppinsBold text-primary-600 mb-1">
                 160+
               </span>
-              <span className="text-2xl font-poppinsRegular text-primary-900">
+              <span className="sm:text-2xl font-poppinsRegular text-primary-900">
                 Images Received
               </span>
             </div>
-            <div className="h-32 w-1 bg-primary-100"></div>
-            <div className="flex flex-col text-center w-1/3">
-              <span className="text-5xl font-poppinsBold text-primary-600 mb-1">
+            <div className="sm:h-32 h-1 sm:w-1 w-full bg-primary-100"></div>
+            <div className="flex flex-col text-center sm:w-1/3 w-2/3">
+              <span className="xl:text-5xl lg:text-3xl text-2xl font-poppinsBold text-primary-600 mb-1">
                 20+
               </span>
-              <span className="text-2xl font-poppinsRegular text-primary-900">
+              <span className="sm:text-2xl font-poppinsRegular text-primary-900">
                 Artistic Styles
               </span>
             </div>
-            <div className="h-32 w-1 bg-primary-100"></div>
-            <div className="flex flex-col text-center w-1/3">
-              <span className="text-5xl font-poppinsBold text-primary-600 mb-1">
+            <div className="sm:h-32 h-1 sm:w-1 w-full bg-primary-100"></div>
+            <div className="flex flex-col text-center sm:w-1/3 w-2/3">
+              <span className="xl:text-5xl lg:text-3xl text-2xl font-poppinsBold text-primary-600 mb-1">
                 2K
               </span>
-              <span className="text-2xl font-poppinsRegular text-primary-900">
+              <span className="sm:text-2xl font-poppinsRegular text-primary-900">
                 Image Resolution
               </span>
             </div>
           </div>
         </div>
-        <div className="flex w-full items-center pb-64" id="metrics">
+        <div
+          className="flex flex-col md:flex-row w-full items-center px-6 md:px-0 2xl:pb-64 xl:pb-48 pb-32"
+          id="metrics"
+        >
           <div className="flex flex-1 flex-col mr-6">
             <div className="flex flex-col mb-6">
-              <div className="w-1/2 flex flex-col font-poppinsBold text-6xl text-gray-900">
-                <span>Unique, Fun</span>
+              <div className="2xl:w-2/3 text-center md:text-start mt-6 md:mt-0 flex flex-col font-poppinsBold xl:text-6xl md:text-4xl xl:leading-[76px] text-3xl text-gray-900">
+                <span>Perfect for you</span>
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174]">
-                  and fun!
+                  or as a gift!
                 </span>
               </div>
             </div>
-            <div className="font-poppinsRegular text-2xl text-gray-600">
+            <div className="font-poppinsRegular sm:text-2xl text-gray-600">
               Whether you want to create some fun images for social media, print
               out a cool gift for someone or just have fun, our powerful image
               generator has you covered.{" "}
@@ -98,8 +106,11 @@ const Landing = () => {
             />
           </div>
         </div>
-        <div className="w-full flex flex-col pb-64" id="example">
-          <div className="text-center font-poppinsBold text-6xl text-gray-900 mb-8">
+        <div
+          className="w-full flex flex-col 2xl:pb-64 xl:pb-48 pb-32"
+          id="example"
+        >
+          <div className="text-center font-poppinsBold xl:text-6xl md:text-4xl text-3xl text-gray-900 mb-8">
             Fine tuned{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174]">
               styles
@@ -110,9 +121,9 @@ const Landing = () => {
               <img
                 src={LocalImg.Wizzard}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Wizzard
               </span>
             </div>
@@ -120,9 +131,9 @@ const Landing = () => {
               <img
                 src={LocalImg.Cartoon3D}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 3D Cartoon
               </span>
             </div>
@@ -130,9 +141,9 @@ const Landing = () => {
               <img
                 src={LocalImg.SuperheroMale}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Superhero
               </span>
             </div>
@@ -140,9 +151,9 @@ const Landing = () => {
               <img
                 src={LocalImg.PrincessWarrior}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Princess Warrior
               </span>
             </div>
@@ -150,9 +161,9 @@ const Landing = () => {
               <img
                 src={LocalImg.Mercenary}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Mercenary
               </span>
             </div>
@@ -160,9 +171,9 @@ const Landing = () => {
               <img
                 src={LocalImg.Joker}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Joker
               </span>
             </div>
@@ -170,9 +181,9 @@ const Landing = () => {
               <img
                 src={LocalImg.Anime}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Anime
               </span>
             </div>
@@ -180,9 +191,9 @@ const Landing = () => {
               <img
                 src={LocalImg.Painting}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Painting
               </span>
             </div>
@@ -190,9 +201,9 @@ const Landing = () => {
               <img
                 src={LocalImg.SuperheroFemale}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Superhero
               </span>
             </div>
@@ -200,9 +211,9 @@ const Landing = () => {
               <img
                 src={LocalImg.SpacePortrait}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Space Portrait
               </span>
             </div>
@@ -210,9 +221,9 @@ const Landing = () => {
               <img
                 src={LocalImg.OilPainting}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Oil Painting
               </span>
             </div>
@@ -220,9 +231,9 @@ const Landing = () => {
               <img
                 src={LocalImg.DigitalPainting}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Digital Painting
               </span>
             </div>
@@ -230,9 +241,9 @@ const Landing = () => {
               <img
                 src={LocalImg.Gothic}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Gothic
               </span>
             </div>
@@ -240,9 +251,9 @@ const Landing = () => {
               <img
                 src={LocalImg.Haunted3D}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 3D Haunted
               </span>
             </div>
@@ -250,9 +261,9 @@ const Landing = () => {
               <img
                 src={LocalImg.Pinup}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Pinup
               </span>
             </div>
@@ -260,9 +271,9 @@ const Landing = () => {
               <img
                 src={LocalImg.DigitalDrawingFemale}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Digital Drawing
               </span>
             </div>
@@ -270,9 +281,9 @@ const Landing = () => {
               <img
                 src={LocalImg.AcrylicPainting}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Acrylic Painting
               </span>
             </div>
@@ -280,9 +291,9 @@ const Landing = () => {
               <img
                 src={LocalImg.Astronaut}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Astronaut
               </span>
             </div>
@@ -290,9 +301,9 @@ const Landing = () => {
               <img
                 src={LocalImg.Renaissance}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Renaissance
               </span>
             </div>
@@ -300,14 +311,14 @@ const Landing = () => {
               <img
                 src={LocalImg.DigitalDrawingMale}
                 alt="demo"
-                className="rounded-[30px] w-64 h-64"
+                className="rounded-[30px] lg:w-64 sm:w-48 w-32 lg:h-64 sm:h-48 h-32"
               />
-              <span className="font-poppinsBold text-2xl text-white absolute left-6 bottom-[18px]">
+              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
                 Digital Drawing
               </span>
             </div>
           </div>
-          <div className="text-center font-poppinsBold text-gray-900 text-4xl">
+          <div className="text-center font-poppinsBold text-gray-900 xl:text-4xl md:text-2xl text-lg">
             And many more...
           </div>
         </div>
@@ -316,21 +327,20 @@ const Landing = () => {
           id="bottom_hero"
         >
           <div className="w-full pb-8 flex flex-col text-center">
-            <div className="font-poppinsBold text-6xl text-gray-900 mb-6">
+            <div className="font-poppinsBold xl:text-6xl md:text-4xl text-3xl text-gray-900 mb-6">
               Create your avatars{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174]">
                 today!
               </span>
             </div>
-            <div className="font-poppinsRegular text-2xl text-gray-600">
-              Whether you want to create some fun images for social media, print
-              out a cool gift for someone or just have fun, our powerful image
-              generator has you covered.
+            <div className="font-poppinsRegular sm:text-2xl text-gray-600">
+              You just upload 20 portrait images and you’ll receive the avatars
+              in 20 minutes tops!
             </div>
           </div>
           <button
             onClick={payment}
-            className="block text-lg w-64 bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174] py-4 px-8 rounded-lg text-white font-poppinsSemiBold"
+            className="block text-lg lg:w-64 sm:w-48 w-32 lg:bg-g sm:h-48 h-32radient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174] py-4 px-8 rounded-lg text-white font-poppinsSemiBold"
           >
             Only $9.99
           </button>
