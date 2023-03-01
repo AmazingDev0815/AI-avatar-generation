@@ -6,6 +6,7 @@ import {
   getGoogleToken,
   getGoogleUrl,
   handleSignIn,
+  clearState
 } from "../../redux/user/user";
 
 const Login = () => {
@@ -26,6 +27,12 @@ const Login = () => {
     e.preventDefault();
     handleValidate();
   };
+
+  useEffect(() => {
+    if(Object.keys(store.response).length) {
+      dispatch(clearState())
+    }
+  }, [dispatch, store])
 
   useEffect(() => {
     if (error.email === "" && error.password === "") {
