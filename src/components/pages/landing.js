@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import MainLayout from "../../layout/mainLayout";
 import { LocalImg } from "../basic/imgProvider";
-import Video from "../../assets/video/landing_video.mp4"
+import Video from "../../assets/video/landing_video.mp4";
 
 const Landing = () => {
   const navigate = useNavigate();
@@ -100,12 +100,14 @@ const Landing = () => {
             </div>
           </div>
           <div className="flex-1 py-14 flex justify-center">
-            {/* <img
-              src={LocalImg.DigitalDrawingFemale}
-              alt="demo"
+            <video
               className="rounded-lg md:rounded-[30px] shadow-2xl"
-            /> */}
-            <video src={Video} controls="controls" autoPlay={true} className="rounded-lg md:rounded-[30px] shadow-2xl" />
+              autoPlay
+              loop
+              muted
+            >
+              <source src={Video} type="video/mp4" />
+            </video>
           </div>
         </div>
         <div
