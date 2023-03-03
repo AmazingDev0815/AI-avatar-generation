@@ -109,7 +109,7 @@ const Header = () => {
                       <Cog8ToothIcon className="w-5 h-5 text-gray-700 hover:text-primary-600 " />
                     </button>
                   </li>
-                  <li>
+                  <li className="flex">
                     <Menu as="div" className="relative inline-block text-left">
                       <div>
                         <Menu.Button className="block h-10 w-10">

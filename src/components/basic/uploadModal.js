@@ -63,28 +63,28 @@ export default function PreviewModal() {
                     <div className="w-2/3 flex justify-between h-2">
                       <div
                         className={`${
-                          step >= 1 ? "bg-primary-700" : "bg-gray-300"
+                          step === 1 ? "bg-primary-700" : "bg-gray-300"
                         } h-2 rounded-full mr-1 w-1/4`}
                       ></div>
                       <div
                         className={`${
-                          step >= 2 ? "bg-primary-700" : "bg-gray-300"
+                          step === 2 ? "bg-primary-700" : "bg-gray-300"
                         } h-2 rounded-full mr-1 w-1/4 `}
                       ></div>
                       <div
                         className={`${
-                          step >= 3 ? "bg-primary-700" : "bg-gray-300"
+                          step === 3 ? "bg-primary-700" : "bg-gray-300"
                         } h-2 rounded-full mr-1 w-1/4`}
                       ></div>
                       <div
                         className={`${
-                          step >= 4 ? "bg-primary-700" : "bg-gray-300"
+                          step === 4 ? "bg-primary-700" : "bg-gray-300"
                         } h-2 rounded-full w-1/4`}
                       ></div>
                     </div>
                   )}
                 </div>
-                <div className="bg-gray-50 py-3 flex justify-between items-center">
+                <div className="py-3 flex justify-between items-center">
                   {step === 0 ? (
                     <button
                       type="button"
