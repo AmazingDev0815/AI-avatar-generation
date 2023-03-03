@@ -108,7 +108,7 @@ export default function PreviewModal() {
                     type="button"
                     className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-2 text-sm sm:text-base"
                     onClick={() => {
-                      step > 2 ? setOpen(false) : handleNext();
+                      step > 3 ? setOpen(false) : handleNext();
                     }}
                   >
                     {step === 0 ? "Start Guide" : "Next"}

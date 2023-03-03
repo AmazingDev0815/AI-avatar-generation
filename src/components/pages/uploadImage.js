@@ -41,12 +41,7 @@ const UploadImage = () => {
   );
 
   const onSubmit = async () => {
-    if (productStore.userImages.length >= 20) {
-      console.log("update images", imageWithCrop)
-      // navigate("/avatar-detail");
-    } else {
       dispatch(uploadUserImages(imageWithCrop));
-    }
   };
 
   useEffect(() => {
