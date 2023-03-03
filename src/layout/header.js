@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from "react";
 import {
   Bars3Icon,
-  BellIcon,
+  // BellIcon,
   Cog8ToothIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
@@ -113,7 +113,10 @@ const Header = () => {
                         <Menu.Button className="block h-10 w-10">
                           <img
                             alt="avatar"
-                            src={store.userData.avatarImageUrl??LocalImg.avatarPlaceholder}
+                            src={
+                              store.userData.avatarImageUrl ??
+                              LocalImg.avatarPlaceholder
+                            }
                             className="rounded-full w-10 h-10"
                           />
                         </Menu.Button>
@@ -147,8 +150,8 @@ const Header = () => {
                             </Menu.Item> */}
                             <Menu.Item>
                               {({ active }) => (
-                                <a
-                                  href="#"
+                                <Link
+                                  to="/"
                                   className={classNames(
                                     active
                                       ? "bg-gray-100 text-gray-900"
@@ -157,13 +160,13 @@ const Header = () => {
                                   )}
                                 >
                                   Support
-                                </a>
+                                </Link>
                               )}
                             </Menu.Item>
                             <Menu.Item>
                               {({ active }) => (
-                                <a
-                                  href="#"
+                                <Link
+                                  to="/"
                                   className={classNames(
                                     active
                                       ? "bg-gray-100 text-gray-900"
@@ -172,7 +175,7 @@ const Header = () => {
                                   )}
                                 >
                                   About us
-                                </a>
+                                </Link>
                               )}
                             </Menu.Item>
                             <Menu.Item>

@@ -11,7 +11,7 @@ const SignUp = () => {
   const [error, setError] = useState({});
 
   const dispatch = useDispatch();
-  const store = useSelector(state => state.auth);
+  const store = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
   const onSubmit = (e) => {
@@ -26,19 +26,23 @@ const SignUp = () => {
         password: password,
         confirmPassword: password,
         username: username,
-        upn: email
-      }
-      dispatch(handleSignUp(data))
+        upn: email,
+      };
+      dispatch(handleSignUp(data));
     }
-  }, [error]);
+  }, [error, email, password, username, dispatch]);
 
   useEffect(() => {
-    if(store.response?.success === false) {
-      setError({errors: (store.response.errors[0].errorMessage === "Duplicated")&& "Email is duplicated. Please input another."})
-    } else if(store.response?.upn) {
+    if (store.response?.success === false) {
+      setError({
+        errors:
+          store.response.errors[0].errorMessage === "Duplicated" &&
+          "Email is duplicated. Please input another.",
+      });
+    } else if (store.response?.upn) {
       navigate("/login");
     }
-  }, [store])
+  }, [store, navigate]);
 
   const handleValidate = () => {
     let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
@@ -143,10 +147,10 @@ const SignUp = () => {
             <span className="text-sm">Must be at least 8 characters.</span>
           </div>
           {error.errors && (
-              <div className="font-poppinsMedium mb-2 text-red-500">
-                {error.errors}
-              </div>
-            )}
+            <div className="font-poppinsMedium mb-2 text-red-500">
+              {error.errors}
+            </div>
+          )}
           <button
             type="submit"
             className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-2"

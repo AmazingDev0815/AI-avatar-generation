@@ -18,6 +18,7 @@ const Avatar = ({ image, size, state, username }) => {
           style={{ width: size, height: size }}
         >
           <img
+            alt="nameAvatar"
             width={size}
             height={size}
             src={LocalImg.avatarPlaceholder}

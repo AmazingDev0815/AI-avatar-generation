@@ -42,7 +42,7 @@ export default function MyModal({ obj, id }) {
       case "image":
         dispatch(deleteAvatars());
         break;
-        default:
+      default:
         {
           dispatch(deleteCollection(id));
           navigate("/my-avatars");

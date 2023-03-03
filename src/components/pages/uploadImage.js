@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
 import MainLayout from "../../layout/mainLayout";
-import { getUserImages, uploadUserImages } from "../../redux/product/product";
+import { uploadUserImages } from "../../redux/product/product";
 import Dropzone from "../basic/dropZone";
 import ImageGrid from "../basic/imageGrid";
 import { LocalImg } from "../basic/imgProvider";
@@ -34,22 +34,20 @@ const UploadImage = () => {
           reader.readAsDataURL(file);
           return file;
         }
+        return null
       });
     },
     [imageWithCrop]
   );
 
   const onSubmit = async () => {
-    dispatch(uploadUserImages(imageWithCrop));
-  };
-
-  useEffect(() => {
     if (productStore.userImages.length >= 20) {
-      navigate("/avatar-detail");
+      console.log("update images", imageWithCrop)
+      // navigate("/avatar-detail");
+    } else {
+      dispatch(uploadUserImages(imageWithCrop));
     }
-  }, []);
-
-  // to limit image number
+  };
 
   useEffect(() => {
     if (images.length > 20) {
@@ -61,11 +59,10 @@ const UploadImage = () => {
     if (productStore.uploadSuccess) {
       navigate("/avatar-detail");
     }
-  }, [productStore]);
+  }, [productStore, navigate]);
 
   const remove = (file) => {
     const newFiles = [...images];
-    // const newFilesWithCrop = [...imageWithCrop];
     newFiles.splice(newFiles.indexOf(file), 1);
     newImages.splice(
       newImages.findIndex((item) => item.id === file.id),

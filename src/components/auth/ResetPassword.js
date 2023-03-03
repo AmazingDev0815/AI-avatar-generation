@@ -3,17 +3,17 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
-import { clearState, resetPassword } from "../../redux/user/user";
+import { resetPassword } from "../../redux/user/user";
 
 const ResetPassword = () => {
   const [password, setPassword] = useState("");
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState({});
 
-  const {token} = useParams();
+  const { token } = useParams();
 
   const dispatch = useDispatch();
-  const store = useSelector(state => state.auth);
+  const store = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
   const handleReset = (e) => {
@@ -22,24 +22,29 @@ const ResetPassword = () => {
   };
 
   useEffect(() => {
-    if(Object.keys(store.error).length && store.error?.message === "APPLICATION_ERROR") {
-      setError({resetPasswordError: "Token is incorrect or expired. Please try again."})
+    if (
+      Object.keys(store.error).length &&
+      store.error?.message === "APPLICATION_ERROR"
+    ) {
+      setError({
+        resetPasswordError: "Token is incorrect or expired. Please try again.",
+      });
     }
-  }, [store])
+  }, [store]);
 
   useEffect(() => {
     if (error.confirm === "" && error.password === "") {
       const data = {
         token: token,
         password: password,
-        confirm: confirm
-      }
+        confirm: confirm,
+      };
       dispatch(resetPassword(data));
     }
-    if(store.success) {
-      navigate('/confirm-reset')
+    if (store.success) {
+      navigate("/confirm-reset");
     }
-  }, [error, navigate, store]);
+  }, [error, navigate, store, token, confirm, password, dispatch]);
 
   const handleValidate = () => {
     let passwordValid = password.length >= 8;
@@ -126,10 +131,10 @@ const ResetPassword = () => {
             )}
           </div>
           {error.resetPasswordError && (
-              <div className="font-poppinsMedium text-red-500">
-                {error.resetPasswordError}
-              </div>
-            )}
+            <div className="font-poppinsMedium text-red-500">
+              {error.resetPasswordError}
+            </div>
+          )}
           <button
             type="submit"
             className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-2"

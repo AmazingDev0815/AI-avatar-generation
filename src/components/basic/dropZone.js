@@ -1,15 +1,14 @@
 //*Dropzone.js*//
 import { useDropzone } from "react-dropzone";
-function Dropzone({ onDrop, accept, open, state }) {
-  const { getRootProps, getInputProps, isDragActive, acceptedFiles } =
-    useDropzone({
-      accept: {
-        "image/png": [".png"],
-        "image/jpg": [".jpg"],
-        "image/jpeg": [".jpeg"],
-      },
-      onDrop,
-    });
+function Dropzone({ onDrop, open, state }) {
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    accept: {
+      "image/png": [".png"],
+      "image/jpg": [".jpg"],
+      "image/jpeg": [".jpeg"],
+    },
+    onDrop,
+  });
   /* -------------calculate the image size-------------- */
   // const files = acceptedFiles.map((file) => (
   //   <li key={file.path}>

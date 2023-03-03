@@ -16,7 +16,7 @@ const ConfirmReset = () => {
 
   useEffect(() => {
     dispatch(clearState());
-  }, []);
+  }, [dispatch]);
   return (
     <div className="h-screen md:flex font-poppinslight">
       <LeftSide />
