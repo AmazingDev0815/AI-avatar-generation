@@ -42,10 +42,10 @@ const ImageCrop = () => {
     }
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    console.log(result);
-  };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   console.log(result);
+  // };
 
   return (
     <MainLayout>

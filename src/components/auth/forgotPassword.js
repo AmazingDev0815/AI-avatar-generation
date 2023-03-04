@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
 import { ArrowLeftIcon, KeyIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { clearState, requestResetPassword } from "../../redux/user/user";
+import { requestResetPassword } from "../../redux/user/user";
 import { useDispatch, useSelector } from "react-redux";
 
 const ForgotPassword = () => {
@@ -30,12 +30,12 @@ const ForgotPassword = () => {
   useEffect(() => {
     if (error.email === "") {
       const prefixUri = window.location.origin;
-      dispatch(requestResetPassword({email, prefixUri}));
+      dispatch(requestResetPassword({ email, prefixUri }));
     }
     if (store.response?.success) {
       navigate("/check-email");
     }
-  }, [error, navigate, store]);
+  }, [error, navigate, store, dispatch, email]);
 
   const handleValidate = () => {
     let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
