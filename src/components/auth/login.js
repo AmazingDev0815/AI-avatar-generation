@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
@@ -29,6 +29,10 @@ const Login = () => {
   };
 
   useEffect(() => {
+    dispatch(getGoogleUrl(redirectUri));
+  }, [])
+
+  useEffect(() => {
     if (Object.keys(store.response).length) {
       dispatch(clearState());
     }
@@ -42,8 +46,8 @@ const Login = () => {
       };
       dispatch(handleSignIn(data));
     }
-    dispatch(getGoogleUrl(redirectUri));
-  }, [error, dispatch, email, password, redirectUri]);
+  }, [error, dispatch, email, password]);
+
   let code = queryParameters.get("code");
   if (code && localStorage.getItem("userData") === null) {
     dispatch(getGoogleToken({ code, redirectUri }));
