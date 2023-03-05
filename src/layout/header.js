@@ -86,7 +86,7 @@ const Header = () => {
             <ul className="flex justify-center items-center p-4 border-gray-100 rounded-lg w-full flex-row md:space-x-8 space-x-3 xs:space-x-6 mt-0 text-sm font-medium border-0">
               {authState ? (
                 <>
-                  <li className="md:flex text-base font-poppinsSemiBold hidden ml-2 text-gray-700 active:text-gray-900 active:bg-primary-100 rounded-lg px-3 py-2">
+                  <li className="md:flex text-base font-poppinsSemiBold hidden ml-2 text-gray-700 active:text-gray-900 hover:text-gray-900 active:bg-primary-100 rounded-lg px-3 py-2">
                     <Link to="/my-avatars" className="pr-2">
                       My Avatars
                     </Link>

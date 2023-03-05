@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { LocalImg } from "../components/basic/imgProvider";
 
 const Footer = () => {
   return (
