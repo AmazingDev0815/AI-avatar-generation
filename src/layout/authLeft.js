@@ -1,96 +1,45 @@
+import { Link } from "react-router-dom";
 import { LocalImg } from "../components/basic/imgProvider";
 
 const LeftSide = () => {
   return (
-    <div className="relative overflow-hidden py-10 md:flex flex-col w-1/2 bg-gradient-to-tr from-primary-900 to-primary-700 i justify-center hidden">
-      <div className="ml-16 mb-8">
-        <h1 className="text-white font-bold text-6xl font-poppinsSemiBold ">
-          Mava
-        </h1>
-        <p className="text-white mt-1 text-xl">Avatars made fun!</p>
-      </div>
-      <div className="image-group flex-col w-[200%]">
-        <div className="flex -ml-7">
-          <div className="mr-6 ">
-            <img alt="gallery" src={LocalImg[15]} />
-          </div>
-          <div className="mr-6 ">
-            <img alt="gallery" src={LocalImg[2]} />
-          </div>
-          <div className="mr-6 ">
-            <img alt="gallery" src={LocalImg[3]} />
-          </div>
-          <div className="mr-6 ">
-            <img alt="gallery" src={LocalImg[14]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[8]} />
-          </div>
-          <div className="mr-6 ">
-            <img alt="gallery" src={LocalImg[12]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[17]} />
-          </div>
-          <div className="mr-6 ">
-            <img alt="gallery" src={LocalImg[4]} />
-          </div>
-        </div>
-        <div className="flex mt-6 -ml-[128px]">
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[14]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[6]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[7]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[8]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[2]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[12]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[3]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[11]} />
-          </div>
-          <div className="mr-6 ">
-            <img alt="gallery" src={LocalImg[9]} />
-          </div>
-        </div>
-        <div className="flex mt-6 -ml-7">
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[17]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[11]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[12]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[3]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[7]} />
-          </div>
-          <div className="mr-6 ">
-            <img alt="gallery" src={LocalImg[2]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[14]} />
-          </div>
-          <div className="mr-6">
-            <img alt="gallery" src={LocalImg[13]} />
-          </div>
-        </div>
+    <div className="overflow-hidden min-h-screen py-10 md:flex flex-col w-1/2 bg-gradient-to-tr from-primary-900 to-primary-700 i justify-center hidden">
+      <Link to="/" className="mt-8 ml-8 lg:ml-16 mb-20 lg:mb-28 4xl:mb-48">
+        <svg
+          width="263"
+          height="52"
+          viewBox="0 0 263 52"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M142.579 4.46954V46.9362H135.163V17.7419L121.829 39.0372H118.832L105.498 17.7419V46.9362H98.1439V4.46954H105.498L120.331 27.9191L135.163 4.46954H142.579Z"
+            fill="white"
+          />
+          <path
+            d="M165.855 16.0705C171.055 16.0705 175.537 18.819 177.097 22.2857V16.6648H184.105V46.9238H177.11V41.3029C175.55 44.7695 171.068 47.5181 165.868 47.5181C157.201 47.5181 150.85 40.461 150.85 31.7819C150.85 23.1029 157.189 16.0457 165.868 16.0457L165.855 16.0705ZM166.412 40.5971C171.551 40.5971 175.203 36.5857 175.203 31.8067C175.203 27.0276 171.551 23.0162 166.412 23.0162C161.274 23.0162 157.498 27.0276 157.498 31.8067C157.498 36.5857 161.212 40.5971 166.412 40.5971Z"
+            fill="white"
+          />
+          <path
+            d="M224.232 16.6648L211.43 46.9238H202.936L190.134 16.6648H198.392L207.183 39.2105L216.035 16.6648H224.232Z"
+            fill="white"
+          />
+          <path
+            d="M242.704 16.0705C247.904 16.0705 252.386 18.819 253.946 22.2857V16.6648H260.953V46.9238H253.958V41.3029C252.398 44.7695 247.916 47.5181 242.716 47.5181C234.05 47.5181 227.698 40.461 227.698 31.7819C227.698 23.1029 234.037 16.0457 242.716 16.0457L242.704 16.0705ZM243.261 40.5971C248.399 40.5971 252.052 36.5857 252.052 31.8067C252.052 27.0276 248.399 23.0162 243.261 23.0162C238.123 23.0162 234.347 27.0276 234.347 31.8067C234.347 36.5857 238.061 40.5971 243.261 40.5971Z"
+            fill="white"
+          />
+          <path
+            d="M49.5362 6.53716C52.1981 6.53716 54.5876 7.91144 55.9248 10.2267L69.8905 34.4067C71.2276 36.7219 71.2276 39.4705 69.8905 41.7857C68.5533 44.101 66.1638 45.4752 63.5019 45.4752H35.5705C32.9086 45.4752 30.519 44.101 29.1819 41.7857C27.8447 39.4705 27.8447 36.7219 29.1819 34.4067L43.1476 10.2267C44.4848 7.91144 46.8743 6.53716 49.5362 6.53716ZM49.5362 1.08954C45.2152 1.08954 40.8943 3.23144 38.4305 7.50287L24.4647 31.6829C19.5247 40.2381 25.7028 50.9229 35.5705 50.9229H63.5019C73.3695 50.9229 79.5476 40.2381 74.6076 31.6829L60.6419 7.50287C58.1781 3.23144 53.8571 1.08954 49.5362 1.08954Z"
+            fill="#9057FF"
+          />
+          <path
+            d="M28.3276 6.53715C30.9895 6.53715 33.3791 7.91143 34.7162 10.2267L48.6819 34.4067C50.0191 36.7219 50.0191 39.4705 48.6819 41.7857C47.3448 44.101 44.9553 45.4752 42.2934 45.4752H14.3619C11.7 45.4752 9.31048 44.101 7.97333 41.7857C6.63619 39.4705 6.63619 36.7219 7.97333 34.4067L21.9391 10.2267C23.2762 7.91143 25.6657 6.53715 28.3276 6.53715ZM28.3276 1.08953C24.0067 1.08953 19.6857 3.23143 17.2219 7.50286L3.25619 31.6829C-1.68382 40.2381 4.49428 50.9229 14.3619 50.9229H42.2934C52.161 50.9229 58.3391 40.2381 53.3991 31.6829L39.4333 7.49048C36.9695 3.21905 32.6486 1.07715 28.3276 1.07715V1.08953Z"
+            fill="#9057FF"
+          />
+        </svg>
+      </Link>
+      <div className="scale-[1.25] mb-20">
+        <img src={LocalImg.sign} alt="sign" className="" />
       </div>
     </div>
   );
