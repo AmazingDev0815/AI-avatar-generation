@@ -28,7 +28,7 @@ const Header = () => {
     } else {
       setAuthState(false);
     }
-  }, [store, dispatch]);
+  }, [store.userData, dispatch]);
 
   const navigate = useNavigate();
   const LoginHandle = () => {
@@ -144,7 +144,7 @@ const Header = () => {
                             />
                           ) : (
                             <div className="relative">
-                              <span className="absolute text-white uppercase font-poppinsBold text-lg top-1.5 left-3.5">{store.userData?.name[0]}</span>
+                              <span className="absolute text-white uppercase font-poppinsBold text-lg top-1.5 left-3.5">{store.userData?.name?.[0]}</span>
                               <img
                                 alt="avatar"
                                 src={LocalImg.avatarPlaceholder}
