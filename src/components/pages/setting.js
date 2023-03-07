@@ -10,7 +10,6 @@ import Select from "react-select";
 import { getUser, updateUserInfo } from "../../redux/user/user";
 
 const genderOptions = [
-  { label: "Other", value: 0 },
   { label: "Male", value: 1 },
   { label: "Female", value: 2 },
 ];
@@ -137,25 +136,6 @@ const Setting = () => {
                   </div>
                 )}
               </div>
-              {/* <div className="mt-6">
-                <label
-                  htmlFor="email"
-                  className="block mb-1.5 text-sm font-poppinsMedium text-gray-900"
-                >
-                  Email address
-                </label>
-                <div className="relative">
-                  <EnvelopeIcon className="h-5 w-5 text-primary-600 absolute top-3 left-3" />
-                  <input
-                    type="text"
-                    id="email"
-                    className="border pl-10 border-gray-300 focus:shadow-primary focus:border-primary-600 focus:ring-1 focus:ring-primary-600 focus:outline-none text-base rounded-lg mt-1 block w-full py-2.5 px-3.5"
-                    placeholder="Email Address"
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                  />
-                </div>
-              </div> */}
               <div className="mt-6">
                 <label
                   htmlFor="gender"
@@ -266,12 +246,6 @@ const Setting = () => {
                   We will delete all of your generated images.
                 </span>
                 <MyModal obj="image" />
-                {/* <button
-                  className="bg-primary-600 hover:bg-primary-700 font-poppinsSemiBold mt-2 w-36 rounded-lg px-4 py-2.5 text-white text-sm"
-                  type="submit"
-                >
-                  Delete Images
-                </button> */}
               </div>
               <div className="flex flex-col mt-6" id="delete_account">
                 <h1 className="font-poppinsMedium">Delete account</h1>
@@ -279,12 +253,6 @@ const Setting = () => {
                   We will delete your account and delete all data.
                 </span>
                 <MyModal obj="account" />
-                {/* <button
-                  className="bg-primary-600 hover:bg-primary-700 font-poppinsSemiBold mt-2 w-36 rounded-lg px-4 py-2.5 text-white text-sm"
-                  onClick={onDelete}
-                >
-                  Delete Account
-                </button> */}
               </div>
             </div>
           </div>
