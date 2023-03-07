@@ -43,10 +43,8 @@ export default function MyModal({ obj, id }) {
         dispatch(deleteAvatars());
         break;
       default:
-        {
           dispatch(deleteCollection(id));
           navigate("/my-avatars");
-        }
         break;
     }
     closeModal();

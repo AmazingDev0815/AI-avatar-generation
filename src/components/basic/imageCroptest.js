@@ -74,7 +74,7 @@ const ImageCrop = () => {
 
         {result && (
           <div>
-            <img src={result} alt="Cropped Image" />
+            <img src={result} alt="Cropped Img" />
           </div>
         )}
       </div>
