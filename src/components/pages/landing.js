@@ -51,7 +51,7 @@ const Landing = () => {
               receive
             </span>
           </div>
-          <div className="w-full flex flex-col sm:flex-row justify-between items-center shadow-2xl xl:px-16 px-4 py-8 xl:gap-4 gap-2 rounded-2xl">
+          <div className="w-full flex flex-col sm:flex-row justify-between items-center shadow-3xl xl:px-16 px-4 py-8 xl:gap-4 gap-2 rounded-2xl">
             <div className="flex flex-col text-center sm:w-1/3 w-2/3">
               <span className="xl:text-5xl lg:text-3xl text-2xl font-poppinsBold text-primary-600 mb-1">
                 160+
@@ -101,7 +101,7 @@ const Landing = () => {
           </div>
           <div className="flex-1 py-14 flex justify-center">
             <video
-              className="rounded-lg md:rounded-[30px] shadow-2xl"
+              className="rounded-lg md:rounded-[30px] shadow-3xl"
               autoPlay
               loop
               muted

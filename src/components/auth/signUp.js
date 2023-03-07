@@ -2,13 +2,15 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
-import { handleSignUp } from "../../redux/user/user";
+import { getGoogleUrl, handleSignUp } from "../../redux/user/user";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({});
+  // ** Google login redirectUri
+  const redirectUri = window.location.origin + "/google-oauth";
 
   const dispatch = useDispatch();
   const store = useSelector((state) => state.auth);
@@ -18,6 +20,10 @@ const SignUp = () => {
     e.preventDefault();
     handleValidate();
   };
+
+  useEffect(() => {
+    dispatch(getGoogleUrl(redirectUri));
+  }, [redirectUri, dispatch])
 
   useEffect(() => {
     if (error.email === "" && error.password === "" && error.username === "") {
@@ -157,9 +163,11 @@ const SignUp = () => {
           >
             Sign up
           </button>
-          {/* <button
-            type="submit"
-            className="block w-full mt-4 py-2 rounded-lg font-poppinsSemiBold mb-8 border border-gray-300"
+          <a
+            href={store.googleUrl}
+            target="_self"
+            rel="noopener noreferrer"
+            className="flex justify-center w-full mt-4 py-2 rounded-lg font-poppinsSemiBold mb-8 border border-gray-300"
           >
             <span className="inline-block align-middle mr-3">
               <svg
@@ -187,7 +195,7 @@ const SignUp = () => {
               </svg>
             </span>
             <span className="text-base">Sign up with Google</span>
-          </button> */}
+          </a>
           <div className="text-center">
             <span className="text-sm font-poppinsRegular justify-center">
               Already have an account ?{" "}
