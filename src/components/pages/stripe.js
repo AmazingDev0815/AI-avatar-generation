@@ -20,7 +20,7 @@ export const Payment = () => {
         window.location = process.env.REACT_APP_STRIPE;
       }
     }
-  }, []);
+  }, [dispatch, sessionId, store.userData.credit, navigate]);
 
   return <div></div>;
 };

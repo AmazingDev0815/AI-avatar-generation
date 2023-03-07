@@ -30,12 +30,12 @@ const AvatarDetail = () => {
     if (productStore.uploadSuccess) {
       dispatch(clearUploadState());
     }
-  }, []);
+  }, [dispatch, productStore.uploadSuccess]);
 
   const SubmitInfo = (e) => {
     e.preventDefault();
     dispatch(
-      generatingProduct({ name: avatarName, gender: (selectedOption?.value - 1) })
+      generatingProduct({ name: avatarName, gender: selectedOption?.value - 1 })
     );
     navigate("/success");
   };

@@ -32,17 +32,22 @@ const Contact = () => {
   };
 
   useEffect(() => {
-    if (error.email === "" && error.firstName === "" && error.lastName === "" && error.message === "") {
+    if (
+      error.email === "" &&
+      error.firstName === "" &&
+      error.lastName === "" &&
+      error.message === ""
+    ) {
       const data = {
         email: email,
         firstName: firstName,
         lastName: lastName,
         message: message,
-      }
+      };
       dispatch(contactUs(data));
       setMessage("");
     }
-  }, [error]);  
+  }, [error, dispatch, email, firstName, lastName, message]);
 
   return (
     <MainLayout>
@@ -51,7 +56,9 @@ const Contact = () => {
         id="contact"
       >
         <div className="text-center md:px-4 lg:px-16">
-          <h1 className="font-poppinsSemiBold text-4xl sm:text-5xl mt-16">Contact Us</h1>
+          <h1 className="font-poppinsSemiBold text-4xl sm:text-5xl mt-16">
+            Contact Us
+          </h1>
           <p className="mt-1 text-sm sm:text-lg text-gray-600">
             We’d love to hear from you. Please fill out this form.
           </p>
@@ -93,7 +100,7 @@ const Contact = () => {
                   placeholder="Last name"
                   onChange={(e) => setLastName(e.target.value)}
                 />
-                 {error.lastName && (
+                {error.lastName && (
                   <div className="font-poppinsMedium mt-2 text-red-500">
                     {error.lastName}
                   </div>
