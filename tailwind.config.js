@@ -19,6 +19,7 @@ module.exports = {
     extend: {
       boxShadow: {
         'primary': '0px 0px 6px #7F56D9',
+        '3xl': '0px 32px 64px -12px #33196C24'
       },
       colors: {
         primary: {
@@ -47,6 +48,7 @@ module.exports = {
           800: '#05603A',
           900: '#054F31',
         },
+        shadowColor: '#33196C24',
       },
     },
     fontFamily: {
