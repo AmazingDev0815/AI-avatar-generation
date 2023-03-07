@@ -15,14 +15,15 @@ const MyAvatars = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      dispatch(getTaskState())
+      dispatch(getTaskState());
     }, MINUTE_MS);
-  
+
     return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
-  }, [])
+  }, [dispatch]);
+
   useEffect(() => {
     dispatch(getImageCollections());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setCreated(store.products?.items?.length > 0);
@@ -53,7 +54,7 @@ const MyAvatars = () => {
             />
           </div>
         </div>
-      ) : (created || loading) ? (
+      ) : created || loading ? (
         <Created />
       ) : (
         <NotCreated />

@@ -80,6 +80,7 @@ export const uploadUserImages = createAsyncThunk(
   async (imageWithCrop) => {
     let formData = new FormData();
     imageWithCrop.map((item) => formData.append("Files", item.image.file));
+    formData.append("KeepOldPhotos", false)
     const result = await axios.post(baseUrl + "user-photos", formData, {
       headers: {
         "Content-Type": "multipart/form-data",

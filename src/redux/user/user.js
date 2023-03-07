@@ -196,7 +196,7 @@ export const clearState = createAsyncThunk(
 
 export const resetPassword = createAsyncThunk(
   "authentication/resetPassword",
-  async ({data, prefixUri}) => {
+  async (data) => {
     const reset = await axios
       .post(baseUrl + "users/reset-password", {
         token: data.token,

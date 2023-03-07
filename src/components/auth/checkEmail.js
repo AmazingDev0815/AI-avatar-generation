@@ -17,12 +17,12 @@ const CheckEmail = () => {
   useEffect(() => {
     dispatch(checkEmail());
     setRequestEmail(JSON.parse(window.localStorage.getItem("requestEmail")));
-  }, [])
+  }, [dispatch]);
 
   return (
-    <div className="h-screen md:flex font-poppinslight">
+    <div className="min-h-screen md:flex md:justify-center md:items-center font-poppinslight">
       <LeftSide />
-      <div className="flex md:w-1/2 h-full justify-center py-10 items-center bg-white">
+      <div className="flex md:w-1/2 min-h-screen justify-center py-10 items-center bg-white">
         <form className="bg-white w-2/3 lg:w-1/2" onSubmit={handleSubmit}>
           <div className="flex justify-center mb-6">
             <div className="bg-primary-50 rounded-full p-2">
@@ -39,7 +39,7 @@ const CheckEmail = () => {
           </p>
           <button
             type="submit"
-            onClick={() => window.location = `mailto:${requestEmail}`}
+            onClick={() => (window.location = `mailto:${requestEmail}`)}
             className="block w-full bg-primary-600 hover:bg-primary-700 mt-6 py-2 rounded-lg text-white font-poppinsSemiBold mb-8"
           >
             Open email app

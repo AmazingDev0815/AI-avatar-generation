@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import LeftSide from "../../layout/authLeft";
 import { ArrowLeftIcon, KeyIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { clearState, requestResetPassword } from "../../redux/user/user";
+import { requestResetPassword } from "../../redux/user/user";
 import { useDispatch, useSelector } from "react-redux";
 
 const ForgotPassword = () => {
@@ -30,12 +30,12 @@ const ForgotPassword = () => {
   useEffect(() => {
     if (error.email === "") {
       const prefixUri = window.location.origin;
-      dispatch(requestResetPassword({email, prefixUri}));
+      dispatch(requestResetPassword({ email, prefixUri }));
     }
     if (store.response?.success) {
       navigate("/check-email");
     }
-  }, [error, navigate, store]);
+  }, [error, navigate, store, dispatch, email]);
 
   const handleValidate = () => {
     let emailValid = email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
@@ -48,9 +48,9 @@ const ForgotPassword = () => {
     });
   };
   return (
-    <div className="h-screen md:flex font-poppinslight">
+    <div className="min-h-screen md:flex md:justify-center md:items-center font-poppinslight">
       <LeftSide />
-      <div className="flex md:w-1/2 h-full justify-center py-10 items-center bg-white">
+      <div className="flex md:w-1/2 min-h-screen justify-center py-10 items-center bg-white">
         <form className="bg-white w-2/3 lg:w-1/2" onSubmit={handleSubmit}>
           <div className="flex justify-center mb-6">
             <div className="bg-primary-50 rounded-full p-2">
