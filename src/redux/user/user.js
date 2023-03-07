@@ -76,7 +76,7 @@ export const handleSignUp = createAsyncThunk(
         confirmPassword: data.confirmPassword,
         name: data.username,
         email: data.email,
-        gender: 0,
+        gender: 1,
       })
       .then((response) => {
         return response.data;
