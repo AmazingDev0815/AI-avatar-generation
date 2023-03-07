@@ -29,6 +29,10 @@ const Login = () => {
   };
 
   useEffect(() => {
+    dispatch(getGoogleUrl(redirectUri));
+  }, [redirectUri, dispatch])
+
+  useEffect(() => {
     if (Object.keys(store.response).length) {
       dispatch(clearState());
     }
@@ -42,8 +46,8 @@ const Login = () => {
       };
       dispatch(handleSignIn(data));
     }
-    dispatch(getGoogleUrl(redirectUri));
-  }, [error, dispatch, email, password, redirectUri]);
+  }, [error, dispatch, email, password]);
+
   let code = queryParameters.get("code");
   if (code && localStorage.getItem("userData") === null) {
     dispatch(getGoogleToken({ code, redirectUri }));
@@ -82,9 +86,9 @@ const Login = () => {
   };
 
   return (
-    <div className="h-screen md:flex font-poppinslight">
+    <div className="min-h-screen md:flex md:justify-center md:items-center font-poppinslight">
       <LeftSide />
-      <div className="flex md:w-1/2 h-full justify-center py-10 items-center bg-white">
+      <div className="flex md:w-1/2 min-h-screen justify-center py-10 items-center bg-white">
         <form className="bg-white w-2/3 lg:w-1/2" onSubmit={onSubmit}>
           <h1 className="text-gray-800 font-poppinsSemiBold text-3xl mb-3">
             Log in

@@ -82,12 +82,6 @@ const Collection = ({ id }) => {
               className="rounded-xl mr-9"
             />
           ))}
-          {/* <img alt="demo" src={LocalImg.demo_1} className="rounded-xl mr-9" />
-          <img alt="demo" src={LocalImg.demo_2} className="rounded-xl mr-9" />
-          <img alt="demo" src={LocalImg.demo_3} className="rounded-xl mr-9" />
-          <img alt="demo" src={LocalImg.demo_4} className="rounded-xl mr-9" />
-          <img alt="demo" src={LocalImg.demo_5} className="rounded-xl mr-9" />
-          <img alt="demo" src={LocalImg.demo_6} className="rounded-xl mr-9" /> */}
         </Slider>
       </div>
       <div className="flex justify-center">
