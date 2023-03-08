@@ -85,7 +85,7 @@ const Group = () => {
           {store.selected?.groups.map((group, key) => (
             <div className="mt-16" id={`style_${key}`} key={key}>
               <h1 className="text-2xl text-gray-900 font-poppinsSemiBold">
-                {group.name}
+                {group.name.split(" ").filter(string => !(string.toLowerCase().includes("male") || string.toLowerCase().includes("female"))).join(" ")}
               </h1>
               <div
                 className="flex flex-wrap items-center justify-start"
