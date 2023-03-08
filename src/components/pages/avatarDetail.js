@@ -9,7 +9,6 @@ import {
 } from "../../redux/product/product";
 
 const genderOptions = [
-  { label: "Other", value: 1 },
   { label: "Male", value: 2 },
   { label: "Female", value: 3 },
 ];
