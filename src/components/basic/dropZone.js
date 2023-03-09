@@ -5,7 +5,6 @@ function Dropzone({ onDrop, open, state }) {
     accept: {
       "image/png": [".png"],
       "image/jpg": [".jpg"],
-      "image/jpeg": [".jpeg"],
     },
     onDrop,
   });
