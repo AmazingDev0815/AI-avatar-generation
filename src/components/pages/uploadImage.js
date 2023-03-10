@@ -161,7 +161,7 @@ const UploadImage = () => {
               // ) :
               images.length > 0 ? (
                 <div className="h-[200px]">
-                  {images.length === 20 && (
+                  {(images.length <= 20 && images.length >= 10) && (
                     <button
                       className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm"
                       onClick={onSubmit}
