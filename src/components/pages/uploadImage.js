@@ -1,16 +1,15 @@
-import axios from "axios";
 import cuid from "cuid";
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
 import MainLayout from "../../layout/mainLayout";
-import authHeader from "../../redux/authHeader";
 import { getUpoadToken, uploadUserImages } from "../../redux/product/product";
 import Dropzone from "../basic/dropZone";
 import ImageGrid from "../basic/imageGrid";
 import { LocalImg } from "../basic/imgProvider";
 import PreviewModal from "../basic/uploadModal";
+import Resizer from "react-image-file-resizer";
 
 const UploadImage = () => {
   const navigate = useNavigate();
@@ -22,19 +21,36 @@ const UploadImage = () => {
 
   const newImages = [...imageWithCrop];
 
+  const resizeFile = (file) =>
+  new Promise((resolve) => {
+    Resizer.imageFileResizer(
+      file,
+      300,
+      300,
+      "JPEG",
+      100,
+      0,
+      (uri) => {
+        resolve(uri);
+      },
+      "file"
+    );
+  });
+
   const onDrop = useCallback(
     (acceptedFiles) => {
-      acceptedFiles.map((file, key) => {
+      acceptedFiles.map(async (file, key) => {
         if (imageWithCrop.length + key <= 19) {
           const reader = new FileReader();
+          const image = await resizeFile(file);
           reader.onload = function (e) {
             setImages((prevState) => [
               ...prevState,
-              { id: cuid(), src: e.target.result, file: file },
+              { id: cuid(), src: e.target.result, file: image },
             ]);
           };
-          reader.readAsDataURL(file);
-          return file;
+          reader.readAsDataURL(image);
+          return image;
         }
         return null
       });
