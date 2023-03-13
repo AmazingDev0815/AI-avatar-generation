@@ -1,10 +1,12 @@
+import axios from "axios";
 import cuid from "cuid";
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
 import MainLayout from "../../layout/mainLayout";
-import { uploadUserImages } from "../../redux/product/product";
+import authHeader from "../../redux/authHeader";
+import { getUpoadToken, uploadUserImages } from "../../redux/product/product";
 import Dropzone from "../basic/dropZone";
 import ImageGrid from "../basic/imageGrid";
 import { LocalImg } from "../basic/imgProvider";
@@ -41,8 +43,12 @@ const UploadImage = () => {
   );
 
   const onSubmit = async () => {
-      dispatch(uploadUserImages(imageWithCrop));
+    dispatch(uploadUserImages({uploadToken: productStore.uploadToken?.token, imageWithCrop}));
   };
+
+  useEffect(() => {
+    dispatch(getUpoadToken());
+  }, [dispatch])
 
   useEffect(() => {
     if (images.length > 20) {
@@ -149,16 +155,6 @@ const UploadImage = () => {
               </span>
             </ul>
             {
-              // productStore.userImages.length >= 20 ? (
-              //   <div className="h-[200px]">
-              //     <button
-              //       className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm"
-              //       onClick={() => navigate("/avatar-detail")}
-              //     >
-              //       Next
-              //     </button>
-              //   </div>
-              // ) :
               images.length > 0 ? (
                 <div className="h-[200px]">
                   {(images.length <= 20 && images.length >= 10) && (

@@ -9,7 +9,7 @@ export const getImageCollections = createAsyncThunk(
   "product/getImageCollections",
   async () => {
     return await axios
-      .get(baseUrl + "image-collections", {
+      .get(baseUrl + "image-collections/user", {
         headers: authHeader(),
         params: {
           FilterByUser: true,
@@ -77,34 +77,43 @@ export const downloadCollection = createAsyncThunk(
 
 export const uploadUserImages = createAsyncThunk(
   "product/uploadUserImages",
-  async (imageWithCrop) => {
-    let formData = new FormData();
-    imageWithCrop.map((item) => formData.append("Files", item.image.file));
-    formData.append("KeepOldPhotos", false)
-    const result = await axios.post(baseUrl + "user-photos", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        ...authHeader(),
-      },
+  async ({uploadToken, imageWithCrop}) => {
+    const file = imageWithCrop.map((item) => {
+      let formData = new FormData();
+      formData.append("File", item.image.file);
+      const result = axios.post(baseUrl + "files/user-photo", formData, {
+        params: {
+          token: uploadToken
+        },
+        headers: {
+          "Content-Type": "multipart/form-data",
+          ...authHeader(),
+        },
+      }).then((res) => res.data.id);
+      return result
+    });
+    const ids = await Promise.all(file).then((values) => {
+      return values
     });
 
-    const commands = result.data.map((item, key) => {
+    const files = imageWithCrop.map((item, key) => {
       return {
-        id: result.data[key].id,
-        unit: imageWithCrop[key].crop.unit,
-        width: imageWithCrop[key].crop.width,
-        height: imageWithCrop[key].crop.height,
-        x: imageWithCrop[key].crop.x,
-        y: imageWithCrop[key].crop.y,
+        fileId: ids[key],
+        unit: item.crop.unit,
+        width: item.crop.width,
+        height: item.crop.height,
+        x: item.crop.x,
+        y: item.crop.y,
       };
     });
 
     // for update crop path
     const update = await axios
-      .put(
-        baseUrl + "user-photos/crop",
+      .post(
+        baseUrl + "user-photos",
         {
-          commands,
+          keepOldPhotos: false,
+          files: files,
         },
         { headers: authHeader() }
       )
@@ -116,6 +125,16 @@ export const uploadUserImages = createAsyncThunk(
         return { status: false };
       });
     return update;
+  }
+);
+
+export const getUpoadToken = createAsyncThunk(
+  "product/getUploadToken",
+  async () => {
+    return await axios
+      .get(baseUrl + "files/upload-token", {headers: authHeader()})
+      .then((res) => res.data)
+      .catch((err) => err.response.data);
   }
 );
 
@@ -186,6 +205,7 @@ export const authSlice = createSlice({
     payment: 0,
     taskState: {},
     uploadSuccess: false,
+    uploadToken: {},
     error: {},
   },
   reducers: {},
@@ -215,12 +235,18 @@ export const authSlice = createSlice({
       .addCase(generatingProduct.fulfilled, (state) => {
         state.productLoading = false
       })
+      .addCase(getUpoadToken.fulfilled, (state, action) => {
+        state.uploadToken = action.payload
+      })
       .addCase(uploadUserImages.fulfilled, (state, action) => {
         state.uploadSuccess = action.payload.status;
         state.productLoading = false;
       })
       .addCase(uploadUserImages.pending, (state) => {
         state.productLoading = true;
+      })
+      .addCase(uploadUserImages.rejected, (state) => {
+        state.productLoading = false
       })
       .addCase(clearUploadState.fulfilled, (state) => {
         state.uploadSuccess = false;
