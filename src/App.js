@@ -21,7 +21,7 @@ import { useEffect } from "react";
 import { getUser } from "./redux/user/user";
 import { PrivateRoute } from "./components/helpers/privateRoute";
 import { PublicRoute } from "./components/helpers/publicRoute";
-import { getTaskState, getImageCollections, getUserImages } from "./redux/product/product";
+import { getTaskState } from "./redux/product/product";
 import { Payment } from "./components/pages/stripe";
 
 
@@ -36,11 +36,9 @@ function App() {
 
   useEffect(() => {
     if(store.isAuthenticate) {
-      dispatch(getImageCollections());
       dispatch(getTaskState());
-      dispatch(getUserImages(store.userData.upn));
     }
-  }, [dispatch, store.isAuthenticate, store.userData.upn])
+  }, [dispatch, store.isAuthenticate])
 
   return (
     <Router>
