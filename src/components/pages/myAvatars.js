@@ -18,12 +18,22 @@ const MyAvatars = () => {
       dispatch(getTaskState());
     }, MINUTE_MS);
 
-    return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
+    return () => clearInterval(interval); 
   }, [dispatch]);
 
+  // get image collections when the component render
   useEffect(() => {
     dispatch(getImageCollections());
   }, [dispatch]);
+
+  // get image collections when one task status change into completed or failed
+  useEffect(() => {
+    dispatch(getImageCollections());
+  }, [
+    store.taskState
+      ?.map((item) => item?.status.value)
+      .filter((i) => i >= 0 && i < 10).length,
+  ]);
 
   useEffect(() => {
     setCreated(store.products?.items?.length > 0);

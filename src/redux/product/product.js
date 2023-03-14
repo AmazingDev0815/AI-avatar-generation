@@ -203,7 +203,7 @@ export const authSlice = createSlice({
     productLoading: false,
     selectedLoading: false,
     payment: 0,
-    taskState: {},
+    taskState: [],
     uploadSuccess: false,
     uploadToken: {},
     error: {},
