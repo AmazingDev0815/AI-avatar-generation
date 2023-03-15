@@ -50,50 +50,27 @@ export const getUserImages = createAsyncThunk(
   }
 );
 
-export const downloadCollection = createAsyncThunk(
-  "product/downloadCollection",
-  async ({token, name}) => {
-    await axios.get(baseUrl + `image-collections/download/${token}`, {
-      headers: authHeader(),
-      params: { token: token },
-      responseType: "blob"
-    }).then((response) => {
-      // create file link in browser's memory
-      const href = URL.createObjectURL(response.data);
-  
-      // create "a" HTML element with href to file & click
-      const link = document.createElement('a');
-      link.href = href;
-      link.setAttribute('download', `${name}.zip`); //or any other extension
-      document.body.appendChild(link);
-      link.click();
-  
-      // clean up "a" element & remove ObjectURL
-      document.body.removeChild(link);
-      URL.revokeObjectURL(href);
-    });
-  }
-);
-
 export const uploadUserImages = createAsyncThunk(
   "product/uploadUserImages",
-  async ({uploadToken, imageWithCrop}) => {
+  async ({ uploadToken, imageWithCrop }) => {
     const file = imageWithCrop.map((item) => {
       let formData = new FormData();
       formData.append("File", item.image.file);
-      const result = axios.post(baseUrl + "files/user-photo", formData, {
-        params: {
-          token: uploadToken
-        },
-        headers: {
-          "Content-Type": "multipart/form-data",
-          ...authHeader(),
-        },
-      }).then((res) => res.data.id);
-      return result
+      const result = axios
+        .post(baseUrl + "files/user-photo", formData, {
+          params: {
+            token: uploadToken,
+          },
+          headers: {
+            "Content-Type": "multipart/form-data",
+            ...authHeader(),
+          },
+        })
+        .then((res) => res.data.id);
+      return result;
     });
     const ids = await Promise.all(file).then((values) => {
-      return values
+      return values;
     });
 
     const files = imageWithCrop.map((item, key) => {
@@ -132,7 +109,7 @@ export const getUpoadToken = createAsyncThunk(
   "product/getUploadToken",
   async () => {
     return await axios
-      .get(baseUrl + "files/upload-token", {headers: authHeader()})
+      .get(baseUrl + "files/upload-token", { headers: authHeader() })
       .then((res) => res.data)
       .catch((err) => err.response.data);
   }
@@ -165,7 +142,7 @@ export const deleteAvatars = createAsyncThunk(
       headers: authHeader(),
     });
     dispatch(getImageCollections());
-    dispatch(getUser())
+    dispatch(getUser());
     return { selected: {} };
   }
 );
@@ -190,9 +167,14 @@ export const getCurrentAvailableCount = createAsyncThunk(
   }
 );
 
-export const getTaskState = createAsyncThunk("product/getTaskState", async () => {
-  return await axios.get(baseUrl + "generating-tasks/my-task", {headers:authHeader()})
-})
+export const getTaskState = createAsyncThunk(
+  "product/getTaskState",
+  async () => {
+    return await axios.get(baseUrl + "generating-tasks/my-task", {
+      headers: authHeader(),
+    });
+  }
+);
 
 export const authSlice = createSlice({
   name: "product",
@@ -230,13 +212,16 @@ export const authSlice = createSlice({
         state.userImages = action.payload.data;
       })
       .addCase(generatingProduct.pending, (state) => {
-        state.productLoading = true
+        state.productLoading = true;
       })
       .addCase(generatingProduct.fulfilled, (state) => {
-        state.productLoading = false
+        state.productLoading = false;
+      })
+      .addCase(generatingProduct.rejected, (state) => {
+        state.productLoading = false;
       })
       .addCase(getUpoadToken.fulfilled, (state, action) => {
-        state.uploadToken = action.payload
+        state.uploadToken = action.payload;
       })
       .addCase(uploadUserImages.fulfilled, (state, action) => {
         state.uploadSuccess = action.payload.status;
@@ -246,7 +231,7 @@ export const authSlice = createSlice({
         state.productLoading = true;
       })
       .addCase(uploadUserImages.rejected, (state) => {
-        state.productLoading = false
+        state.productLoading = false;
       })
       .addCase(clearUploadState.fulfilled, (state) => {
         state.uploadSuccess = false;

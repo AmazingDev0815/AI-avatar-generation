@@ -8,10 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
 import MainLayout from "../../layout/mainLayout";
-import {
-  downloadCollection,
-  getImageCollection,
-} from "../../redux/product/product";
+import { getImageCollection } from "../../redux/product/product";
 import MyModal from "../basic/modal";
 
 const Group = () => {
@@ -22,15 +19,6 @@ const Group = () => {
   useEffect(() => {
     dispatch(getImageCollection(id));
   }, [dispatch, id]);
-
-  const onDownload = () => {
-    dispatch(
-      downloadCollection({
-        token: store.selected.downloadToken,
-        name: store.selected.name,
-      })
-    );
-  };
 
   return (
     <MainLayout>
@@ -72,20 +60,27 @@ const Group = () => {
                 </Moment>
               </span>
             </div>
-            <button className="px-4 py-2.5 flex text-white hover:bg-primary-700 bg-primary-600 rounded-lg items-center">
+            <a
+              href={`${process.env.REACT_APP_BASE_URL}image-collections/download/${id}`}
+              className="px-4 py-2.5 flex text-white hover:bg-primary-700 bg-primary-600 rounded-lg items-center"
+            >
               <ArrowDownTrayIcon className="w-5 h-5 stroke-2 mr-2" />
-              <span
-                className="text-sm font-poppinsSemiBold"
-                onClick={onDownload}
-              >
-                Download All
-              </span>
-            </button>
+              <span className="text-sm font-poppinsSemiBold">Download All</span>
+            </a>
           </div>
           {store.selected?.groups.map((group, key) => (
             <div className="mt-16" id={`style_${key}`} key={key}>
               <h1 className="text-2xl text-gray-900 font-poppinsSemiBold">
-                {group.name.split(" ").filter(string => !(string.toLowerCase().includes("male") || string.toLowerCase().includes("female"))).join(" ")}
+                {group.name
+                  .split(" ")
+                  .filter(
+                    (string) =>
+                      !(
+                        string.toLowerCase().includes("male") ||
+                        string.toLowerCase().includes("female")
+                      )
+                  )
+                  .join(" ")}
               </h1>
               <div
                 className="flex flex-wrap items-center justify-start"
@@ -93,11 +88,11 @@ const Group = () => {
               >
                 {group.images.map((item, index) => (
                   <div
-                  key={index}
-                  className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
-                >
-                  <img alt="demo" src={item.url.url} className="rounded-xl" />
-                </div>
+                    key={index}
+                    className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
+                  >
+                    <img alt="demo" src={item.url.url} className="rounded-xl" />
+                  </div>
                 ))}
               </div>
             </div>
