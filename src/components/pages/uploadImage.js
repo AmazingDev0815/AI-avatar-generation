@@ -25,8 +25,8 @@ const UploadImage = () => {
   new Promise((resolve) => {
     Resizer.imageFileResizer(
       file,
-      768,
-      768,
+      1920,
+      1920,
       "JPEG",
       100,
       0,
