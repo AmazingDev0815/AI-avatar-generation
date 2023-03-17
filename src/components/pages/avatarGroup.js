@@ -2,19 +2,26 @@ import {
   ArrowDownTrayIcon,
   ChevronRightIcon,
 } from "@heroicons/react/24/outline";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
+import { useImageDialogContext } from "../../hooks/imageDialogContext";
 import MainLayout from "../../layout/mainLayout";
 import { getImageCollection } from "../../redux/product/product";
+import ImageModal from "../basic/imageModal";
 import MyModal from "../basic/modal";
 
 const Group = () => {
   const { id } = useParams();
   const store = useSelector((state) => state.product);
   const dispatch = useDispatch();
+  const {props, setProps} = useImageDialogContext()
+  
+  const OpenModal = ({name, index}) => {
+    setProps({open: true, name, index})
+  }
 
   useEffect(() => {
     dispatch(getImageCollection(id));
@@ -91,7 +98,7 @@ const Group = () => {
                     key={index}
                     className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
                   >
-                    <img alt="demo" src={item.url.url} className="rounded-xl" />
+                    <img alt="demo" src={item.url.url} className="rounded-xl cursor-pointer" onClick={() => OpenModal({name: group.name, index})} />
                   </div>
                 ))}
               </div>
@@ -99,6 +106,7 @@ const Group = () => {
           ))}
           <div className="flex justify-center">
             <MyModal id={id} />
+            <ImageModal />
           </div>
         </div>
       )}
