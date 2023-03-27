@@ -18,10 +18,10 @@ const Footer = () => {
             </Link>
           </div>
           <div className="md:mt-0 mt-6">
-            <Link to="/" className="mr-8">
+            <Link to="/terms" className="mr-8">
               Terms
             </Link>
-            <Link to="/" className="mr-8">
+            <Link to="/privacy" className="mr-8">
               Privacy
             </Link>
             <Link to="/contact">Contact</Link>
