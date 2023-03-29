@@ -57,6 +57,12 @@ module.exports = {
       'poppinsRegular': ['poppinsRegular', 'Poppinsregular'],
       'poppinsMedium': ['poppinsMedium', 'Poppinsmedium'],
       'poppinsSemiBold': ['poppinsSemiBold', 'Poppinsremibold'],
+    },
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      decimal: 'decimal',
+      square: 'square',
     }
   },
   plugins: [
