@@ -167,7 +167,7 @@ const SignUp = () => {
             href={store.googleUrl}
             target="_self"
             rel="noopener noreferrer"
-            className="flex justify-center w-full mt-4 py-2 rounded-lg font-poppinsSemiBold mb-8 border border-gray-300"
+            className="flex justify-center w-full mt-4 py-2 rounded-lg font-poppinsSemiBold mb-2 border border-gray-300"
           >
             <span className="inline-block align-middle mr-3">
               <svg
@@ -196,6 +196,24 @@ const SignUp = () => {
             </span>
             <span className="text-base">Sign up with Google</span>
           </a>
+          <div className="mb-8 text-center text-sm text-gray-600">
+            By creating a account I acknowledge that i have read and fully
+            understand the{" "}
+            <Link
+              to="/privacy"
+              className="text-gray-900 hover:text-primary-700 cursor-pointer font-poppinsSemiBold"
+            >
+              Privacy
+            </Link>{" "}
+            &{" "}
+            <Link
+              to="/terms"
+              className="text-gray-900 hover:text-primary-700 cursor-pointer font-poppinsSemiBold"
+            >
+              Terms
+            </Link>{" "}
+            of use.
+          </div>
           <div className="text-center">
             <span className="text-sm font-poppinsRegular justify-center">
               Already have an account ?{" "}
