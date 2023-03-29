@@ -192,7 +192,7 @@ export default function Terms() {
         <div className="font-poppinsSemiBold">Prienų r. sav., Balbieriškis, Klevų</div>
         <div className="font-poppinsSemiBold">Prienai 25-22</div>
         <div className="font-poppinsSemiBold mt-1">Lithuania</div>
-        <div className="font-poppinsSemiBold">info@mava.fun</div>
+        <div className="mt-3">These terms of use were created using Termly's <a target="_blank" rel="noopener noreferrer" href="https://termly.io/products/terms-and-conditions-generator/" className="text-gray-600 underline hover:text-primary-600 mt-8">Terms and Conditions Generator.</a></div>
       </div>
     </MainLayout>
   );

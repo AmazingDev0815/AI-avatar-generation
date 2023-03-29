@@ -3,7 +3,7 @@ import {
   ChevronRightIcon,
   StarIcon,
 } from "@heroicons/react/24/outline";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
@@ -78,6 +78,7 @@ const Group = () => {
               </a>
               <a
                 target="_blank"
+                rel="noopener noreferrer"
                 href="https://jzkats7aqmw.typeform.com/to/loaM8eUY"
                 className="px-4 py-2.5 flex text-white hover:bg-primary-700 bg-primary-600 rounded-lg items-center"
               >
