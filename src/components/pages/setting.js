@@ -85,7 +85,7 @@ const Setting = () => {
           )}
 
           <div className="flex flex-col ml-6 z-10">
-            <h1 className="text-2xl sm:text-3xl text-white">{store.userData.name}</h1>
+            <p className="text-2xl sm:text-3xl text-white">{store.userData.name}</p>
             <span className="text-sm sm:text-base text-white">{store.userData.email}</span>
           </div>
         </div>
@@ -96,7 +96,7 @@ const Setting = () => {
         >
           <form className=" flex flex-col md:flex-row pb-5 border-b">
             <div className="md:w-1/5 w-full text-sm md:mr-8">
-              <h1 className="font-poppinsMedium">Profile Information</h1>
+              <p className="font-poppinsMedium">Profile Information</p>
               <span className="text-gray-400">
                 Update your photo, username and preferences.
               </span>
@@ -191,21 +191,21 @@ const Setting = () => {
           </form>
           <div className="flex flex-col md:flex-row mt-6">
             <div className="md:w-1/5 text-sm md:mr-8">
-              <h1 className="font-poppinsMedium">Account Control</h1>
+              <p className="font-poppinsMedium">Account Control</p>
               <span className="text-gray-400">
                 Delete your images or terminate your account.
               </span>
             </div>
             <div className="md:w-4/5 px-3 md:px-6 mt-8 md:mt-0">
               <div className="flex flex-col" id="delete_image">
-                <h1 className="font-poppinsMedium">Delete generated images</h1>
+                <p className="font-poppinsMedium">Delete generated images</p>
                 <span className="text-gray-400">
                   We will delete all of your generated images.
                 </span>
                 <MyModal obj="image" />
               </div>
               <div className="flex flex-col mt-6" id="delete_account">
-                <h1 className="font-poppinsMedium">Delete account</h1>
+                <p className="font-poppinsMedium">Delete account</p>
                 <span className="text-gray-400">
                   We will delete your account and delete all data.
                 </span>

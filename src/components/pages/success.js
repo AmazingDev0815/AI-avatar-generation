@@ -9,7 +9,7 @@ const Success = () => {
   };
   return (
     <MainLayout>
-      <div className="flex flex-1 flex-col justify-center items-center mb-40 p-5">
+      <div className="flex flex-1 flex-col justify-center items-center mb-20 p-5">
         <img src={LocalImg.success} alt="success" className="w-32 h-32" />
         <h1 className="font-poppinsBold text-4xl md:text-5xl text-gray-900 mt-3 text-center">
           Just a little more...{" "}

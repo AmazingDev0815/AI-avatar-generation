@@ -23,12 +23,12 @@ const Created = () => {
 
   return (
     <div className="flex flex-1 w-full flex-col justify-center items-center mb-40 p-5">
-      <div
+      <h1
         className="font-poppinsBold text-4xl md:text-5xl text-gray-900 mt-3 text-center"
         id="title"
       >
         Your Created Avatars
-      </div>
+      </h1>
       <div
         className="flex flex-col text-sm md:text-base text-gray-600 mt-6 text-center md:w-2/3 px-3 md:px-5 w-full"
         id="support_text"

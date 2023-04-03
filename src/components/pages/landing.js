@@ -21,12 +21,12 @@ const Landing = () => {
             className="flex-1 lg:mr-20 flex flex-col items-center lg:items-start"
             id="hero"
           >
-            <div className="font-poppinsBold 2xl:text-[88px] xl:text-7xl sm:text-5xl text-3xl 2xl:leading-[90px] text-gray-900 lg:mb-6 mb-4 lg:mt-0 sm:mt-8 mt-4">
+            <h1 className="font-poppinsBold 2xl:text-[88px] xl:text-7xl sm:text-5xl text-3xl 2xl:leading-[90px] text-gray-900 lg:mb-6 mb-4 lg:mt-0 sm:mt-8 mt-4">
               Avatars{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174]">
                 Made Fun!
               </span>
-            </div>
+            </h1>
             <p className="font-poppinsRegular text-gray-600 sm:text-2xl mb-8">
               Make fun avatar images for you or as a gift for your loved ones!
             </p>
@@ -45,12 +45,12 @@ const Landing = () => {
           className="flex flex-col px-8 2xl:pb-64 xl:pb-48 pb-32 w-full"
           id="offer"
         >
-          <div className="text-center mt-8 lg:mt-0 font-poppinsBold xl:text-6xl md:text-4xl text-3xl text-gray-900 mb-6">
+          <h2 className="text-center mt-8 lg:mt-0 font-poppinsBold xl:text-6xl md:text-4xl text-3xl text-gray-900 mb-6">
             You will{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174]">
               receive
             </span>
-          </div>
+          </h2>
           <div className="w-full flex flex-col sm:flex-row justify-between items-center shadow-3xl xl:px-16 px-4 py-8 xl:gap-4 gap-2 rounded-2xl">
             <div className="flex flex-col text-center sm:w-1/3 w-2/3">
               <span className="xl:text-5xl lg:text-3xl text-2xl font-poppinsBold text-primary-600 mb-1">
@@ -86,12 +86,12 @@ const Landing = () => {
         >
           <div className="flex flex-1 flex-col mr-6">
             <div className="flex flex-col mb-6">
-              <div className="2xl:w-2/3 text-center md:text-start mt-6 md:mt-0 flex flex-col font-poppinsBold xl:text-6xl md:text-4xl xl:leading-[76px] text-3xl text-gray-900">
-                <span>Perfect for you</span>
+              <h2 className="2xl:w-2/3 text-center md:text-start mt-6 md:mt-0 flex flex-col font-poppinsBold xl:text-6xl md:text-4xl xl:leading-[76px] text-3xl text-gray-900">
+                Perfect for you 
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174]">
                   or as a gift!
                 </span>
-              </div>
+              </h2>
             </div>
             <div className="font-poppinsRegular sm:text-2xl text-gray-600">
               Whether you want to create some fun images for social media, print
@@ -114,12 +114,12 @@ const Landing = () => {
           className="w-full flex flex-col 2xl:pb-64 xl:pb-48 pb-32"
           id="example"
         >
-          <div className="text-center font-poppinsBold xl:text-6xl md:text-4xl text-3xl text-gray-900 mb-8">
+          <h2 className="text-center font-poppinsBold xl:text-6xl md:text-4xl text-3xl text-gray-900 mb-8">
             Fine tuned{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174]">
               styles
             </span>
-          </div>
+          </h2>
           <div className="flex justify-center flex-wrap gap-4 md:gap-8 mb-8">
             <div className="relative">
               <img
@@ -127,7 +127,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Wizzard
               </span>
             </div>
@@ -137,7 +137,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 3D Cartoon
               </span>
             </div>
@@ -147,7 +147,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Superhero
               </span>
             </div>
@@ -157,7 +157,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Princess Warrior
               </span>
             </div>
@@ -167,7 +167,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Mercenary
               </span>
             </div>
@@ -177,7 +177,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Joker
               </span>
             </div>
@@ -187,7 +187,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Anime
               </span>
             </div>
@@ -197,7 +197,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Painting
               </span>
             </div>
@@ -207,7 +207,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Superhero
               </span>
             </div>
@@ -217,7 +217,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Space Portrait
               </span>
             </div>
@@ -227,7 +227,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Oil Painting
               </span>
             </div>
@@ -237,7 +237,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Digital Painting
               </span>
             </div>
@@ -247,7 +247,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Gothic
               </span>
             </div>
@@ -257,7 +257,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 3D Haunted
               </span>
             </div>
@@ -267,7 +267,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Pinup
               </span>
             </div>
@@ -277,7 +277,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Digital Drawing
               </span>
             </div>
@@ -287,7 +287,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Acrylic Painting
               </span>
             </div>
@@ -297,7 +297,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Astronaut
               </span>
             </div>
@@ -307,7 +307,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Renaissance
               </span>
             </div>
@@ -317,7 +317,7 @@ const Landing = () => {
                 alt="demo"
                 className="rounded-lg md:rounded-[30px] 3xl:w-64 2xl:w-56 xl:w-48 md:w-40 sm:w-32 w-24 3xl:h-64 2xl:h-56 xl:h-48 md:h-40 sm:h-32 h-24"
               />
-              <span className="font-poppinsBold sm:text-2xl text-white absolute sm:left-6 left-4 sm:bottom-[18px] bottom-2">
+              <span className="font-poppinsBold text-sm sm:text-xl md:text-2xl text-white absolute md:left-6 sm:left-5 left-4 md:bottom-[18px] sm:bottom-3 bottom-2">
                 Digital Drawing
               </span>
             </div>
@@ -331,16 +331,16 @@ const Landing = () => {
           id="bottom_hero"
         >
           <div className="w-full pb-8 flex flex-col text-center">
-            <div className="font-poppinsBold xl:text-6xl md:text-4xl text-3xl text-gray-900 mb-6">
+            <h2 className="font-poppinsBold xl:text-6xl md:text-4xl text-3xl text-gray-900 mb-6">
               Create your avatars{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#842EE5] via-[#E1338A] to-[#FBA174]">
                 today!
               </span>
-            </div>
-            <div className="font-poppinsRegular sm:text-2xl text-gray-600">
+            </h2>
+            <p className="font-poppinsRegular sm:text-2xl text-gray-600">
               You just upload 20 portrait images and you’ll receive the avatars
               in 20 minutes tops!
-            </div>
+            </p>
           </div>
           <button
             onClick={payment}

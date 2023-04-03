@@ -59,9 +59,9 @@ const Group = () => {
 
           <div className="flex justify-between items-center mt-3" id="download">
             <div className="flex flex-col min-w-0">
-              <h1 className="font-poppinsSemiBold text-2xl sm:text-3xl text-gray-900 truncate">
+              <p className="font-poppinsSemiBold text-2xl sm:text-3xl text-gray-900 truncate">
                 {store.selected.name}
-              </h1>
+              </p>
               <span className="text-xs text-gray-500 mt-3">
                 <Moment format="DD.MM.YYYY.">
                   {store.selected.createdDate}
@@ -90,7 +90,7 @@ const Group = () => {
           </div>
           {store.selected?.groups.map((group, key) => (
             <div className="mt-16" id={`style_${key}`} key={key}>
-              <h1 className="text-2xl text-gray-900 font-poppinsSemiBold">
+              <p className="text-2xl text-gray-900 font-poppinsSemiBold">
                 {group.name
                   .split(" ")
                   .filter(
@@ -101,7 +101,7 @@ const Group = () => {
                       )
                   )
                   .join(" ")}
-              </h1>
+              </p>
               <div
                 className="flex flex-wrap items-center justify-start"
                 id="images"

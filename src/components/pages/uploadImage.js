@@ -111,16 +111,16 @@ const UploadImage = () => {
         className="flex flex-col flex-1 justify-center items-center px-10"
         id="upload"
       >
-        <h1 className="font-poppinsSemiBold text-3xl mt-16">
+        <h1 className="font-poppinsSemiBold text-3xl mt-16 text-center">
           Upload Your Images
         </h1>
-        <p className="mt-1 text-gray-600 text-center">
+        <h2 className="mt-1 text-gray-600 text-center text-base">
           Upload 20 photos close up profile pictures of you or your loved one
           and we will generate a new set of avatars.
-        </p>
-        <p className="text-gray-600 text-center">
+        </h2>
+        <h2 className="text-gray-600 text-center text-base">
           You will receive images with our premade custom styles.
-        </p>
+        </h2>
         {productStore.productLoading ? (
           <MoonLoader
             className="mt-40"
