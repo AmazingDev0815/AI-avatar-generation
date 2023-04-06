@@ -111,7 +111,7 @@ const Group = () => {
                     key={index}
                     className="mt-6 px-3 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
                   >
-                    <img alt="demo" src={item.url.url} className="rounded-xl cursor-pointer" onClick={() => OpenModal({name: group.name, index})} />
+                    <img alt="demo" src={item.url.url} className="rounded-xl cursor-pointer hover:drop-shadow-[0_15px_15px_rgba(0,0,0,0.3)] duration-300 hover:ease-in hover:scale-125" onClick={() => OpenModal({name: group.name, index})} />
                   </div>
                 ))}
               </div>
