@@ -15,6 +15,7 @@
     "axios": "^1.2.6",
     "cuid": "^2.1.8",
     "dotenv": "^16.0.3",
+    "printify-api": "^0.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
