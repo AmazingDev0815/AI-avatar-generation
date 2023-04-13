@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import CheckEmail from "./components/auth/checkEmail";
@@ -17,12 +17,14 @@ import MyAvatars from "./components/pages/myAvatars";
 import Group from "./components/pages/avatarGroup";
 import Contact from "./components/pages/contact";
 import Landing from "./components/pages/landing";
-import { useEffect } from "react";
+import Privacy from "./components/pages/privacy";
 import { getUser } from "./redux/user/user";
 import { PrivateRoute } from "./components/helpers/privateRoute";
 import { PublicRoute } from "./components/helpers/publicRoute";
-import { getTaskState, getImageCollections, getUserImages } from "./redux/product/product";
+import { getTaskState } from "./redux/product/product";
 import { Payment } from "./components/pages/stripe";
+import Terms from "./components/pages/terms";
+import PageNotFound from "./components/pages/pageNotFound";
 
 
 function App() {
@@ -36,17 +38,18 @@ function App() {
 
   useEffect(() => {
     if(store.isAuthenticate) {
-      dispatch(getImageCollections());
       dispatch(getTaskState());
-      dispatch(getUserImages(store.userData.upn));
     }
-  }, [dispatch, store.isAuthenticate, store.userData.upn])
+  }, [dispatch, store.isAuthenticate])
 
   return (
     <Router>
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="*" element={<PageNotFound />} />
           <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
           <Route path="/google-oauth" element={<PublicRoute><Login /></PublicRoute>} />
           <Route path="/signup" element={<PublicRoute><SignUp /></PublicRoute>} />

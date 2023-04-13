@@ -129,7 +129,6 @@ export const updateUserInfo = createAsyncThunk(
   ) => {
     let formData = new FormData();
     formData.append("AvatarFile", avatar);
-    formData.append("Gender", gender);
     formData.append("Name", username);
     formData.append("ReceiveEmailNotificationEnabled", emailNotificationState);
     formData.append("ReceivePromotionalEmailEnabled", promotionalEmailState);

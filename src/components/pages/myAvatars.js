@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MoonLoader } from "react-spinners";
 import MainLayout from "../../layout/mainLayout";
@@ -11,34 +11,38 @@ const MyAvatars = () => {
   const dispatch = useDispatch();
   const [created, setCreated] = useState(store.products?.items?.length > 0);
   const [loading, setLoading] = useState(false);
+  const taskLength = useMemo(
+    () =>
+      store.taskState
+        ?.map((item) => item?.status.value)
+        .filter((i) => i >= 0 && i < 10).length,
+    [store.taskState]
+  );
   const MINUTE_MS = 10000;
 
   useEffect(() => {
     const interval = setInterval(() => {
       dispatch(getTaskState());
     }, MINUTE_MS);
-
-    return () => clearInterval(interval); // This represents the unmount function, in which you need to clear your interval to prevent memory leaks.
+    return () => clearInterval(interval);
   }, [dispatch]);
 
   useEffect(() => {
     dispatch(getImageCollections());
-  }, [dispatch]);
+  }, [dispatch, taskLength]);
 
   useEffect(() => {
     setCreated(store.products?.items?.length > 0);
     if (!store.taskState.length) {
       setLoading(false);
     } else if (
-      store.taskState
-        ?.map((item) => item.status.value)
-        .filter((i) => i >= 0 && i < 10).length
+      taskLength
     ) {
       setLoading(true);
     } else {
       setLoading(false);
     }
-  }, [store]);
+  }, [store, taskLength]);
 
   return (
     <MainLayout>

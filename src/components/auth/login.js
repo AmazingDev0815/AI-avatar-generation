@@ -49,7 +49,8 @@ const Login = () => {
   }, [error, dispatch, email, password]);
 
   let code = queryParameters.get("code");
-  if (code && localStorage.getItem("userData") === null) {
+  let googleLogin = (window.location.href.indexOf("/google-oauth") > -1)
+  if (code && googleLogin) {
     dispatch(getGoogleToken({ code, redirectUri }));
   }
 

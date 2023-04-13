@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { MoonLoader } from "react-spinners";
 import MainLayout from "../../layout/mainLayout";
-import { uploadUserImages } from "../../redux/product/product";
+import { getUpoadToken, uploadUserImages } from "../../redux/product/product";
 import Dropzone from "../basic/dropZone";
 import ImageGrid from "../basic/imageGrid";
 import { LocalImg } from "../basic/imgProvider";
 import PreviewModal from "../basic/uploadModal";
+import Resizer from "react-image-file-resizer";
 
 const UploadImage = () => {
   const navigate = useNavigate();
@@ -20,19 +21,36 @@ const UploadImage = () => {
 
   const newImages = [...imageWithCrop];
 
+  const resizeFile = (file) =>
+  new Promise((resolve) => {
+    Resizer.imageFileResizer(
+      file,
+      1920,
+      1920,
+      "JPEG",
+      100,
+      0,
+      (uri) => {
+        resolve(uri);
+      },
+      "file"
+    );
+  });
+
   const onDrop = useCallback(
     (acceptedFiles) => {
-      acceptedFiles.map((file, key) => {
+      acceptedFiles.map(async (file, key) => {
         if (imageWithCrop.length + key <= 19) {
           const reader = new FileReader();
+          const image = await resizeFile(file);
           reader.onload = function (e) {
             setImages((prevState) => [
               ...prevState,
-              { id: cuid(), src: e.target.result, file: file },
+              { id: cuid(), src: e.target.result, file: image },
             ]);
           };
-          reader.readAsDataURL(file);
-          return file;
+          reader.readAsDataURL(image);
+          return image;
         }
         return null
       });
@@ -41,8 +59,12 @@ const UploadImage = () => {
   );
 
   const onSubmit = async () => {
-      dispatch(uploadUserImages(imageWithCrop));
+    dispatch(uploadUserImages({uploadToken: productStore.uploadToken?.token, imageWithCrop}));
   };
+
+  useEffect(() => {
+    dispatch(getUpoadToken());
+  }, [dispatch])
 
   useEffect(() => {
     if (images.length > 20) {
@@ -89,16 +111,16 @@ const UploadImage = () => {
         className="flex flex-col flex-1 justify-center items-center px-10"
         id="upload"
       >
-        <h1 className="font-poppinsSemiBold text-3xl mt-16">
+        <h1 className="font-poppinsSemiBold text-3xl mt-16 text-center">
           Upload Your Images
         </h1>
-        <p className="mt-1 text-gray-600 text-center">
+        <h2 className="mt-1 text-gray-600 text-center text-base">
           Upload 20 photos close up profile pictures of you or your loved one
           and we will generate a new set of avatars.
-        </p>
-        <p className="text-gray-600 text-center">
+        </h2>
+        <h2 className="text-gray-600 text-center text-base">
           You will receive images with our premade custom styles.
-        </p>
+        </h2>
         {productStore.productLoading ? (
           <MoonLoader
             className="mt-40"
@@ -149,19 +171,9 @@ const UploadImage = () => {
               </span>
             </ul>
             {
-              // productStore.userImages.length >= 20 ? (
-              //   <div className="h-[200px]">
-              //     <button
-              //       className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm"
-              //       onClick={() => navigate("/avatar-detail")}
-              //     >
-              //       Next
-              //     </button>
-              //   </div>
-              // ) :
               images.length > 0 ? (
                 <div className="h-[200px]">
-                  {images.length === 20 && (
+                  {(images.length <= 20 && images.length >= 10) && (
                     <button
                       className="bg-primary-600 rounded-lg px-11 py-2.5 mt-6 text-white font-poppinsSemiBold text-sm"
                       onClick={onSubmit}

@@ -2,17 +2,10 @@ import { useCallback, useEffect, useState } from "react";
 import MainLayout from "../../layout/mainLayout";
 import Dropzone from "../basic/dropZone";
 import Avatar from "../basic/avatar";
-// import { EnvelopeIcon } from "@heroicons/react/24/outline";
 import { LocalImg } from "../basic/imgProvider";
 import MyModal from "../basic/modal";
 import { useDispatch, useSelector } from "react-redux";
-import Select from "react-select";
 import { getUser, updateUserInfo } from "../../redux/user/user";
-
-const genderOptions = [
-  { label: "Male", value: 1 },
-  { label: "Female", value: 2 },
-];
 
 const Setting = () => {
   const store = useSelector((state) => state.auth);
@@ -28,11 +21,6 @@ const Setting = () => {
   const [image, setImage] = useState({ src: store.userData.avatarImageUrl });
   const [avatarState, setAvatarState] = useState(store.userData.avatarImageUrl);
   const [userName, setUserName] = useState(store.userData.name);
-  const [selectedOption, setSelectedOption] = useState({
-    label: store.userData.gender?.name,
-    value: store.userData.gender?.value,
-  });
-  // const [email, setEmail] = useState(store.userData.email);
   const [error, setError] = useState(null);
 
   const onDrop = useCallback((acceptedFiles) => {
@@ -61,7 +49,6 @@ const Setting = () => {
       dispatch(
         updateUserInfo({
           username: userName,
-          gender: selectedOption.value,
           avatar: image?.file ? image.file : null,
           emailNotificationState: notification,
           promotionalEmailState: promotionalEmail,
@@ -98,7 +85,7 @@ const Setting = () => {
           )}
 
           <div className="flex flex-col ml-6 z-10">
-            <h1 className="text-2xl sm:text-3xl text-white">{store.userData.name}</h1>
+            <p className="text-2xl sm:text-3xl text-white">{store.userData.name}</p>
             <span className="text-sm sm:text-base text-white">{store.userData.email}</span>
           </div>
         </div>
@@ -109,7 +96,7 @@ const Setting = () => {
         >
           <form className=" flex flex-col md:flex-row pb-5 border-b">
             <div className="md:w-1/5 w-full text-sm md:mr-8">
-              <h1 className="font-poppinsMedium">Profile Information</h1>
+              <p className="font-poppinsMedium">Profile Information</p>
               <span className="text-gray-400">
                 Update your photo, username and preferences.
               </span>
@@ -135,36 +122,6 @@ const Setting = () => {
                     {error}
                   </div>
                 )}
-              </div>
-              <div className="mt-6">
-                <label
-                  htmlFor="gender"
-                  className="block mb-1.5 text-sm font-poppinsMedium text-gray-900"
-                >
-                  Select your gender
-                </label>
-                <Select
-                  placeholder="Select gender"
-                  defaultValue={selectedOption}
-                  onChange={setSelectedOption}
-                  options={genderOptions}
-                  styles={{
-                    control: (baseStyles, state) => ({
-                      ...baseStyles,
-                      borderWidth: state.isFocused ? "2px" : "1px",
-                      borderRadius: "8px",
-                      borderColor: state.isFocused ? "#7F56D9" : "#D0D5DD",
-                      paddingBottom: "3px",
-                      paddingTop: "3px",
-                      boxShadow: state.isFocused
-                        ? "0px 0px 6px #7F56D9"
-                        : "none",
-                      "&:hover": {
-                        border: baseStyles.border,
-                      },
-                    }),
-                  }}
-                />
               </div>
               <div className="mt-6 flex flex-col md:flex-row" id="upload">
                 <Avatar image={image?.src} size="64px" state={avatarState} />
@@ -234,21 +191,21 @@ const Setting = () => {
           </form>
           <div className="flex flex-col md:flex-row mt-6">
             <div className="md:w-1/5 text-sm md:mr-8">
-              <h1 className="font-poppinsMedium">Account Control</h1>
+              <p className="font-poppinsMedium">Account Control</p>
               <span className="text-gray-400">
                 Delete your images or terminate your account.
               </span>
             </div>
             <div className="md:w-4/5 px-3 md:px-6 mt-8 md:mt-0">
               <div className="flex flex-col" id="delete_image">
-                <h1 className="font-poppinsMedium">Delete generated images</h1>
+                <p className="font-poppinsMedium">Delete generated images</p>
                 <span className="text-gray-400">
                   We will delete all of your generated images.
                 </span>
                 <MyModal obj="image" />
               </div>
               <div className="flex flex-col mt-6" id="delete_account">
-                <h1 className="font-poppinsMedium">Delete account</h1>
+                <p className="font-poppinsMedium">Delete account</p>
                 <span className="text-gray-400">
                   We will delete your account and delete all data.
                 </span>
