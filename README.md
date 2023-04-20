@@ -1,4 +1,4 @@
-# Getting Started with Mava.fun Frontend
+# Getting Started with AI avatar generation website frontend
 
 
 ## Available Scripts
