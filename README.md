@@ -1,4 +1,5 @@
-# Getting Started with AI avatar generation website frontend
+
+# Getting Started with AI avatar generation fronend
 
 
 ## Available Scripts
